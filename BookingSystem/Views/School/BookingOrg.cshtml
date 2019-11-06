@@ -1,0 +1,85 @@
+﻿@model List<BookingSystem.Models.CampDate>
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Organisation Bookings</h2>
+
+<form asp-controller="School" asp-action="BookingOrg" method="post">
+
+    <br />
+    <div>
+        <p>Please enter the following information</p>
+        <br />
+
+        <label for="OfficialSchoolName">Organisation Name:</label>
+        <br />
+        <input asp-for="Organisation.OfficialSchoolName" id="txtName" name="OfficialSchoolName" required />
+        <br />
+        @Html.ActionLink("Click to use roll number", "Booking", "School", new { @class = "elements" }, null)
+    </div>
+    <br />
+    <div>
+        <label for="Date">Choose Camp Date:</label>
+        <br />
+        <input asp-for="School.Date" id="txtDate" name="Date" required />
+    </div>
+    <br />
+    <br />
+    <input type="submit" value="Submit" class="submit" />
+</form>
+
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@section scripts {
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+                jQuery(function () {
+
+                    var enableDays = ['@Html.Raw(string.Join("','", Model.Select(d => d.Date.ToString("dd-MM-yyyy"))))'];
+
+                    console.log(enableDays);
+
+                     function enableAllTheseDays(date) {
+                         var fDate = $.datepicker.formatDate('dd-mm-yy', date);
+                         var result = [false, ""];
+                         $.each(enableDays, function(k, d) {
+                         if (fDate === d) {
+                             result = [true, "highlight-green"];
+                         }
+                         });
+                         return result;
+                 }
+
+                    $("#txtDate").datepicker({
+                        dateFormat: "dd/MM/yy",
+                        beforeShowDay: enableAllTheseDays,
+                    });
+                });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+
+    .my-class a {
+        background-color: #07ea69 !important;
+        background-image: none !important;
+        color: #ffffff !important;
+    }
+
+    .highlight-green {
+        /* Cell Border Colour*/
+        /*background-color: #00ff00;*/
+    }
+
+        .highlight-green a.ui-state-default {
+            /* Cell Background Colour */
+            background-color: #00ff00;
+        }
+</style>
+
+

@@ -12,12 +12,6 @@ namespace BookingSystem.Controllers
     {
         private RDSContext db = new RDSContext();
 
-        // GET: School
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Booking()
         {

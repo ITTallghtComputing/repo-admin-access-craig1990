@@ -1,0 +1,98 @@
+﻿@model BookingSystem.Models.School
+
+@{
+    ViewBag.Title = "School Booking Form";
+}
+
+<h2>School Booking Form</h2>
+
+
+<form asp-controller="School" asp-action="BookingForm" method="post">
+    <br />
+    <p>Please complete the following information</p>
+
+    @if (Model.ValidationMsg != null)
+    {
+        <div id="myAlert" class="alert alert-warning">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            @Model.ValidationMsg
+        </div>
+    }
+
+    <div>
+        <label for="RollNumber">School Roll Number:</label>
+        <br />
+        <input asp-for="Booking.Rollnumber" id="txtRoll" name="RollNumber" value="@Model.RollNumber" disabled />
+    </div>
+    <br />
+    <div>
+        <label for="Date">Choose Camp Date:</label>
+        <br />
+        <input asp-for="Booking.Date" id="txtDate" name="Date" value="@Model.Date.Value.ToShortDateString()" disabled />
+    </div>
+    <br />
+    <div>
+        <label for="OfficialSchoolName">School Name:</label>
+        <br />
+        <input asp-for="Booking.OfficialSchoolName" id="txtOfficialSchoolName" name="OfficialSchoolName" value="@Model.OfficialSchoolName" />
+    </div>
+    <br />
+    <div>
+        <label for="Address">School Address:</label>
+        <br />
+        <input asp-for="Booking.Address1" id="txtAddress1" name="Address1" value="@Model.Address1" />
+        <br />
+        <input asp-for="Booking.Address2" id="txtAddress2" name="Address2" value="@Model.Address2" />
+        <br />
+        <input asp-for="Booking.Address3" id="txtAddress3" name="Address3" value="@Model.Address3" />
+        <br />
+        <input asp-for="Booking.Address4" id="txtAddress4" name="Address4" value="@Model.Address4" />
+    </div>
+    <br />
+    <div>
+        <label for="Times">Times Needed:</label>
+        <br />
+        <input asp-for="Booking.StartTime" id="txtStartTime" name="StartTime" value="Start Time e.g. 10:30" />
+        <input asp-for="Booking.EndTime" id="txtEndTime" name="EndTime" value="End Time e.g. 16:00" />
+    </div>
+    <br />
+    <div>
+        <label for="ClassGroups">Class Groups:</label>
+        <br />
+        <input asp-for="Booking.ClassGroups" id="txtClassGroups" name="ClassGroups" value="e.g. 4th class, 6th class, 1st year etc." />
+    </div>
+    <br />
+    <div>
+        <label for="Topics">Topics to be covered:</label>
+        <br />
+        <input asp-for="Booking.Topics" id="txtTopics" name="Topics" value="" />
+    </div>
+    <br />
+    <div>
+        <label for="TeacherName">Teacher Name:</label>
+        <br />
+        <input asp-for="Booking.TeacherName" id="txtTeacherName" name="TeacherName" />
+    </div>
+    <br />
+    <div>
+        <label for="Email">Teacher Email:</label>
+        <br />
+        <input asp-for="Booking.Email" id="txtEmail" name="Email" value="@Model.Email" />
+    </div>
+    <br />
+    <div>
+        <label for="PhoneNumber">Teacher Contact Number:</label>
+        <br />
+        <input asp-for="Booking.PhoneNumber" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" />
+    </div>
+    <br />
+    <div>
+        <label for="Surveys">Would you like to take part in research surveys?</label>
+        <br />
+        <input asp-for="Booking.Surveys" id="Surveys" name="Surveys" type="checkbox" onclick="$(this).val(this.checked ? true : false)" />
+    </div>
+    <br />
+    <input type="submit" value="Submit" class="submit" />
+    <input type="button" value="Cancel" onclick="location.href='@Url.Action("Booking","School")'" />
+
+</form>
