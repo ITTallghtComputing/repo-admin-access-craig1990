@@ -10,146 +10,146 @@ namespace BookingSystem.Controllers
 {
     public class SchoolController : Controller
     {
-        //private RDSContext db = new RDSContext();
+        private RDSContext db = new RDSContext();
 
-        //// GET: School
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        // GET: School
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-        //[HttpGet]
-        //public ActionResult Booking()
-        //{
-        //    var model = db.CampDates.ToList();
+        [HttpGet]
+        public ActionResult Booking()
+        {
+            var model = db.CampDates.ToList();
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
-        //[HttpGet]
-        //public ActionResult BookingOrg()
-        //{
-        //    var model = db.CampDates.ToList();
+        [HttpGet]
+        public ActionResult BookingOrg()
+        {
+            var model = db.CampDates.ToList();
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
 
-        //[HttpPost]
-        //public ActionResult Booking(School model)
-        //{
-        //    //get row in SchoolDb which matches RollNumber
-        //    School school = db.Schools.First(m => m.RollNumber == model.RollNumber);
-        //    //get row in DatepickerDb which matches Date
-        //    CampDate date = db.CampDates.First(m => m.Date == model.Date);
+        [HttpPost]
+        public ActionResult Booking(School model)
+        {
+            //get row in SchoolDb which matches RollNumber
+            School school = db.Schools.First(m => m.RollNumber == model.RollNumber);
+            //get row in DatepickerDb which matches Date
+            CampDate date = db.CampDates.First(m => m.Date == model.Date);
 
-        //    //add extra information from 2nd csv to main school object
-        //    School2 school2 = db.School2.First(m => m.RollNumber == model.RollNumber);
-        //    school.Email = school2.Email;
-        //    school.PhoneNumber = school2.PhoneNumber;
-        //    school.PrincipalName = school2.PrincipalName;
-        //    school.DeisSchool = school2.DeisSchool;
-        //    school.SchoolGender = school2.SchoolGender;
-        //    school.PupilAttendanceType = school2.PupilAttendanceType;
-        //    school.IrishClassification = school2.IrishClassification;
-        //    school.GaeltachtArea = school2.GaeltachtArea;
-        //    school.FeePayingSchool = school2.FeePayingSchool;
-        //    school.Religion = school2.Religion;
-        //    school.OpenClosedStatus = school2.OpenClosedStatus;
-        //    school.TotalGirls = school2.TotalGirls.GetValueOrDefault();
-        //    school.TotalBoys = school2.TotalBoys.GetValueOrDefault();
-        //    school.TotalPupils = school2.TotalPupils;
+            //add extra information from 2nd csv to main school object
+            School2 school2 = db.School2.First(m => m.RollNumber == model.RollNumber);
+            school.Email = school2.Email;
+            school.PhoneNumber = school2.PhoneNumber;
+            school.PrincipalName = school2.PrincipalName;
+            school.DeisSchool = school2.DeisSchool;
+            school.SchoolGender = school2.SchoolGender;
+            school.PupilAttendanceType = school2.PupilAttendanceType;
+            school.IrishClassification = school2.IrishClassification;
+            school.GaeltachtArea = school2.GaeltachtArea;
+            school.FeePayingSchool = school2.FeePayingSchool;
+            school.Religion = school2.Religion;
+            school.OpenClosedStatus = school2.OpenClosedStatus;
+            school.TotalGirls = school2.TotalGirls.GetValueOrDefault();
+            school.TotalBoys = school2.TotalBoys.GetValueOrDefault();
+            school.TotalPupils = school2.TotalPupils;
 
-        //    //add camp lecturer and camp date to main school object
-        //    var lecturer = date.LecturerName;
-        //    school.LecturerName = lecturer;
-        //    school.Date = model.Date;
+            //add camp lecturer and camp date to main school object
+            var lecturer = date.LecturerName;
+            school.LecturerName = lecturer;
+            school.Date = model.Date;
 
-        //    //save Db changes
-        //    db.SaveChanges();
+            //save Db changes
+            db.SaveChanges();
 
-        //    return RedirectToAction("BookingForm", "School", new RouteValueDictionary(school));
-        //}
+            return RedirectToAction("BookingForm", "School", new RouteValueDictionary(school));
+        }
 
-        //[HttpPost]
-        //public ActionResult BookingOrg(Organisation model)
-        //{
-        //    //get row in DatepickerDb which matches Date
-        //    CampDate date = db.CampDates.First(m => m.Date == model.Date);
+        [HttpPost]
+        public ActionResult BookingOrg(Organisation model)
+        {
+            //get row in DatepickerDb which matches Date
+            CampDate date = db.CampDates.First(m => m.Date == model.Date);
 
-        //    //add camp lecturer and camp date into SchoolDb
-        //    var lecturer = date.LecturerName;
-        //    model.LecturerName = lecturer;
+            //add camp lecturer and camp date into SchoolDb
+            var lecturer = date.LecturerName;
+            model.LecturerName = lecturer;
 
-        //    //save Db changes
-        //    db.Organisations.Add(model);
-        //    db.SaveChanges();
+            //save Db changes
+            db.Organisations.Add(model);
+            db.SaveChanges();
 
-        //    return RedirectToAction("BookingFormOrg", "School", new RouteValueDictionary(model));
-        //}
+            return RedirectToAction("BookingFormOrg", "School", new RouteValueDictionary(model));
+        }
 
-        //[HttpGet]
-        //public ActionResult BookingForm(School model)
-        //{
-        //    School school = db.Schools.First(m => m.RollNumber == model.RollNumber);
-        //    return View(school);
-        //}
+        [HttpGet]
+        public ActionResult BookingForm(School model)
+        {
+            School school = db.Schools.First(m => m.RollNumber == model.RollNumber);
+            return View(school);
+        }
 
-        //[HttpGet]
-        //public ActionResult BookingFormOrg(Organisation model)
-        //{
-        //    Organisation organisation = db.Organisations.First(m => m.Id == model.Id);
-        //    return View(organisation);
-        //}
+        [HttpGet]
+        public ActionResult BookingFormOrg(Organisation model)
+        {
+            Organisation organisation = db.Organisations.First(m => m.Id == model.Id);
+            return View(organisation);
+        }
 
-        //[HttpPost]
-        //[ActionName("BookingForm")]
-        //public ActionResult BookingFormPost(Booking model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //add booking
-        //        db.Bookings.Add(model);
-        //        //make used date unavailable in datepicker
-        //        CampDate date = db.CampDates.First(m => m.Date == model.Date);
-        //        db.CampDates.Remove(date);
+        [HttpPost]
+        [ActionName("BookingForm")]
+        public ActionResult BookingFormPost(Booking model)
+        {
+            if (ModelState.IsValid)
+            {
+                //add booking
+                db.Bookings.Add(model);
+                //make used date unavailable in datepicker
+                CampDate date = db.CampDates.First(m => m.Date == model.Date);
+                db.CampDates.Remove(date);
 
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index", "Home");
-        //    }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
 
-        //    //pass form data back to be fully resubmitted
-        //    var School = new School();
-        //    School = db.Schools.First(m => m.RollNumber == model.RollNumber);
-        //    School.Date = model.Date;
-        //    School.ValidationMsg = "Please complete all fields";
+            //pass form data back to be fully resubmitted
+            var School = new School();
+            School = db.Schools.First(m => m.RollNumber == model.RollNumber);
+            School.Date = model.Date;
+            School.ValidationMsg = "Please complete all fields";
 
-        //    return View(School);
-        //}
+            return View(School);
+        }
 
-        //[HttpPost]
-        //[ActionName("BookingFormOrg")]
-        //public ActionResult BookingFormPostOrg(Booking model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //add booking
-        //        db.Bookings.Add(model);
-        //        //make used date unavailable in datepicker
-        //        CampDate date = db.CampDates.First(m => m.Date == model.Date);
-        //        db.CampDates.Remove(date);
+        [HttpPost]
+        [ActionName("BookingFormOrg")]
+        public ActionResult BookingFormPostOrg(Booking model)
+        {
+            if (ModelState.IsValid)
+            {
+                //add booking
+                db.Bookings.Add(model);
+                //make used date unavailable in datepicker
+                CampDate date = db.CampDates.First(m => m.Date == model.Date);
+                db.CampDates.Remove(date);
 
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index", "Home");
-        //    }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
 
-        //    //pass form data back to be fully resubmitted
-        //    var Organisation = new Organisation();
-        //    Organisation = db.Organisations.First(m => m.Id == model.Id);
-        //    Organisation.Date = model.Date;
-        //    Organisation.ValidationMsg = "Please complete all fields";
+            //pass form data back to be fully resubmitted
+            var Organisation = new Organisation();
+            Organisation = db.Organisations.First(m => m.Id == model.Id);
+            Organisation.Date = model.Date;
+            Organisation.ValidationMsg = "Please complete all fields";
 
-        //    return View(Organisation);
-        //}
+            return View(Organisation);
+        }
 
     }
 }

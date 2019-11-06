@@ -202,6 +202,7 @@
     <Compile Include="Models\Organisation.cs" />
     <Compile Include="Models\RDSContext.cs" />
     <Compile Include="Models\School.cs" />
+    <Compile Include="Models\School2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
