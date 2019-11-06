@@ -181,6 +181,7 @@
     <Compile Include="Models\CampDate.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Organisation.cs" />
     <Compile Include="Models\RDSContext.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
