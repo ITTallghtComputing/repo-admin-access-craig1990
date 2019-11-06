@@ -42,4 +42,4 @@ steps:
     applicationName: 'CampBookingSys'
     environmentName: 'Campbookingsys-dev'
     applicationType: 'aspnet'
-    webDeploymentArchive: '$(build.artifactstagingdirectory)\BookingSystem.zip'
+    webDeploymentArchive: '$(build.artifactstagingdirectory)\CampBookingSystem.zip'
