@@ -7,18 +7,18 @@ namespace BookingSystem.Migrations.ContextA2
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Data : IMigrationMetadata
+    public sealed partial class initiaData : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Data));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initiaData));
         
         string IMigrationMetadata.Id
         {
-            get { return "201911062037461_Data"; }
+            get { return "201911151745322_initiaData"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target
