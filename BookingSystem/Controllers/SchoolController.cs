@@ -17,6 +17,7 @@ namespace BookingSystem.Controllers
         {
             var model = db.CampDates.ToList();
 
+            //test
             return View(model);
         }
 
