@@ -7,6 +7,10 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections;
+using System.Net;
+using System.Web.Mvc;
+using System.Web;
+
 
 //loop through full pdfs using page 1 of 2 etc to track loops
 
@@ -69,7 +73,7 @@ namespace BookingSystem.Helpers
                 var textRecognitionLocalFileResults = results.RecognitionResults;
                 foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                 {
-                    using (StreamWriter sw = new StreamWriter("/Surveys/testout.txt"))
+                    using (StreamWriter sw = new StreamWriter(HttpContext.Current.Server.MapPath("~/testout.txt")))
                     {
                         foreach (Line line in recResult.Lines)
                         {
