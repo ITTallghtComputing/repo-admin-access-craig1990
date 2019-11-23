@@ -343,10 +343,10 @@
     <Content Include="Views\CompletedCamps\Index.cshtml" />
     <Content Include="Views\Booking\Completed.cshtml" />
     <Content Include="Views\CompletedCamps\Upload.cshtml" />
+    <Content Include="Surveys\329faeb2-845b-4f81-8986-227204c37b90.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Surveys\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

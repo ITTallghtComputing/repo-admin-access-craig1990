@@ -17,8 +17,6 @@ namespace BookingSystem.Helpers
         static string subscriptionKey = ("ce1824b42f79415fafd2b2dabe3081c9");
         static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/");
 
-        private const string EXTRACT_TEXT_LOCAL_IMAGE = "survey2.jpg";
-
         public static ComputerVisionClient Authenticate(string endpoint, string key)
         {
             ComputerVisionClient client =
@@ -28,34 +26,18 @@ namespace BookingSystem.Helpers
         }
 
 
-        public static void ExtractToTextFile()
+        public static async Task ExtractToTextFile(string filename)
         {
-            FileStream filestream = new FileStream("out.txt", FileMode.Create);
-            var streamwriter = new StreamWriter(filestream);
-            streamwriter.AutoFlush = true;
-            Console.SetOut(streamwriter);
-            Console.SetError(streamwriter);
-
-            Console.WriteLine("Azure Cognitive Services Computer Vision - .NET quickstart example");
-            Console.WriteLine();
-
             ComputerVisionClient client = Authenticate(endpoint, subscriptionKey);
-
-            //ExtractTextUrl(client, EXTRACT_TEXT_URL_IMAGE).Wait();
-            ExtractTextLocal(client, EXTRACT_TEXT_LOCAL_IMAGE).Wait();
+            await ExtractTextLocal(client, filename);
         }
 
         public static async Task ExtractTextLocal(ComputerVisionClient client, string localImage)
         {
-            Console.WriteLine("----------------------------------------------------------");
-            Console.WriteLine("EXTRACT TEXT - LOCAL IMAGE");
-            Console.WriteLine();
 
             // Helps calucalte starting index to retrieve operation ID
             const int numberOfCharsInOperationId = 36;
 
-            Console.WriteLine($"Extracting text from local image {Path.GetFileName(localImage)}...");
-            Console.WriteLine();
             using (Stream imageStream = File.OpenRead(localImage))
             {
                 // Read the text from the local image
@@ -73,27 +55,28 @@ namespace BookingSystem.Helpers
                 do
                 {
                     results = await client.GetReadOperationResultAsync(operationId);
-                    Console.WriteLine("Server status: {0}, waiting {1} seconds...", results.Status, i);
+
                     await Task.Delay(1000);
                     if (maxRetries == 9)
                     {
-                        Console.WriteLine("Server timed out.");
+                        throw new Exception("Azure API timed out");
                     }
                 }
                 while ((results.Status == TextOperationStatusCodes.Running ||
                         results.Status == TextOperationStatusCodes.NotStarted) && i++ < maxRetries);
 
                 // Display the found text.
-                Console.WriteLine();
                 var textRecognitionLocalFileResults = results.RecognitionResults;
                 foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                 {
-                    foreach (Line line in recResult.Lines)
+                    using (StreamWriter sw = new StreamWriter(@"C:\Users\35385\source\repos\BookingSystem\BookingSystem\surveytest.txt"))
                     {
-                        Console.WriteLine(line.Text);
+                        foreach (Line line in recResult.Lines)
+                        {
+                            sw.WriteLine(line.Text);
+                        }
                     }
                 }
-                Console.WriteLine();
             }
         }
     }

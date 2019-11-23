@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
 using System.IO;
+using BookingSystem.Helpers;
+using System.Threading.Tasks;
 
 namespace BookingSystem.Controllers
 {
@@ -131,11 +133,14 @@ namespace BookingSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase file)
+        public async Task<ActionResult> Upload(HttpPostedFileBase file)
         {
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
-            string filepath = "/Surveys/" + filename;
+            string filepath = @"C:\Users\35385\source\repos\BookingSystem\BookingSystem\Surveys\" + filename;
             file.SaveAs(Path.Combine(Server.MapPath("/Surveys"), filename));
+            await AzureVisionAPI.ExtractToTextFile(filepath);
+
+
             return View();
         }
     }
