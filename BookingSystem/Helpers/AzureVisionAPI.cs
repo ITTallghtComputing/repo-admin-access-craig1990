@@ -69,7 +69,7 @@ namespace BookingSystem.Helpers
                 var textRecognitionLocalFileResults = results.RecognitionResults;
                 foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                 {
-                    using (StreamWriter sw = new StreamWriter(@"C:\Users\35385\source\repos\BookingSystem\BookingSystem\Surveys\surveytest.txt"))
+                    using (StreamWriter sw = new StreamWriter("/Surveys/testout.txt"))
                     {
                         foreach (Line line in recResult.Lines)
                         {
