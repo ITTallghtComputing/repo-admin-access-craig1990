@@ -17,7 +17,7 @@ namespace BookingSystem.Controllers
     {
         private RDSContext db = new RDSContext();
 
-        // GET: CompletedCamps
+        // GET: CompletedCamp
         public ActionResult Index()
         {
             return View(db.CompletedCamps.ToList());
