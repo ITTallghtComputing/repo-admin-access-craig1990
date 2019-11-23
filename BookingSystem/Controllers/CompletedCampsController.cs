@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
+using System.IO;
 
 namespace BookingSystem.Controllers
 {
@@ -122,6 +123,20 @@ namespace BookingSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            string filepath = "/Surveys/" + filename;
+            file.SaveAs(Path.Combine(Server.MapPath("/Surveys"), filename));
+            return View();
         }
     }
 }

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Upload Survey</h2>
+
+<div>
+    <p>Upload Surveys in .PDF format</p>
+    <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")">
+        <div>
+            <input name="file" type="file" required />
+            <br />
+            <button type="submit">Import</button>
+        </div>
+    </form>
+</div>
+

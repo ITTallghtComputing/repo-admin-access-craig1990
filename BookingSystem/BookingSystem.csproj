@@ -342,9 +342,11 @@
     <Content Include="Views\CompletedCamps\Edit.cshtml" />
     <Content Include="Views\CompletedCamps\Index.cshtml" />
     <Content Include="Views\Booking\Completed.cshtml" />
+    <Content Include="Views\CompletedCamps\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Surveys\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
