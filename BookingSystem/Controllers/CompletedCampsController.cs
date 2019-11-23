@@ -136,8 +136,8 @@ namespace BookingSystem.Controllers
         public async Task<ActionResult> Upload(HttpPostedFileBase file)
         {
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
-            string filepath = (Path.Combine(Server.MapPath("/Surveys/"), filename));
-            file.SaveAs(Path.Combine(Server.MapPath("/Surveys/"), filename));
+            string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
+            file.SaveAs(Server.MapPath(Path.Combine("~/Surveys/", filename)));
             await AzureVisionAPI.ExtractToTextFile(filepath);
 
 
