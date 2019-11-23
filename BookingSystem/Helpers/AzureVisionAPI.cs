@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
-//loop through full pdfs using page 1 of 2 etc to track loops/
+//loop through full pdfs using page 1 of 2 etc to track loops
 
 namespace BookingSystem.Helpers
 {
@@ -17,7 +17,7 @@ namespace BookingSystem.Helpers
         static string subscriptionKey = ("ce1824b42f79415fafd2b2dabe3081c9");
         static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/");
 
-        public static ComputerVisionClient Authenticate(string endpoint, string key)
+      public static ComputerVisionClient Authenticate(string endpoint, string key)
         {
             ComputerVisionClient client =
                 new ComputerVisionClient(new ApiKeyServiceClientCredentials(key))
@@ -69,7 +69,7 @@ namespace BookingSystem.Helpers
                 var textRecognitionLocalFileResults = results.RecognitionResults;
                 foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                 {
-                    using (StreamWriter sw = new StreamWriter(@"C:\Users\35385\source\repos\BookingSystem\BookingSystem\surveytest.txt"))
+                    using (StreamWriter sw = new StreamWriter(@"C:\Users\35385\source\repos\BookingSystem\BookingSystem\Surveys\surveytest.txt"))
                     {
                         foreach (Line line in recResult.Lines)
                         {
