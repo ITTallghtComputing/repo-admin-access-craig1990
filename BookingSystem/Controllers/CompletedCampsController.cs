@@ -137,7 +137,7 @@ namespace BookingSystem.Controllers
         {
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
-            file.SaveAs(Server.MapPath(Path.Combine("~/Surveys/", filename)));
+            file.SaveAs(filepath);
             await AzureVisionAPI.ExtractToTextFile(filepath);
 
 
