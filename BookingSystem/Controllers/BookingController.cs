@@ -115,6 +115,113 @@ namespace BookingSystem.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public ActionResult Completed(int? id)
+        {
+            Booking booking = db.Bookings.Find(id);
+
+            CompletedCamp camp = new CompletedCamp();
+            camp.AcademicYear = booking.AcademicYear;
+            camp.Address1 = booking.Address1;
+            camp.Address2 = booking.Address2;
+            camp.Address3 = booking.Address3;
+            camp.Address4 = booking.Address4;
+            camp.ClassGroups = booking.ClassGroups;
+            camp.County = booking.County;
+            camp.Date = booking.Date;
+            camp.DeisSchool = booking.DeisSchool;
+            camp.Eircode = booking.Eircode;
+            camp.Email = booking.Email;
+            camp.EndTime = booking.EndTime;
+            camp.FeePayingSchool = booking.FeePayingSchool;
+            camp.GaeltachtArea = booking.GaeltachtArea;
+            camp.IrishClassification = booking.GaeltachtArea;
+            camp.ITMEast = booking.ITMEast;
+            camp.ITMNorth = booking.ITMNorth;
+            camp.Latitude = booking.Latitude;
+            camp.LecturerName = booking.LecturerName;
+            camp.LocalAuthority = booking.LocalAuthority;
+            camp.Longitude = booking.Longitude;
+            camp.OfficialSchoolName = booking.OfficialSchoolName;
+            camp.OpenClosedStatus = booking.OpenClosedStatus;
+            camp.PhoneNumber = booking.PhoneNumber;
+            camp.PrincipalName = booking.PrincipalName;
+            camp.PupilAttendanceType = booking.PupilAttendanceType;
+            camp.Religion = booking.Religion;
+            camp.RollNumber = booking.RollNumber;
+            camp.SchoolGender = booking.SchoolGender;
+            camp.StartTime = booking.StartTime;
+            camp.Surveys = booking.Surveys;
+            camp.TeacherName = booking.TeacherName;
+            camp.Topics = booking.Topics;
+            camp.TotalBoys = booking.TotalBoys;
+            camp.TotalGirls = booking.TotalGirls;
+            camp.TotalPupils = booking.TotalPupils;
+            camp.X = booking.X;
+            camp.Y = booking.Y;
+
+            db.CompletedCamps.Add(camp);
+
+            db.Bookings.Remove(booking);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //// POST: Booking/Completed/5
+        //[HttpPost, ActionName("Completed")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CompletedConfirmed(int id)
+        //{
+        //    Booking booking = db.Bookings.Find(id);
+
+        //    CompletedCamp camp = new CompletedCamp();
+        //    camp.AcademicYear = booking.AcademicYear;
+        //    camp.Address1 = booking.Address1;
+        //    camp.Address2 = booking.Address2;
+        //    camp.Address3 = booking.Address3;
+        //    camp.Address4 = booking.Address4;
+        //    camp.ClassGroups = booking.ClassGroups;
+        //    camp.County = booking.County;
+        //    camp.Date = booking.Date;
+        //    camp.DeisSchool = booking.DeisSchool;
+        //    camp.Eircode = booking.Eircode;
+        //    camp.Email = booking.Email;
+        //    camp.EndTime = booking.EndTime;
+        //    camp.FeePayingSchool = booking.FeePayingSchool;
+        //    camp.GaeltachtArea = booking.GaeltachtArea;
+        //    camp.IrishClassification = booking.GaeltachtArea;
+        //    camp.ITMEast = booking.ITMEast;
+        //    camp.ITMNorth = booking.ITMNorth;
+        //    camp.Latitude = booking.Latitude;
+        //    camp.LecturerName = booking.LecturerName;
+        //    camp.LocalAuthority = booking.LocalAuthority;
+        //    camp.Longitude = booking.Longitude;
+        //    camp.OfficialSchoolName = booking.OfficialSchoolName;
+        //    camp.OpenClosedStatus = booking.OpenClosedStatus;
+        //    camp.PhoneNumber = booking.PhoneNumber;
+        //    camp.PrincipalName = booking.PrincipalName;
+        //    camp.PupilAttendanceType = booking.PupilAttendanceType;
+        //    camp.Religion = booking.Religion;
+        //    camp.RollNumber = booking.RollNumber;
+        //    camp.SchoolGender = booking.SchoolGender;
+        //    camp.StartTime = booking.StartTime;
+        //    camp.Surveys = booking.Surveys;
+        //    camp.TeacherName = booking.TeacherName;
+        //    camp.Topics = booking.Topics;
+        //    camp.TotalBoys = booking.TotalBoys;
+        //    camp.TotalGirls = booking.TotalGirls;
+        //    camp.TotalPupils = booking.TotalPupils;
+        //    camp.X = booking.X;
+        //    camp.Y = booking.Y;
+
+        //    db.CompletedCamps.Add(camp);
+
+        //    db.Bookings.Remove(booking);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
