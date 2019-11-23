@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
-//loop through full pdfs using page 1 of 2 etc to track loops
+//loop through full pdfs using page 1 of 2 etc to track loops/
 
 namespace BookingSystem.Helpers
 {
