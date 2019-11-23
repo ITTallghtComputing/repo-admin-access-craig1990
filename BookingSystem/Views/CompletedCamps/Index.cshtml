@@ -1,0 +1,255 @@
+﻿@model IEnumerable<BookingSystem.Models.CompletedCamp>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficialSchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eircode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surveys)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AcademicYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalAuthority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.X)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Y)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITMEast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITMNorth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassGroups)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topics)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LecturerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrincipalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeisSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SchoolGender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PupilAttendanceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IrishClassification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GaeltachtArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeePayingSchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Religion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenClosedStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalGirls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalBoys)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPupils)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RollNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficialSchoolName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeacherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eircode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.County)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surveys)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalAuthority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.X)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Y)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITMEast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITMNorth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassGroups)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Topics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LecturerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrincipalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeisSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SchoolGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PupilAttendanceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IrishClassification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GaeltachtArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeePayingSchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Religion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenClosedStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalGirls)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalBoys)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPupils)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

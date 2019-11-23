@@ -15,8 +15,8 @@ namespace BookingSystem.Models
         public DbSet<School> Schools { get; set; } 
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Organisation> Organisations { get; set; }
-
         public DbSet<School2> School2 { get; set; }
+        public DbSet<CompletedCamp> CompletedCamps { get; set; }
 
     }
 }

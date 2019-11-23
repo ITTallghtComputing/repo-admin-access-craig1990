@@ -182,6 +182,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CampDateController.cs" />
+    <Compile Include="Controllers\CompletedCampsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
@@ -210,12 +211,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\CampDate.cs" />
+    <Compile Include="Models\CompletedCamp.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Organisation.cs" />
+    <Compile Include="Models\PrimarySchool.cs" />
     <Compile Include="Models\RDSContext.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\School2.cs" />
+    <Compile Include="Models\SecondarySchool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -332,6 +336,11 @@
     <Content Include="Views\School\BookingOrg.cshtml" />
     <Content Include="Views\School\BookingForm.cshtml" />
     <Content Include="Views\School\BookingFormOrg.cshtml" />
+    <Content Include="Views\CompletedCamps\Create.cshtml" />
+    <Content Include="Views\CompletedCamps\Delete.cshtml" />
+    <Content Include="Views\CompletedCamps\Details.cshtml" />
+    <Content Include="Views\CompletedCamps\Edit.cshtml" />
+    <Content Include="Views\CompletedCamps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
