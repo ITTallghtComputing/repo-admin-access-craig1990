@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -60,73 +61,77 @@ namespace BookingSystem.Models
     }
     public class SecondarySchool
     {
-        private double age;
-        private double hoursGaming;
-        private double hoursSocialMedia;
-        private double hoursWork;
-        private double mathResult;
+        [Display(Name = "Age")]
+        private double q1;
+        [Display(Name = "Hours Gaming")]
+        private double q3;
+        [Display(Name = "Hours Social Media")]
+        private double q4;
+        [Display(Name = "Hours Working")]
+        private double q5;
+        [Display(Name = "Recent Math Result")]
+        private double q6b;
 
         public double MathResult
         {
-            get { return mathResult; }
+            get { return q6b; }
             set 
             { 
                 if (value >= 0 && value <= 100)
                 {
-                    mathResult = value;
+                    q6b = value;
                 }
             }
         }
 
 
-        public double HoursWork
+        public double Q5
         {
-            get { return hoursWork; }
+            get { return q5; }
             set
             {
                 if (value <= 50)
                 {
-                    hoursWork = value;
+                    q5 = value;
                 }
             }
         }
 
 
-        public double HoursSocialMedia
+        public double Q4
         {
-            get { return hoursSocialMedia; }
+            get { return q4; }
             set
             {
                 if (value <= 24)
                 {
-                    hoursSocialMedia = value;
+                    q4 = value;
                 }
             }
         }
 
 
-        public double HoursGaming
+        public double Q3
         {
-            get { return hoursGaming; }
+            get { return q3; }
 
             set
             {
                 if (value <= 24)
                 {
-                    hoursGaming = value;
+                    q3 = value;
                 }
             }
         }
 
-
-        public double Age
+        public double Q1
         {
-            get { return age; }
+            get { return q1; }
             set 
             {
-                if (age > 5 && age < 25)
+                if (q1 > 5 && q1 < 25)
                 {
-                    age = value;
+                    q1 = value;
                 }
                 else
                 {

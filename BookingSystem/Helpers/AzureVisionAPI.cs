@@ -16,12 +16,13 @@ using System.Web;
 
 namespace BookingSystem.Helpers
 {
-    static class AzureVisionAPI
+    public static class AzureVisionAPI
     {
         static string subscriptionKey = ("ce1824b42f79415fafd2b2dabe3081c9");
         static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/");
+        static string outfile = HttpContext.Current.Server.MapPath("~/testout2.txt");
 
-      public static ComputerVisionClient Authenticate(string endpoint, string key)
+        public static ComputerVisionClient Authenticate(string endpoint, string key)
         {
             ComputerVisionClient client =
                 new ComputerVisionClient(new ApiKeyServiceClientCredentials(key))
@@ -69,16 +70,17 @@ namespace BookingSystem.Helpers
                 while ((results.Status == TextOperationStatusCodes.Running ||
                         results.Status == TextOperationStatusCodes.NotStarted) && i++ < maxRetries);
 
-                // Display the found text.
-                var textRecognitionLocalFileResults = results.RecognitionResults;
-                foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
+                using (StreamWriter sw = new StreamWriter(outfile))
                 {
-                    using (StreamWriter sw = new StreamWriter(HttpContext.Current.Server.MapPath("~/testout.txt")))
+                    // Display the found text.
+                    var textRecognitionLocalFileResults = results.RecognitionResults;
+                    foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                     {
                         foreach (Line line in recResult.Lines)
                         {
                             sw.WriteLine(line.Text);
                         }
+
                     }
                 }
             }

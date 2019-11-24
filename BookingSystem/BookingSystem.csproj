@@ -190,6 +190,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AzureVisionAPI.cs" />
+    <Compile Include="Helpers\ParseSurveyText.cs" />
     <Compile Include="Migrations\ContextA1\201911151740487_InitialCreate.cs" />
     <Compile Include="Migrations\ContextA1\201911151740487_InitialCreate.Designer.cs">
       <DependentUpon>201911151740487_InitialCreate.cs</DependentUpon>
