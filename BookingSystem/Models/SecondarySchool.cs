@@ -61,18 +61,14 @@ namespace BookingSystem.Models
     }
     public class SecondarySchool
     {
-        [Display(Name = "Age")]
         private double q1;
-        [Display(Name = "Hours Gaming")]
         private double q3;
-        [Display(Name = "Hours Social Media")]
         private double q4;
-        [Display(Name = "Hours Working")]
         private double q5;
-        [Display(Name = "Recent Math Result")]
         private double q6b;
 
-        public double MathResult
+        [Display(Name = "Recent Math Result")]
+        public double Q6b
         {
             get { return q6b; }
             set 
@@ -84,7 +80,7 @@ namespace BookingSystem.Models
             }
         }
 
-
+        [Display(Name = "Hours Working")]
         public double Q5
         {
             get { return q5; }
@@ -97,7 +93,7 @@ namespace BookingSystem.Models
             }
         }
 
-
+        [Display(Name = "Hours Social Media")]
         public double Q4
         {
             get { return q4; }
@@ -110,7 +106,7 @@ namespace BookingSystem.Models
             }
         }
 
-
+        [Display(Name = "Hours Gaming")]
         public double Q3
         {
             get { return q3; }
@@ -124,6 +120,7 @@ namespace BookingSystem.Models
             }
         }
 
+        [Display(Name = "Age")]
         public double Q1
         {
             get { return q1; }
@@ -140,27 +137,55 @@ namespace BookingSystem.Models
             }
         }
 
+        public int Id { get; set; }
+        public string RollNumber { get; set; }
+        public DateTime CampDate { get; set; }
+        public string SurveyFileName { get; set; }
+        public int FilePage { get; set; }
+
+        [Display(Name = "Gender")]
+        public Gender Q2 { get; set; }
+        [Display(Name = "Math Level")]
+        public MathLevel Q6a { get; set; }
+        [Display(Name = "Science Subjects")]
+        public ScienceSubjects Q7 { get; set; }
+        [Display(Name = "Computing Jobs Known")]
+        public string Q8 { get; set; }
+        [Display(Name = "Consider IT Job")]
+        public Measure Q9 { get; set; }
+        [Display(Name = "IT Skills Perception")]
+        public Measure Q10 { get; set; }
+        [Display(Name = "2 Reasons Against IT Job")]
+        public string Q11 { get; set; }
+        [Display(Name = "2 Role Models & Jobs")]
+        public string Q12 { get; set; }
+        [Display(Name = "Family Members in IT")]
+        public YesNo Q13a { get; set; }
+        [Display(Name = "Which family member")]
+        public string Q13b { get; set; }
+        [Display(Name = "Previous Computing Experience")]
+        public CompExperience Q14a { get; set; }
+        [Display(Name = "Good or Bad Experience")]
+        public GoodBad Q14b { get; set; }
+        [Display(Name = "Why was this?")]
+        public string Q14c { get; set; }
+        [Display(Name = "Consider a Job in IT")]
+        public Measure Q15 { get; set; }
+        [Display(Name = "Camp IT Insight")]
+        public Measure Q16 { get; set; }
+        [Display(Name = "Camp IT Skills Insight")]
+        public Measure Q17 { get; set; }
+        [Display(Name = "New Computing Knowledge")]
+        public string Q18 { get; set; }
+        [Display(Name = "Camp  IT Skills Insight 2")]
+        public Measure Q19 { get; set; }
+        [Display(Name = "Feedback")]
+        public string Q20 { get; set; }
+
+        [Display(Name = "Flag")]
         public bool Flag { get; set; }
+        [Display(Name = "Flag Content")]
         public string FlagContent { get; set; }
-        public Gender Gender { get; set; }
-        public MathLevel MathLevel { get; set; }
-        public ScienceSubjects ScienceSubjects { get; set; }
-        public string ITJobs { get; set; }
-        public Measure ConsiderIT { get; set; }
-        public Measure ITPerception { get; set; }
-        public string ReasonsAgainstIT { get; set; }
-        public string ITRoleModels { get; set; }
-        public YesNo ITFamilyMembers { get; set; }
-        public string FamilyMember { get; set; }
-        public CompExperience CompExperience { get; set; }
-        public GoodBad Experience { get; set; }
-        public string ExperienceReason { get; set; }
-        public Measure ConsiderIT2 { get; set; }
-        public Measure CampITInsight { get; set; }
-        public Measure CampSkillsInsight { get; set; }
-        public string NewKnowledge { get; set; }
-        public Measure CampSkillsInsight2 { get; set; }
-        public string Feedback { get; set; }
 
 
     }
