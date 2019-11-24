@@ -10,7 +10,7 @@ namespace BookingSystem.Helpers
     public class ParseSurveyText
     {
         private RDSContext db = new RDSContext();
-        private static string datafile = HttpContext.Current.Server.MapPath("~/surveytest.txt");
+        private static string datafile = HttpContext.Current.Server.MapPath("~/testout2.txt");
 
 
         List<string> lines = File.ReadAllLines(datafile).ToList();
