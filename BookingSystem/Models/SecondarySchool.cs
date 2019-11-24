@@ -139,7 +139,7 @@ namespace BookingSystem.Models
 
         public int Id { get; set; }
         public string RollNumber { get; set; }
-        public DateTime CampDate { get; set; }
+        public DateTime? CampDate { get; set; }
         public string SurveyFileName { get; set; }
         public int FilePage { get; set; }
 

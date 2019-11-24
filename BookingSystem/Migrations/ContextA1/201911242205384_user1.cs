@@ -1,9 +1,9 @@
-namespace BookingSystem.Migrations.ContextA2
+namespace BookingSystem.Migrations.ContextA1
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initiaData : DbMigration
+    public partial class user1 : DbMigration
     {
         public override void Up()
         {

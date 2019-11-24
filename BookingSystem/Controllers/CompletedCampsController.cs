@@ -139,6 +139,9 @@ namespace BookingSystem.Controllers
             string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
             file.SaveAs(filepath);
             await AzureVisionAPI.ExtractToTextFile(filepath);
+            ParseSurveyText parse1 = new ParseSurveyText();
+            await Task.Run(() => parse1.ParseTextFile());
+                
 
 
             return View();

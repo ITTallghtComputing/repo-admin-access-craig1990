@@ -13,7 +13,7 @@ namespace BookingSystem.Migrations.ContextA2
         
         string IMigrationMetadata.Id
         {
-            get { return "201911151741147_InitialCreate"; }
+            get { return "201911242159571_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

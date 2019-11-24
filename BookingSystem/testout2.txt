@@ -1,56 +1,65 @@
 Secondary School Study
-Student Perception of Computers
-CSINC DUBLIN
+CSTNC DUBLIN
+Student Perception of Computers . weni mule
 Roisin Faherty, Keith Quille, Karen Nolan
-13. Are any of your family members working in computing / IT?
-YES NO
-If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
-14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
-CODER DOJO INSCHOOL CAMP SELF TAUGHT OTHER
-If you selected any from Q14, was the general experience:
-GOOD NEITHER GOOD OR BAD
-] BAD
-And why (short answer, under 4 words)
-To be completed after the camp.
-1. I would now consider a career in computing / IT.
-Strongly Agree
+To be completed before the camp.
+1 .
+What age are you (years) ? | | 6
+2. Please select your gender.
+M.
+FEMALE
+JOTHER
+DON'T WANT TO DECLARE
+How many hours do you spend playing computer games per day (console or phone)?
+6
+4 .
+How many hours do you spend on social media (eg snapchat) per day?
+2
+5. How many hours a week do you work at a part time job (0 if none)?
 O
-O
-Agree
-Nu Opinion
-Disagree
-Strongly Disagree
-2. The camp showed me what a career in computing / IT really was.
-O
-O
-Strongly Agree
-Agree
-No Opinion
-Disagree
-Strongly Disagree
-3. The camp showed / highlighted that I was no good at programming or computing.
-O
-O
-Strongly Agree
+6. At what level are you currently studying Math's?
+HIGHER
+ORDINARY
+OTHER
+Most recent math's result
+80
+1%
+7.
+What science subject (s) do you study ?
+PHYSICS
+BIOLOGY
 C
-Agree
-No Opinion
+CHEMISTRY
+SCIENCE ( Junior Cycle )
+INONE
+8 .
+Name any two computing / IT jobs that you know of?
+Software engineering / Web design
+9. ! would consider a career in computing / IT / programming.
 O
-Disagree
-Strongly Disagree
-4. Give two things that you did not know about computing / programming until after the camp?
-python
-coding
-5. I was better than I first thought (before the camp) at programming / computing.
+O
 O
 O
 Strongly Agree
-O
 Agree
-O
 No Opinion
 Disagree
 Strongly Disagree
-6. Any feedback / comments about the camp (good or bad)?
-Thank you for taking this survey.
-Page 2 of 2
+10. I am good at using IT, so I think I will be good at cornputing / programming
+O
+O
+O
+Strongly Agree
+Agre
+No Opinion
+Disagree
+Strongly Disagree
+11. Give two reasons that would discourage you from a career in computing / IT / programming?
+Study
+Time
+12. Name two role models / idols that you have and their job?
+Name James Deane
+Name Valentino Rossi
+10b Profesional drifter
+Job Profesional Super bike racer
+Page 1 of 2
