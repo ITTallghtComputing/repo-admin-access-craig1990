@@ -7,17 +7,22 @@ using System.Web;
 
 namespace BookingSystem.Helpers
 {
+    //scans a data file which contains line by line text from 1-x numbers of surveys. Loops through data line by line
+    //using 'constant' page markers to locate and record only the specific 'hand-written' answers to survey questions. 
+    //Uses constant markers such as 'Page 1 of 2' and 'Page 2 of 2' to keep track of page and survey number. Every 2x
+    //pages a new Survey, along with the new data is entered into db.SecondarySchool Survey database
+
     public class ParseSurveyText
     {
         private RDSContext db = new RDSContext();
+        
+
+        //stores server friendly map path for data file
         private static string datafile = HttpContext.Current.Server.MapPath("~/testout2.txt");
-
-
+        //creates a List of lines of text from data file
         List<string> lines = File.ReadAllLines(datafile).ToList();
 
-        string answer1 = string.Empty;
-
-        //start recording 
+        //start recording markers for loop
         public int record = 1;
         public int record2 = 1;
         public int record3 = 1;
@@ -35,16 +40,23 @@ namespace BookingSystem.Helpers
         public string answer18 = string.Empty;
         public string answer20 = string.Empty;
 
+        //hold page numbers
         public int pageNumber = 0;
+        //hold survey numbers, 1 survey is 2 pages
         public int surveyNumber = 0;
 
 
-       
 
+        //loop through data in text file line by line using 'constant' text as markers 
+        //for 'variable' text i.e. hand-written text answers to questions.
         public void ParseTextFile()
         {
             foreach (string line in lines)
             {
+
+                //if a line contains a constant marker then recording will be enabled for next loop
+                //iteration to record answer data.
+
                 //search for answer to question 8
                 if (line.Contains("know of?"))
                 {
@@ -53,11 +65,13 @@ namespace BookingSystem.Helpers
                 }
                 if (record == 2)
                 {
+                    //constant mark to stop recording
                     if (line.StartsWith("9"))
                     {
                         record = 1;
                         continue;
                     }
+                    //else record the answer data
                     else
                     {
                         answer8 += " " + line;
@@ -84,13 +98,15 @@ namespace BookingSystem.Helpers
                     }
                 }
 
-                //search for answer to question 12, record3 is already set to 2 as foreach is already on line
+                //search for answer to question 12, record3 is already set to 2 as foreach loop is already on line
                 if (record3 == 2)
                 {
                     if (line.StartsWith("Page"))
                     {
-                        record3 = 1;
+                        //Next answer will be on page 2
                         pageNumber++;
+
+                        record3 = 1;
                         continue;
                     }
                     else
@@ -98,6 +114,8 @@ namespace BookingSystem.Helpers
                         answer12 += " " + line;
                     }
                 }
+
+                //Page 2 of 2
 
                 //search for answer to question 13b
                 if (line.Contains("sister etc."))
@@ -166,9 +184,11 @@ namespace BookingSystem.Helpers
                 {
                     if (line.StartsWith("Thank you"))
                     {
-                        record7 = 1;
+                        //New page and new survey
                         pageNumber++;
                         surveyNumber++;
+
+                        record7 = 1;
                         continue;
                     }
                     else
@@ -177,6 +197,7 @@ namespace BookingSystem.Helpers
                     }
                 }
 
+                //Every 2x pages a new Survey, along with the new data is entered into db.SecondarySchool 
                 if (new int[] { 2, 4, 6, 8, 10 }.Contains(pageNumber))
                 {
                     EnterSurvey();
@@ -185,6 +206,7 @@ namespace BookingSystem.Helpers
             }
         }
 
+        //Enters new Survey with its data into db.SecondarySchool Survey database
         public void EnterSurvey()
         {
             SecondarySchool s1 = new SecondarySchool();
