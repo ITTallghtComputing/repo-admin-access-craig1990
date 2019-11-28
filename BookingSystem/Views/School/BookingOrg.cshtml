@@ -6,11 +6,17 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-4">
-        <h2>Organisation Bookings</h2>
+
+        <br />
+        <br />
+
+        <h5><strong>Welcome to CSinc Camp Bookings</strong></h5>
+        <br />
+        <br />
+        <br />
 
         <form asp-controller="School" asp-action="BookingOrg" method="post">
 
-            <br />
             <div>
                 <p>Please enter the following information</p>
                 <br />
@@ -23,10 +29,12 @@
             </div>
             <br />
             <div>
+                <br />
                 <label for="Date">Choose Camp Date:</label>
                 <br />
                 <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" required autocomplete="off"/>
             </div>
+            <br />
             <br />
             <br />
             <input type="submit" value="Submit" class="submit btn btn-block btn-primary" />

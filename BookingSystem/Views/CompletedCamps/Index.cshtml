@@ -7,23 +7,23 @@
 <h2>Index</h2>
 
 <br />
-
-
-<p>
-    <button onclick="location.href='@Url.Action("Index", "Booking")'" type="button" class="btn btn-primary">
-        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> Active Bookings
-    </button>
-</p>
 <br />
+
 <p>
     <button onclick="location.href='@Url.Action("Create", "CompletedCamps")'" type="button" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
     </button>
 </p>
+<br />
+<p>
+    <button onclick="location.href='@Url.Action("Index", "Booking")'" type="button" class="btn btn-block">
+        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> Active Bookings
+    </button>
+</p>
 
 <br />
 
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         @*<th>
                 @Html.DisplayNameFor(model => model.RollNumber)
