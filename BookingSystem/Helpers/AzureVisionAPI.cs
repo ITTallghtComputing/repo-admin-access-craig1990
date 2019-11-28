@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Craig Whelan X00075734
+
+using System;
 using System.Collections.Generic;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
@@ -11,8 +13,6 @@ using System.Net;
 using System.Web.Mvc;
 using System.Web;
 
-
-//
 
 namespace BookingSystem.Helpers
 {

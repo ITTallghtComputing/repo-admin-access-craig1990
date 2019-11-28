@@ -191,22 +191,22 @@
     </Compile>
     <Compile Include="Helpers\AzureVisionAPI.cs" />
     <Compile Include="Helpers\ParseSurveyText.cs" />
-    <Compile Include="Migrations\ContextA1\201911242202349_InitialCreate.cs" />
-    <Compile Include="Migrations\ContextA1\201911242202349_InitialCreate.Designer.cs">
-      <DependentUpon>201911242202349_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.cs" />
+    <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.Designer.cs">
+      <DependentUpon>201911282145429_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ContextA1\201911242205384_user1.cs" />
-    <Compile Include="Migrations\ContextA1\201911242205384_user1.Designer.cs">
-      <DependentUpon>201911242205384_user1.cs</DependentUpon>
+    <Compile Include="Migrations\ContextA1\201911282151363_User1.cs" />
+    <Compile Include="Migrations\ContextA1\201911282151363_User1.Designer.cs">
+      <DependentUpon>201911282151363_User1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ContextA1\ConfigUser.cs" />
-    <Compile Include="Migrations\ContextA2\201911242159571_InitialCreate.cs" />
-    <Compile Include="Migrations\ContextA2\201911242159571_InitialCreate.Designer.cs">
-      <DependentUpon>201911242159571_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\ContextA2\201911282146115_InitialCreate.cs" />
+    <Compile Include="Migrations\ContextA2\201911282146115_InitialCreate.Designer.cs">
+      <DependentUpon>201911282146115_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ContextA2\201911242205489_data1.cs" />
-    <Compile Include="Migrations\ContextA2\201911242205489_data1.Designer.cs">
-      <DependentUpon>201911242205489_data1.cs</DependentUpon>
+    <Compile Include="Migrations\ContextA2\201911282151513_Data1.cs" />
+    <Compile Include="Migrations\ContextA2\201911282151513_Data1.Designer.cs">
+      <DependentUpon>201911282151513_Data1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ContextA2\ConfigData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -363,17 +363,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\ContextA1\201911242202349_InitialCreate.resx">
-      <DependentUpon>201911242202349_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA1\201911282145429_InitialCreate.resx">
+      <DependentUpon>201911282145429_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA1\201911242205384_user1.resx">
-      <DependentUpon>201911242205384_user1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA1\201911282151363_User1.resx">
+      <DependentUpon>201911282151363_User1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA2\201911242159571_InitialCreate.resx">
-      <DependentUpon>201911242159571_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA2\201911282146115_InitialCreate.resx">
+      <DependentUpon>201911282146115_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA2\201911242205489_data1.resx">
-      <DependentUpon>201911242205489_data1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA2\201911282151513_Data1.resx">
+      <DependentUpon>201911282151513_Data1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

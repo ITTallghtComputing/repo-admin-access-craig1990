@@ -9,7 +9,7 @@ namespace BookingSystem.Migrations.ContextA2
     {
         public ConfigData()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             MigrationsDirectory = @"Migrations\ContextA2";
             ContextKey = "BookingSystem.Models.RDSContext";
         }
