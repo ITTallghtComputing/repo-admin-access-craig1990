@@ -12,7 +12,7 @@ using System.Web.Mvc;
 using System.Web;
 
 
-//loop through full pdfs using page 1 of 2 etc to track loops
+//
 
 namespace BookingSystem.Helpers
 {

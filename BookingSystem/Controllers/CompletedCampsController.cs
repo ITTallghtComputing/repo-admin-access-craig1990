@@ -141,7 +141,7 @@ namespace BookingSystem.Controllers
             await AzureVisionAPI.ExtractToTextFile(filepath);
             ParseSurveyText parse1 = new ParseSurveyText();
             await Task.Run(() => parse1.ParseTextFile());
-                
+               
 
 
             return View();
