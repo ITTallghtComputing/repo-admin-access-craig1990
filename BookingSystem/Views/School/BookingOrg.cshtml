@@ -17,7 +17,7 @@
 
                 <label for="OfficialSchoolName">Organisation Name:</label>
                 <br />
-                <input style="width:300px" asp-for="Organisation.OfficialSchoolName" id="txtName" name="OfficialSchoolName" required />
+                <input style="width:300px" asp-for="Organisation.OfficialSchoolName" id="txtName" name="OfficialSchoolName" required autocomplete="off"/>
                 <br />
                 @Html.ActionLink("Click to use roll number", "Booking", "School", new { @class = "elements" }, null)
             </div>
@@ -25,11 +25,11 @@
             <div>
                 <label for="Date">Choose Camp Date:</label>
                 <br />
-                <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" required />
+                <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" required autocomplete="off"/>
             </div>
             <br />
             <br />
-            <input type="submit" value="Submit" class="submit" />
+            <input type="submit" value="Submit" class="submit btn btn-block btn-primary" />
         </form>
 
     </div>
