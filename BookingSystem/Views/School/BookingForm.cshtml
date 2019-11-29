@@ -22,68 +22,68 @@
     <div>
         <label for="RollNumber">School Roll Number:</label>
         <br />
-        <input asp-for="Booking.Rollnumber" id="txtRoll" name="RollNumber" value="@Model.RollNumber" disabled />
+        <input asp-for="Booking.Rollnumber" id="txtRoll" name="RollNumber" value="@Model.RollNumber" disabled class="form-control"/>
     </div>
     <br />
     <div>
         <label for="Date">Choose Camp Date:</label>
         <br />
-        <input asp-for="Booking.Date" id="txtDate" name="Date" value="@Model.Date.Value.ToShortDateString()" disabled />
+        <input asp-for="Booking.Date" id="txtDate" name="Date" value="@Model.Date.Value.ToShortDateString()" disabled class="form-control"/>
     </div>
     <br />
     <div>
         <label for="OfficialSchoolName">School Name:</label>
         <br />
-        <input asp-for="Booking.OfficialSchoolName" id="txtOfficialSchoolName" name="OfficialSchoolName" value="@Model.OfficialSchoolName" />
+        <input asp-for="Booking.OfficialSchoolName" id="txtOfficialSchoolName" name="OfficialSchoolName" value="@Model.OfficialSchoolName" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="Address">School Address:</label>
         <br />
-        <input asp-for="Booking.Address1" id="txtAddress1" name="Address1" value="@Model.Address1" />
+        <input asp-for="Booking.Address1" id="txtAddress1" name="Address1" value="@Model.Address1" class="form-control"/>
         <br />
-        <input asp-for="Booking.Address2" id="txtAddress2" name="Address2" value="@Model.Address2" />
+        <input asp-for="Booking.Address2" id="txtAddress2" name="Address2" value="@Model.Address2" class="form-control"/>
         <br />
-        <input asp-for="Booking.Address3" id="txtAddress3" name="Address3" value="@Model.Address3" />
+        <input asp-for="Booking.Address3" id="txtAddress3" name="Address3" value="@Model.Address3" class="form-control"/>
         <br />
-        <input asp-for="Booking.Address4" id="txtAddress4" name="Address4" value="@Model.Address4" />
+        <input asp-for="Booking.Address4" id="txtAddress4" name="Address4" value="@Model.Address4" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="Times">Times Needed:</label>
         <br />
-        <input asp-for="Booking.StartTime" id="txtStartTime" name="StartTime" value="Start Time e.g. 10:30" />
-        <input asp-for="Booking.EndTime" id="txtEndTime" name="EndTime" value="End Time e.g. 16:00" />
+        <input asp-for="Booking.StartTime" id="txtStartTime" name="StartTime" value="Start Time e.g. 10:30" class="form-control"/>
+        <input asp-for="Booking.EndTime" id="txtEndTime" name="EndTime" value="End Time e.g. 16:00" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="ClassGroups">Class Groups:</label>
         <br />
-        <input asp-for="Booking.ClassGroups" id="txtClassGroups" name="ClassGroups" value="e.g. 4th class, 6th class, 1st year etc." />
+        <input asp-for="Booking.ClassGroups" id="txtClassGroups" name="ClassGroups" value="e.g. 4th class, 6th class, 1st year etc." class="form-control"/>
     </div>
     <br />
     <div>
         <label for="Topics">Topics to be covered:</label>
         <br />
-        <input asp-for="Booking.Topics" id="txtTopics" name="Topics" value="" />
+        <input asp-for="Booking.Topics" id="txtTopics" name="Topics" value="" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="TeacherName">Teacher Name:</label>
         <br />
-        <input asp-for="Booking.TeacherName" id="txtTeacherName" name="TeacherName" />
+        <input asp-for="Booking.TeacherName" id="txtTeacherName" name="TeacherName" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="Email">Teacher Email:</label>
         <br />
-        <input asp-for="Booking.Email" id="txtEmail" name="Email" value="@Model.Email" />
+        <input asp-for="Booking.Email" id="txtEmail" name="Email" value="@Model.Email" class="form-control"/>
     </div>
     <br />
     <div>
         <label for="PhoneNumber">Teacher Contact Number:</label>
         <br />
-        <input asp-for="Booking.PhoneNumber" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" />
+        <input asp-for="Booking.PhoneNumber" id="txtPhoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" class="form-control"/>
     </div>
     <br />
     <div>

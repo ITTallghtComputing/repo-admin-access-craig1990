@@ -1,5 +1,8 @@
 ﻿//Craig Whelan X00075734
 
+//Azure Vision OCR API call    ***
+//stores all returned text in .txt file to be parsed     ***
+
 using System;
 using System.Collections.Generic;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -72,7 +75,7 @@ namespace BookingSystem.Helpers
 
                 using (StreamWriter sw = new StreamWriter(outfile))
                 {
-                    // Display the found text.
+                    // Loop through data which is returned and save line by line in .txt file ***
                     var textRecognitionLocalFileResults = results.RecognitionResults;
                     foreach (TextRecognitionResult recResult in textRecognitionLocalFileResults)
                     {

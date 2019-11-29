@@ -1,5 +1,7 @@
 ﻿//Craig Whelan X00075734
 
+//parse .txt data logic, which was returned from Azure API   ***
+
 using BookingSystem.Models;
 using System;
 using System.Collections.Generic;
@@ -56,18 +58,20 @@ namespace BookingSystem.Helpers
             foreach (string line in lines)
             {
 
-                //if a line contains a constant marker then recording will be enabled for next loop
-                //iteration to record answer data.
+                //if a line contains a constant marker then recording will be triggered for next loop
+                //iteration to record answer data 
+                // i.e.    2 constant triggers are used to record the data in between   ***
 
                 //search for answer to question 8
                 if (line.Contains("know of?"))
                 {
+                    //trigger recording variable to start recording
                     record = 2;
                     continue;
                 }
                 if (record == 2)
                 {
-                    //constant mark to stop recording
+                    //constant marker to stop recording
                     if (line.StartsWith("9"))
                     {
                         record = 1;
@@ -199,8 +203,9 @@ namespace BookingSystem.Helpers
                     }
                 }
 
-                //Every 2x pages a new Survey, along with the new data is entered into db.SecondarySchool 
-                if (new int[] { 2, 4, 6, 8, 10 }.Contains(pageNumber))
+                
+                // Called every 2x pages of text when all survey answers have been extracted 
+                if (new int[] { 2, 4, 6, 8, 10, 12, 14 }.Contains(pageNumber))
                 {
                     EnterSurvey();
                 }
