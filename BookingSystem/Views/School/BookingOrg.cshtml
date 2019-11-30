@@ -10,7 +10,7 @@
         <br />
         <br />
 
-        <h5><strong>Welcome to CSinc Camp Bookings</strong></h5>
+        <h4><strong>Welcome to CSinc Camp Bookings</strong></h4>
         <br />
         <br />
         <br />
@@ -21,18 +21,20 @@
                 <p>Please enter the following information</p>
                 <br />
 
-                <label for="OfficialSchoolName">Organisation Name:</label>
-                <br />
-                <input style="width:300px" asp-for="Organisation.OfficialSchoolName" id="txtName" name="OfficialSchoolName" required autocomplete="off"/>
-                <br />
-                @Html.ActionLink("Click to use roll number", "Booking", "School", new { @class = "elements" }, null)
+                <div class="form-group">
+                    <label for="OfficialSchoolName">Organisation Name:</label>
+                    <br />
+                    <input style="width:300px" asp-for="Organisation.OfficialSchoolName" id="txtName" class="form-control" name="OfficialSchoolName" required autocomplete="off" />
+                    <br />
+                    @Html.ActionLink("Click to use roll number", "Booking", "School", new { @class = "elements" }, null)
+                </div>
             </div>
             <br />
             <div>
                 <br />
                 <label for="Date">Choose Camp Date:</label>
                 <br />
-                <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" required autocomplete="off"/>
+                <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" class="form-control" required autocomplete="off" />
             </div>
             <br />
             <br />
