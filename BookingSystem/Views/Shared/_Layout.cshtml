@@ -17,13 +17,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Camp Bookings", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="http://csinc.ie/Home">CSinc</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Book Camp", "Booking", "School")</li>
-                   
+                    <li><a href="http://csinc.ie/Home/Contact" >Contact Us </a><li/>
+
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="dropdown">
