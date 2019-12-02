@@ -1,0 +1,264 @@
+﻿@model BookingSystem.Models.SecondarySchoolSurvey
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SecondarySchoolSurvey</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Q6b)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q6b)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RollNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurveyFileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurveyFileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilePage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilePage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q6a)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q6a)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q7)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q8)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q8)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q9)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q9)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q10)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q10)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q11)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q11)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q13a)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q13a)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q13b)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q13b)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q14a)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q14a)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q14b)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q14b)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q14c)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q14c)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q15)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q15)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q16)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q16)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q17)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q17)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q18)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q18)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q19)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q19)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Q20)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Q20)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlagContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlagContent)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

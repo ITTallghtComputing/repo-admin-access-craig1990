@@ -12,7 +12,7 @@ namespace BookingSystem.Migrations.ContextA1
     {
         public ConfigUser()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\ContextA1";
             ContextKey = "BookingSystem.Models.ApplicationDbContext";
         }

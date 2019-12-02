@@ -129,20 +129,23 @@ namespace BookingSystem.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Upload()
+        public ActionResult Upload(int? id)
         {
-            return View();
+            CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+            return View(completedCamp);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Upload(HttpPostedFileBase file)
+        public async Task<ActionResult> Upload(HttpPostedFileBase file, int? id)
         {
+            CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
             file.SaveAs(filepath);
             await AzureVisionAPI.ExtractToTextFile(filepath);
             ParseSurveyText parse1 = new ParseSurveyText();
-            await Task.Run(() => parse1.ParseTextFile());
+            await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date));
                
 
 

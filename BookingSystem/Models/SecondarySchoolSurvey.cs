@@ -61,7 +61,7 @@ namespace BookingSystem.Models
         NeitherGoodOrBad,
         Bad
     }
-    public class SecondarySchool
+    public class SecondarySchoolSurvey
     {
         private double q1;
         private double q3;
@@ -74,11 +74,12 @@ namespace BookingSystem.Models
         {
             get { return q6b; }
             set 
-            { 
-                if (value >= 0 && value <= 100)
-                {
-                    q6b = value;
-                }
+            {
+                q6b = value;
+                //if (value >= 0 && value <= 100)
+                //{
+                //    q6b = value;
+                //}
             }
         }
 
@@ -88,10 +89,11 @@ namespace BookingSystem.Models
             get { return q5; }
             set
             {
-                if (value <= 50)
-                {
-                    q5 = value;
-                }
+                q5 = value;
+                //if (value <= 50)
+                //{
+                //    q5 = value;
+                //}
             }
         }
 
@@ -101,10 +103,11 @@ namespace BookingSystem.Models
             get { return q4; }
             set
             {
-                if (value <= 24)
-                {
-                    q4 = value;
-                }
+                q4 = value;
+                //if (value <= 24)
+                //{
+                //    q4 = value;
+                //}
             }
         }
 
@@ -115,10 +118,11 @@ namespace BookingSystem.Models
 
             set
             {
-                if (value <= 24)
-                {
-                    q3 = value;
-                }
+                q3 = value;
+                //if (value <= 24)
+                //{
+                //    q3 = value;
+                //}
             }
         }
 
@@ -128,19 +132,21 @@ namespace BookingSystem.Models
             get { return q1; }
             set 
             {
-                if (q1 > 5 && q1 < 25)
-                {
-                    q1 = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Age must be between 5 and 25");
-                }
+                q1 = value;
+                //if (q1 > 5 && q1 < 25)
+                //{
+                //    q1 = value;
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("Age must be between 5 and 25");
+                //}
             }
         }
 
         public int Id { get; set; }
         public string RollNumber { get; set; }
+        public string OfficialSchoolName { get; set; }
         public DateTime? CampDate { get; set; }
         public string SurveyFileName { get; set; }
         public int FilePage { get; set; }

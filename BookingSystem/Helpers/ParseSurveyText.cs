@@ -53,7 +53,7 @@ namespace BookingSystem.Helpers
 
         //loop through data in text file line by line using 'constant' text as markers 
         //for 'variable' text i.e. hand-written text answers to questions.
-        public void ParseTextFile()
+        public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate)
         {
             foreach (string line in lines)
             {
@@ -207,18 +207,19 @@ namespace BookingSystem.Helpers
                 // Called every 2x pages of text when all survey answers have been extracted 
                 if (new int[] { 2, 4, 6, 8, 10, 12, 14 }.Contains(pageNumber))
                 {
-                    EnterSurvey();
+                    EnterSurvey(rollNumber, officialSchoolName, campDate);
                 }
                
             }
         }
 
         //Enters new Survey with its data into db.SecondarySchool Survey database
-        public void EnterSurvey()
+        public void EnterSurvey(string rollNumber, string officialSchoolName, DateTime? campDate)
         {
-            SecondarySchool s1 = new SecondarySchool();
-            s1.RollNumber = null;
-            s1.CampDate = null;
+            SecondarySchoolSurvey s1 = new SecondarySchoolSurvey();
+            s1.RollNumber = rollNumber;
+            s1.OfficialSchoolName = officialSchoolName;
+            s1.CampDate = campDate;
             s1.SurveyFileName = null;
             s1.FilePage = pageNumber;
             s1.Q8 = answer8;
@@ -229,7 +230,7 @@ namespace BookingSystem.Helpers
             s1.Q18 = answer18;
             s1.Q20 = answer20;
 
-            db.SecondarySchools.Add(s1);
+            db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
         }
     }
