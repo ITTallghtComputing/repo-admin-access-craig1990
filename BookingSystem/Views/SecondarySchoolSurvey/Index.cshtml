@@ -12,6 +12,29 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficialSchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CampDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Q1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flag)
+        </th>
+
+
+        @*<th>
             @Html.DisplayNameFor(model => model.Q6b)
         </th>
         <th>
@@ -23,24 +46,16 @@
         <th>
             @Html.DisplayNameFor(model => model.Q3)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Q1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RollNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CampDate)
-        </th>
+
+
+
         <th>
             @Html.DisplayNameFor(model => model.SurveyFileName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FilePage)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Q2)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.Q6a)
         </th>
@@ -95,18 +110,38 @@
         <th>
             @Html.DisplayNameFor(model => model.Q20)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Flag)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.FlagContent)
         </th>
-        <th></th>
+        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RollNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OfficialSchoolName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CampDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Q2)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Q1)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Flag)
+    </td>
+
+    @*<td>
             @Html.DisplayFor(modelItem => item.Q6b)
         </td>
         <td>
@@ -118,24 +153,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Q3)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Q1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RollNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CampDate)
-        </td>
+
+
         <td>
             @Html.DisplayFor(modelItem => item.SurveyFileName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FilePage)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Q2)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Q6a)
         </td>
@@ -190,18 +216,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.Q20)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Flag)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.FlagContent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+        </td>*@
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>
