@@ -214,6 +214,7 @@ namespace BookingSystem.Helpers
         }
 
         //Enters new Survey with its data into db.SecondarySchool Survey database
+        //attach roll numnber, school name and camp data to survey
         public void EnterSurvey(string rollNumber, string officialSchoolName, DateTime? campDate)
         {
             SecondarySchoolSurvey s1 = new SecondarySchoolSurvey();
