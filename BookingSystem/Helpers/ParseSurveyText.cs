@@ -19,7 +19,7 @@ namespace BookingSystem.Helpers
     public class ParseSurveyText
     {
         private RDSContext db = new RDSContext();
-        
+
 
         //stores server friendly map path for data file
         private static string datafile = HttpContext.Current.Server.MapPath("~/testout2.txt");
@@ -55,6 +55,9 @@ namespace BookingSystem.Helpers
 
         //loop through data in text file line by line using 'constant' text as markers 
         //for 'variable' text i.e. hand-written text answers to questions.
+
+        //added 2nd set of constant markers to deal with special edge cases where Azure OCR API failed to return a correct constant
+
         public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate)
         {
             foreach (string line in lines)
@@ -74,6 +77,7 @@ namespace BookingSystem.Helpers
                 if (record == 2)
                 {
                     //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases
                     if (line.Contains("consider a career") || line.StartsWith("9"))
                     {
                         record = 1;
@@ -207,14 +211,23 @@ namespace BookingSystem.Helpers
                     }
                 }
 
-                
+
                 // Called every 2x pages of text when all survey answers have been extracted 
                 if (surveyNumber != 0 && surveyGate == true)
                 {
                     EnterSurvey(rollNumber, officialSchoolName, campDate);
                     surveyGate = false;
+
+                    //reset answers for next survey
+                    answer8 = string.Empty;
+                    answer11 = string.Empty;
+                    answer12 = string.Empty;
+                    answer13b = string.Empty;
+                    answer14c = string.Empty;
+                    answer18 = string.Empty;
+                    answer20 = string.Empty;
                 }
-               
+
             }
         }
 
