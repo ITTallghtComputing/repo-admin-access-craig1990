@@ -49,6 +49,7 @@ namespace BookingSystem.Helpers
         //hold survey numbers, 1 survey is 2 pages
         public int surveyNumber = 0;
 
+        //set to true after every surveys final answer is extracted. Allows EnterSurvey() to then be called 
         private bool surveyGate = false;
 
 
@@ -200,6 +201,7 @@ namespace BookingSystem.Helpers
                         pageNumber++;
                         surveyNumber++;
 
+                        //open survey gate to allow EnterSurvey() call (enter a survey into db)
                         surveyGate = true;
 
                         record7 = 1;
@@ -212,10 +214,12 @@ namespace BookingSystem.Helpers
                 }
 
 
-                // Called every 2x pages of text when all survey answers have been extracted 
+                // Called every 2x pages when final survey answer has been collected
                 if (surveyNumber != 0 && surveyGate == true)
                 {
                     EnterSurvey(rollNumber, officialSchoolName, campDate);
+
+                    //close survey gate for next round of answer extraction
                     surveyGate = false;
 
                     //reset answers for next survey
