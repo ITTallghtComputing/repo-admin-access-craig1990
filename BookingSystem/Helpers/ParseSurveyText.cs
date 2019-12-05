@@ -35,6 +35,12 @@ namespace BookingSystem.Helpers
         public int record6 = 1;
         public int record7 = 1;
 
+        private double answer1;
+        private double answer3;
+        private double answer4;
+        private double answer5;
+        private double answer6b;
+
         //hold asnwers
         public string answer8 = string.Empty;
         public string answer11 = string.Empty;
@@ -49,13 +55,13 @@ namespace BookingSystem.Helpers
         //hold survey numbers, 1 survey is 2 pages
         public int surveyNumber = 0;
 
-        //set to true after every surveys final answer is extracted. Allows EnterSurvey() to then be called 
+        //set to true after every surveys final answer is extracted. Allows EnterSurvey() to then be called after each survey
         private bool surveyGate = false;
 
 
 
         //loop through data in text file line by line using 'constant' text as markers 
-        //for 'variable' text i.e. hand-written text answers to questions.
+        //to locate 'variable' text i.e. hand-written text answers to questions.
 
         //added 2nd set of constant markers to deal with special edge cases where Azure OCR API failed to return a correct constant
 
@@ -66,7 +72,10 @@ namespace BookingSystem.Helpers
 
                 //if a line contains a constant marker then recording will be triggered for next loop
                 //iteration to record answer data 
-                // i.e.    2 constant triggers are used to record the data in between   ***
+                // i.e.    2 constant triggers are used to record the data in between
+
+           
+
 
                 //search for answer to question 8
                 if (line.Contains("know of?"))
@@ -78,7 +87,7 @@ namespace BookingSystem.Helpers
                 if (record == 2)
                 {
                     //constant marker to stop recording
-                    //added 2nd constant to allow for special edge cases
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
                     if (line.Contains("consider a career") || line.StartsWith("9"))
                     {
                         record = 1;
@@ -102,6 +111,8 @@ namespace BookingSystem.Helpers
                     if (line.StartsWith("12"))
                     {
                         record2 = 1;
+
+                        //also set recording for next answer because next answer is on next line
                         record3 = 2;
                         continue;
                     }

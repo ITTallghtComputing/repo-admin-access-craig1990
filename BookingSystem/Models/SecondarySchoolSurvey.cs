@@ -64,9 +64,6 @@ namespace BookingSystem.Models
     public class SecondarySchoolSurvey
     {
         private double q1;
-        private double q3;
-        private double q4;
-        private double q5;
         private double q6b;
 
         [Display(Name = "Recent Math Result")]
@@ -83,48 +80,6 @@ namespace BookingSystem.Models
             }
         }
 
-        [Display(Name = "Hours Working")]
-        public double Q5
-        {
-            get { return q5; }
-            set
-            {
-                q5 = value;
-                //if (value <= 50)
-                //{
-                //    q5 = value;
-                //}
-            }
-        }
-
-        [Display(Name = "Hours Social Media")]
-        public double Q4
-        {
-            get { return q4; }
-            set
-            {
-                q4 = value;
-                //if (value <= 24)
-                //{
-                //    q4 = value;
-                //}
-            }
-        }
-
-        [Display(Name = "Hours Gaming")]
-        public double Q3
-        {
-            get { return q3; }
-
-            set
-            {
-                q3 = value;
-                //if (value <= 24)
-                //{
-                //    q3 = value;
-                //}
-            }
-        }
 
         [Display(Name = "Age")]
         public double Q1
@@ -153,6 +108,12 @@ namespace BookingSystem.Models
 
         [Display(Name = "Gender")]
         public Gender Q2 { get; set; }
+        [Display(Name = "Hours Gaming")]
+        public string Q3 { get; set; }
+        [Display(Name = "Hours Social Media")]
+        public string Q4 { get; set; }
+        [Display(Name = "Hours Working")]
+        public string Q5 { get; set; }
         [Display(Name = "Math Level")]
         public MathLevel Q6a { get; set; }
         [Display(Name = "Science Subjects")]
