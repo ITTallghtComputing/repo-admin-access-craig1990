@@ -49,6 +49,8 @@ namespace BookingSystem.Helpers
         //hold survey numbers, 1 survey is 2 pages
         public int surveyNumber = 0;
 
+        private bool surveyGate = false;
+
 
 
         //loop through data in text file line by line using 'constant' text as markers 
@@ -72,7 +74,7 @@ namespace BookingSystem.Helpers
                 if (record == 2)
                 {
                     //constant marker to stop recording
-                    if (line.StartsWith("9"))
+                    if (line.Contains("consider a career") || line.StartsWith("9"))
                     {
                         record = 1;
                         continue;
@@ -194,6 +196,8 @@ namespace BookingSystem.Helpers
                         pageNumber++;
                         surveyNumber++;
 
+                        surveyGate = true;
+
                         record7 = 1;
                         continue;
                     }
@@ -205,9 +209,10 @@ namespace BookingSystem.Helpers
 
                 
                 // Called every 2x pages of text when all survey answers have been extracted 
-                if (new int[] { 2, 4, 6, 8, 10, 12, 14 }.Contains(pageNumber))
+                if (surveyNumber != 0 && surveyGate == true)
                 {
                     EnterSurvey(rollNumber, officialSchoolName, campDate);
+                    surveyGate = false;
                 }
                
             }
