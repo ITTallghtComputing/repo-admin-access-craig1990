@@ -26,6 +26,8 @@ namespace BookingSystem.Helpers
         //creates a List of lines of text from data file
         List<string> lines = File.ReadAllLines(datafile).ToList();
 
+        private int record8 = 1;
+        private int record9 = 1;
         //start recording markers for loop
         public int record = 1;
         public int record2 = 1;
@@ -36,9 +38,9 @@ namespace BookingSystem.Helpers
         public int record7 = 1;
 
         private double answer1;
-        private double answer3;
-        private double answer4;
-        private double answer5;
+        private string answer3 = string.Empty;
+        private string answer4 = string.Empty;
+        private string answer5 = string.Empty;
         private double answer6b;
 
         //hold asnwers
@@ -74,7 +76,73 @@ namespace BookingSystem.Helpers
                 //iteration to record answer data 
                 // i.e.    2 constant triggers are used to record the data in between
 
-           
+
+                //search for answer to question 1
+                if (line.Contains("before the camp."))
+                {
+                    //trigger recording variable to start recording
+                    record8 = 2;
+                    continue;
+                }
+                if (record8 == 2)
+                {
+                    //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
+                    if (line.Contains("select your gender."))
+                    {
+                        record8 = 1;
+                        continue;
+                    }
+                    //else record the answer data
+                    else
+                    {
+                        //record answer 1
+                        //extract age from line, convert to double and add 10 
+                        string ageText = line.Substring(line.Length - 1);
+                        double age;
+                        double.TryParse(ageText, out age);
+
+                        answer1 = age += 10;
+                    }
+                }
+
+
+                //search for answer to question 3
+                if (line.Contains("games per day"))
+                {
+                    //trigger recording variable to start recording
+                    record9 = 2;
+                    continue;
+                }
+                if (record9 == 2)
+                {
+                    //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
+                    if (line.StartsWith("4") || line.Contains("spend on social"))
+                    {
+                        record9 = 1;
+                        continue;
+                    }
+                    //else record the answer data
+                    else
+                    {
+                        //record answer 3
+                        //extract age from line, convert to double and add 10 
+                        //string hours = line.ToString();
+                        //hours = hours[0].ToString();
+                        answer3 = line.ToString();
+
+                        //if(line.Contains("social media"))
+                        //{
+
+                        //}
+
+                    }
+                }
+
+
+
+
 
 
                 //search for answer to question 8
@@ -241,6 +309,11 @@ namespace BookingSystem.Helpers
                     answer14c = string.Empty;
                     answer18 = string.Empty;
                     answer20 = string.Empty;
+                    answer1 = 0;
+                    answer3 = string.Empty;
+                    answer4 = string.Empty;
+                    answer5 = string.Empty;
+                    answer6b = 0;
                 }
 
             }
@@ -263,6 +336,8 @@ namespace BookingSystem.Helpers
             s1.Q14c = answer14c;
             s1.Q18 = answer18;
             s1.Q20 = answer20;
+            s1.Q1 = answer1;
+            s1.Q3 = answer3;
 
             db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
