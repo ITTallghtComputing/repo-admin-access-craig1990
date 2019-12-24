@@ -111,7 +111,7 @@ namespace BookingSystem.Controllers
                 db.CampDates.Remove(date);
 
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Confirmation", "School");
             }
 
             //pass form data back to be fully resubmitted
@@ -136,7 +136,7 @@ namespace BookingSystem.Controllers
                 db.CampDates.Remove(date);
 
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Confirmation", "School");
             }
 
             //pass form data back to be fully resubmitted
@@ -148,5 +148,10 @@ namespace BookingSystem.Controllers
             return View(Organisation);
         }
 
+        [HttpGet]
+        public ActionResult Confirmation()
+        {
+            return View();
+        }
     }
 }

@@ -338,6 +338,7 @@ namespace BookingSystem.Helpers
             s1.Q20 = answer20;
             s1.Q1 = answer1;
             s1.Q3 = answer3;
+            s1.Q6b = answer6b;
 
             db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
