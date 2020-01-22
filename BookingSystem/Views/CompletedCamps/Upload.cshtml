@@ -13,14 +13,27 @@
     <p><strong>Upload Surveys in .PDF format</strong></p>
     <br />
 
-    <form class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")">
+    <form id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")">
         <div>
-            <input name="file" type="file" class="btn btn-link" required  />
+            <input name="file" type="file" class="btn btn-link" required />
             <br />
             <button type="submit" class="btn btn-block btn-primary">Import</button>
+
         </div>
-    </form>
+
+    </form><img id="loading" src="../../Content/processing.gif" alt="Updating ..." style="display:none" />
 </div>
 <br />
 
 
+@section scripts {
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+                 $("form#upload").submit(function () {
+        $("img#loading").show();
+    });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

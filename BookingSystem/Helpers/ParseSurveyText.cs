@@ -87,7 +87,6 @@ namespace BookingSystem.Helpers
                 if (record8 == 2)
                 {
                     //constant marker to stop recording
-                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
                     if (line.Contains("select your gender."))
                     {
                         record8 = 1;
@@ -130,7 +129,7 @@ namespace BookingSystem.Helpers
                         //extract age from line, convert to double and add 10 
                         //string hours = line.ToString();
                         //hours = hours[0].ToString();
-                        answer3 = line.ToString();
+                        answer3 = line;
 
                         //if(line.Contains("social media"))
                         //{
@@ -339,6 +338,9 @@ namespace BookingSystem.Helpers
             s1.Q1 = answer1;
             s1.Q3 = answer3;
             s1.Q6b = answer6b;
+
+         
+
 
             db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
