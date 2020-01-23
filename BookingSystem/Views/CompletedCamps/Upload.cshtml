@@ -1,4 +1,6 @@
-﻿
+﻿@model BookingSystem.Models.CompletedCamp
+
+
 @{
     ViewBag.Title = "Upload";
 }
@@ -10,7 +12,7 @@
 
 
 <div>
-    <p><strong>Upload Surveys in .PDF format</strong></p>
+    <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
     <br />
 
     <form id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")">
@@ -21,7 +23,7 @@
 
         </div>
 
-    </form><img id="loading" src="../../Content/processing.gif" alt="Updating ..." style="display:none" />
+    </form><img id="loading" src="../../processing.gif" alt="Updating ..." style="display:none" />
 </div>
 <br />
 
@@ -30,9 +32,9 @@
 
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
-                 $("form#upload").submit(function () {
-        $("img#loading").show();
-    });
+        $("form#upload").submit(function () {
+            $("img#loading").show();
+        });
     </script>
 
     @Scripts.Render("~/bundles/jqueryval")

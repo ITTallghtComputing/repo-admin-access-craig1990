@@ -117,7 +117,7 @@ namespace BookingSystem.Helpers
                 {
                     //constant marker to stop recording
                     //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
-                    if (line.StartsWith("4") || line.Contains("spend on social"))
+                    if (line.Contains("spend on social"))
                     {
                         record9 = 1;
                         continue;
