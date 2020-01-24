@@ -149,7 +149,7 @@ namespace BookingSystem.Controllers
                
 
 
-            return View();
+            return View(completedCamp);
         }
     }
 }

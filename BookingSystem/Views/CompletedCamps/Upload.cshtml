@@ -6,36 +6,43 @@
 }
 
 <br />
-<h4><strong>Upload Survey</strong></h4>
+<h4><strong></strong></h4>
 <br />
 <br />
 
-
-<div>
-    <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
-    <br />
-
-    <form id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")">
+<div class="row">
+    <div class="col-md-6 col-md-offset-4">
         <div>
-            <input name="file" type="file" class="btn btn-link" required />
+            <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
             <br />
-            <button type="submit" class="btn btn-block btn-primary">Import</button>
 
+            <form id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
+                <div>
+                    <input name="file" type="file" class="btn btn-link" required />
+                    <br />
+                    <button type="submit" class="btn btn-block btn-primary">Import</button>
+
+                </div>
+
+            </form>
         </div>
+        <br />
+        <br />
+        <div style="text-align: center;">
+        <img id="loading" src="../../Content/processing.gif" alt="Updating ..." style="display:none;"   />
+            </div>
+        <br />
+        </div>
+    </div>
 
-    </form><img id="loading" src="../../processing.gif" alt="Updating ..." style="display:none" />
-</div>
-<br />
+        @*@section scripts {
 
+                <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+                <script>
+                    $("form#upload").submit(function () {
+                        $("img#loading").show();
+                    });
+                </script>
 
-@section scripts {
-
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script>
-        $("form#upload").submit(function () {
-            $("img#loading").show();
-        });
-    </script>
-
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                @Scripts.Render("~/bundles/jqueryval")
+            }*@
