@@ -40,6 +40,6 @@ steps:
     awsCredentials: 'awsPipelineConn'
     regionName: 'eu-west-1'
     applicationName: 'CampBookingSys'
-    environmentName: 'Campbookingsys-dev'
+    environmentName: 'Campbookingsys-env'
     applicationType: 'aspnet'
     webDeploymentArchive: '$(build.artifactstagingdirectory)\BookingSystem.zip'
