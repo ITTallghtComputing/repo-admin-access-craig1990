@@ -64,21 +64,7 @@ namespace BookingSystem.Models
     public class SecondarySchoolSurvey
     {
         private double q1;
-        private double q6b;
-
-        [Display(Name = "Recent Math Result")]
-        public double Q6b
-        {
-            get { return q6b; }
-            set 
-            {
-                q6b = value;
-                //if (value >= 0 && value <= 100)
-                //{
-                //    q6b = value;
-                //}
-            }
-        }
+        
 
 
         [Display(Name = "Age")]
@@ -116,6 +102,8 @@ namespace BookingSystem.Models
         public string Q5 { get; set; }
         [Display(Name = "Math Level")]
         public MathLevel Q6a { get; set; }
+        [Display(Name = "Recent Math Result")]
+        public string Q6b { get; set; }
         [Display(Name = "Science Subjects")]
         public ScienceSubjects Q7 { get; set; }
         [Display(Name = "Computing Jobs Known")]

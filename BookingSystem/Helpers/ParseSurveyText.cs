@@ -26,9 +26,13 @@ namespace BookingSystem.Helpers
         //creates a List of lines of text from data file
         List<string> lines = File.ReadAllLines(datafile).ToList();
 
-        private int record8 = 1;
-        private int record9 = 1;
         //start recording markers for loop
+        private int recordq1 = 1;
+        private int recordq3 = 1;
+        private int recordq4 = 1;
+        private int recordq5 = 1;
+        private int recordq6b = 1;
+
         public int record = 1;
         public int record2 = 1;
         public int record3 = 1;
@@ -37,13 +41,13 @@ namespace BookingSystem.Helpers
         public int record6 = 1;
         public int record7 = 1;
 
+        //hold asnwers
         private double answer1;
         private string answer3 = string.Empty;
         private string answer4 = string.Empty;
         private string answer5 = string.Empty;
-        private double answer6b;
+        private string answer6b;
 
-        //hold asnwers
         public string answer8 = string.Empty;
         public string answer11 = string.Empty;
         public string answer12 = string.Empty;
@@ -81,15 +85,15 @@ namespace BookingSystem.Helpers
                 if (line.Contains("before the camp."))
                 {
                     //trigger recording variable to start recording
-                    record8 = 2;
+                    recordq1 = 2;
                     continue;
                 }
-                if (record8 == 2)
+                if (recordq1 == 2)
                 {
                     //constant marker to stop recording
                     if (line.Contains("select your gender."))
                     {
-                        record8 = 1;
+                        recordq1 = 1;
                         continue;
                     }
                     //else record the answer data
@@ -110,38 +114,95 @@ namespace BookingSystem.Helpers
                 if (line.Contains("games per day"))
                 {
                     //trigger recording variable to start recording
-                    record9 = 2;
+                    recordq3 = 2;
                     continue;
                 }
-                if (record9 == 2)
+                if (recordq3 == 2)
                 {
                     //constant marker to stop recording
                     //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
-                    if (line.Contains("spend on social"))
+                    if (line.Contains("spend on social") || line.StartsWith("4."))
                     {
-                        record9 = 1;
+                        recordq3 = 1;
+
+                        //set record question 4 to true because next iteration is answer 4
+                        recordq4 = 2;
                         continue;
                     }
                     //else record the answer data
                     else
                     {
                         //record answer 3
-                        //extract age from line, convert to double and add 10 
-                        //string hours = line.ToString();
-                        //hours = hours[0].ToString();
                         answer3 = line;
-
-                        //if(line.Contains("social media"))
-                        //{
-
-                        //}
-
+                        continue;
                     }
                 }
 
 
+                //search for answer to question 4
+                if (recordq4 == 2)
+                {
+                    //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
+                    if (line.Contains("do you work at") || line.StartsWith("5."))
+                    {
+                        recordq4 = 1;
+
+                        //set record question 5 to true because next iteration is answer 5
+                        recordq5 = 2;
+                        continue;
+                    }
+                    //else record the answer data
+                    else
+                    {
+                        //record answer 4
+                        answer4 = line;
+                        continue;
+                    }
+                }
+
+                //search for answer to question 5
+                if (recordq5 == 2)
+                {
+                    //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
+                    if (line.Contains("you currently studying") || line.StartsWith("6"))
+                    {
+                        recordq5 = 1;
+                        continue;
+                    }
+                    //else record the answer data
+                    else
+                    {
+                        //record answer 5
+                        answer5 = line;
+                        continue;
+                    }
+                }
 
 
+                //search for answer to question 6b
+                if (line.Contains("Most recent"))
+                {
+                    //trigger recording variable to start recording
+                    recordq6b = 2;
+                    continue;
+                }
+                if (recordq6b == 2)
+                {
+                    //constant marker to stop recording
+                    //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
+                    if (line.Contains("What science") || line.StartsWith("7."))
+                    {
+                        recordq6b = 1;
+                        continue;
+                    }
+                    //else record the answer data
+                    else
+                    {
+                        answer6b += " " + line;
+                    }
+                }
 
 
                 //search for answer to question 8
@@ -312,7 +373,7 @@ namespace BookingSystem.Helpers
                     answer3 = string.Empty;
                     answer4 = string.Empty;
                     answer5 = string.Empty;
-                    answer6b = 0;
+                    answer6b = string.Empty;
                 }
 
             }
@@ -338,7 +399,7 @@ namespace BookingSystem.Helpers
             s1.Q1 = answer1;
             s1.Q3 = answer3;
             s1.Q6b = answer6b;
-
+            s1.Q4 = answer4;
          
 
 
