@@ -22,6 +22,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarQ'
+    organization: 'csincproj'
+    scannerMode: 'MSBuild'
+    projectKey: 'csincprojkey'
+    projectName: 'csincprojkey'
+
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
