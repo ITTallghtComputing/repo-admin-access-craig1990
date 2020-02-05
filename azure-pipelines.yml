@@ -24,7 +24,7 @@ steps:
 
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'SonarQ'
+    SonarCloud: 'csincproj'
     organization: 'csincproj'
     scannerMode: 'MSBuild'
     projectKey: 'csincprojkey'
