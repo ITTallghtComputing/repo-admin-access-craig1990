@@ -24,11 +24,11 @@ steps:
 
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'csincproj'
-    organization: 'csincproj'
+    SonarCloud: 'csincproject'
+    organization: 'csincproject'
     scannerMode: 'MSBuild'
-    projectKey: 'csincprojkey'
-    projectName: 'csincprojkey'
+    projectKey: 'csincprojectkey'
+    projectName: 'csincprojectkey'
 
 - task: VSBuild@1
   inputs:
