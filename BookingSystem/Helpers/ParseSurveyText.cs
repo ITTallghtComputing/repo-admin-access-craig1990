@@ -24,7 +24,7 @@ namespace BookingSystem.Helpers
         //stores server friendly map path for data file
         private static string datafile = HttpContext.Current.Server.MapPath("~/testout2.txt");
         //creates a List of lines of text from data file
-        List<string> lines = File.ReadAllLines(datafile).ToList();
+        private readonly List<string> lines = File.ReadAllLines(datafile).ToList();
 
         //start recording markers for loop
         private int recordq1 = 1;
@@ -33,13 +33,13 @@ namespace BookingSystem.Helpers
         private int recordq5 = 1;
         private int recordq6b = 1;
 
-        public int record = 1;
-        public int record2 = 1;
-        public int record3 = 1;
-        public int record4 = 1;
-        public int record5 = 1;
-        public int record6 = 1;
-        public int record7 = 1;
+        private int record = 1;
+        private int record2 = 1;
+        private int record3 = 1;
+        private int record4 = 1;
+        private int record5 = 1;
+        private int record6 = 1;
+        private int record7 = 1;
 
         //hold asnwers
         private double answer1;
@@ -48,18 +48,18 @@ namespace BookingSystem.Helpers
         private string answer5 = string.Empty;
         private string answer6b;
 
-        public string answer8 = string.Empty;
-        public string answer11 = string.Empty;
-        public string answer12 = string.Empty;
-        public string answer13b = string.Empty;
-        public string answer14c = string.Empty;
-        public string answer18 = string.Empty;
-        public string answer20 = string.Empty;
+        private string answer8 = string.Empty;
+        private string answer11 = string.Empty;
+        private string answer12 = string.Empty;
+        private string answer13b = string.Empty;
+        private string answer14c = string.Empty;
+        private string answer18 = string.Empty;
+        private string answer20 = string.Empty;
 
         //hold page numbers
-        public int pageNumber = 0;
+        private int pageNumber = 0;
         //hold survey numbers, 1 survey is 2 pages
-        public int surveyNumber = 0;
+        private int surveyNumber = 0;
 
         //set to true after every surveys final answer is extracted. Allows EnterSurvey() to then be called after each survey
         private bool surveyGate = false;
@@ -105,6 +105,7 @@ namespace BookingSystem.Helpers
                         double age;
                         double.TryParse(ageText, out age);
 
+                        //NOSONAR
                         answer1 = age += 10;
                     }
                 }
@@ -379,6 +380,7 @@ namespace BookingSystem.Helpers
             }
         }
 
+
         //Enters new Survey with its data into db.SecondarySchool Survey database
         //attach roll numnber, school name and camp data to survey
         public void EnterSurvey(string rollNumber, string officialSchoolName, DateTime? campDate)
@@ -389,6 +391,7 @@ namespace BookingSystem.Helpers
             s1.CampDate = campDate;
             s1.SurveyFileName = null;
             s1.FilePage = pageNumber;
+
             s1.Q8 = answer8;
             s1.Q11 = answer11;
             s1.Q12 = answer12;
@@ -398,8 +401,10 @@ namespace BookingSystem.Helpers
             s1.Q20 = answer20;
             s1.Q1 = answer1;
             s1.Q3 = answer3;
-            s1.Q6b = answer6b;
             s1.Q4 = answer4;
+            s1.Q5 = answer5;
+            s1.Q6b = answer6b;
+            
          
 
 
