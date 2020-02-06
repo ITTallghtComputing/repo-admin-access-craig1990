@@ -71,6 +71,7 @@ namespace BookingSystem.Helpers
 
         //added 2nd set of constant markers to deal with special edge cases where Azure OCR API failed to return a correct constant
 
+        //NOSONAR
         public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate)
         {
             foreach (string line in lines)
