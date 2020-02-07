@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IronOcr, Version=4.4.0.21181, Culture=neutral, PublicKeyToken=5f366048dc436899, processorArchitecture=MSIL">
@@ -201,9 +203,10 @@
     </Compile>
     <Compile Include="Helpers\AzureVisionAPI.cs" />
     <Compile Include="Helpers\CheckboxData.cs" />
-    <Compile Include="Helpers\EnterSchoolSurvey.cs" />
+    <Compile Include="Helpers\EnterSecondarySchoolSurvey.cs" />
     <Compile Include="Helpers\ExtractSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Helpers\ParseSurveyText.cs" />
+    <Compile Include="Helpers\SubmitSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Helpers\SurveyCheckboxCollections.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.Designer.cs">

@@ -30,7 +30,18 @@ namespace BookingSystem.Helpers
                 {"Q10Agree", new CheckboxData() {startX = 148, startY = 556, endX = 166, endY = 569 } },
                 {"Q10NoOpinion", new CheckboxData() {startX = 200, startY = 556, endX = 219, endY = 569 } },
                 {"Q10Disagree", new CheckboxData() {startX = 247, startY = 556, endX = 266, endY = 569 } }
+            };
 
+        public Dictionary<string, CheckboxData> SecondarySchoolCheckboxes
+        {
+            get
+            {
+                return secondarySchoolCheckboxes;
+            }
+        }
+
+        private Dictionary<string, CheckboxData> secondarySchoolCheckboxesP2 = new Dictionary<string, CheckboxData>()
+            {
 
                 //{"Q10StrongDisagree", new CheckboxData() {startX = 323, startY = 556, endX = 340, endY = 569 } },
                 //{"Q10StrongDisagree", new CheckboxData() {startX = 323, startY = 556, endX = 340, endY = 569 } },
@@ -63,5 +74,14 @@ namespace BookingSystem.Helpers
                 //{"Q10StrongDisagree", new CheckboxData() {startX = 323, startY = 556, endX = 340, endY = 569 } },
                 //{"Q10StrongDisagree", new CheckboxData() {startX = 323, startY = 556, endX = 340, endY = 569 } }
             };
+
+        public Dictionary<string, CheckboxData> SecondarySchoolCheckboxesP2
+        {
+            get
+            {
+                return secondarySchoolCheckboxesP2;
+            }
+        }
+
     }
 }

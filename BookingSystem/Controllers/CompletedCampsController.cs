@@ -145,8 +145,8 @@ namespace BookingSystem.Controllers
             file.SaveAs(filepath);
             await AzureVisionAPI.ExtractToTextFile(filepath);
             ParseSurveyText parse1 = new ParseSurveyText();
-            await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date));
-               
+            await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath));
+
 
 
             return View(completedCamp);

@@ -18,6 +18,12 @@ namespace BookingSystem.Helpers
 
     public class ParseSurveyText
     {
+
+        public int StartSurveyID { get; set; }
+        private bool startIDMarked;
+        public int EndSurveyID { get; set; }
+
+
         private RDSContext db = new RDSContext();
 
 
@@ -72,7 +78,7 @@ namespace BookingSystem.Helpers
         //added 2nd set of constant markers to deal with special edge cases where Azure OCR API failed to return a correct constant
 
     
-        public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate)
+        public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate, string filename)
         {
             foreach (string line in lines)
             {
@@ -376,8 +382,17 @@ namespace BookingSystem.Helpers
                     answer4 = string.Empty;
                     answer5 = string.Empty;
                     answer6b = string.Empty;
+
+                    String lastSurvey = lines.Last();
+                    while (line.Equals(lastSurvey))
+                    {
+                        EndSurveyID = +surveyNumber;
+                    }
+
                 }
 
+                ExtractSecondarySchoolSurveyCheckboxes extract1 = new ExtractSecondarySchoolSurveyCheckboxes();
+                extract1.ExtractCheckboxData(StartSurveyID, EndSurveyID, filename);
             }
         }
 
@@ -411,6 +426,13 @@ namespace BookingSystem.Helpers
 
             db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
+
+             
+            while(startIDMarked == false)
+            {
+                StartSurveyID = s1.Id;
+                startIDMarked = true;
+            }
         }
     }
 }
