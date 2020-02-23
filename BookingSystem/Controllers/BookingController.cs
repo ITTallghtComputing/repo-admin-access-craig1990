@@ -25,7 +25,7 @@ namespace BookingSystem.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 bookings = db.Bookings.Where(s => s.OfficialSchoolName.Contains(searchString)
-                                       || s.RollNumber.Contains(searchString));
+                                       || s.RollNumber.Contains(searchString) || s.LecturerName.Contains(searchString));
             }
 
             return View(bookings.ToList());
