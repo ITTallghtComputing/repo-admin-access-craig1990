@@ -8,6 +8,14 @@
 <br />
 <h2>Active Bookings</h2>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <br />
 <br />
 <p>

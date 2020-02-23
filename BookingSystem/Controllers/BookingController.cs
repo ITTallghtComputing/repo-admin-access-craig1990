@@ -17,9 +17,18 @@ namespace BookingSystem.Controllers
         private RDSContext db = new RDSContext();
 
         // GET: Booking
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Bookings.ToList());
+            var bookings = from s in db.Bookings
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                bookings = db.Bookings.Where(s => s.OfficialSchoolName.Contains(searchString)
+                                       || s.RollNumber.Contains(searchString));
+            }
+
+            return View(bookings.ToList());
         }
 
         // GET: Booking/Details/5
