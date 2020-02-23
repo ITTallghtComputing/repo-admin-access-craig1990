@@ -50,7 +50,7 @@
                 @Html.DisplayNameFor(model => model.RollNumber)
             </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.OfficialSchoolName)
+            @Html.ActionLink("Official School Name", "Index", new { sortOrder = ViewBag.NameSortParm} )
         </th>
         @*<th>
                 @Html.DisplayNameFor(model => model.TeacherName)
@@ -79,9 +79,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
+    <th>
+            @Html.ActionLink("Camp Date", "Index", new { sortOrder = ViewBag.DateSortParm })
+    </th>
         <th>
             @Html.DisplayNameFor(model => model.StartTime)
         </th>
@@ -121,9 +121,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Topics)
             </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.LecturerName)
-        </th>
+    <th>
+              @Html.ActionLink("Lecturer Name", "Index", new { sortOrder = ViewBag.LecturerSortParm })
+    </th>
         @*<th>
                 @Html.DisplayNameFor(model => model.PrincipalName)
             </th>

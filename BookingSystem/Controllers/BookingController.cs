@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
+using PagedList;
 
 namespace BookingSystem.Controllers
 {
@@ -17,8 +18,24 @@ namespace BookingSystem.Controllers
         private RDSContext db = new RDSContext();
 
         // GET: Booking
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LecturerSortParm = String.IsNullOrEmpty(sortOrder) ? "lecturer_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var bookings = from s in db.Bookings
                            select s;
 
@@ -28,7 +45,30 @@ namespace BookingSystem.Controllers
                                        || s.RollNumber.Contains(searchString) || s.LecturerName.Contains(searchString));
             }
 
-            return View(bookings.ToList());
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    bookings = bookings.OrderByDescending(s => s.OfficialSchoolName);
+                    break;
+                case "Date":
+                    bookings = bookings.OrderBy(s => s.Date);
+                    break;
+                case "date_desc":
+                    bookings = bookings.OrderByDescending(s => s.Date);
+                    break;
+                case "lecturer_desc":
+                    bookings = bookings.OrderByDescending(s => s.LecturerName);
+                    break;
+                default:
+                    bookings = bookings.OrderBy(s => s.OfficialSchoolName);
+                    break;
+            }
+
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+            return View(bookings.ToPagedList(pageNumber, 200));
         }
 
         // GET: Booking/Details/5
