@@ -207,13 +207,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\AzureVisionAPI.cs" />
-    <Compile Include="Helpers\CheckboxData.cs" />
-    <Compile Include="Helpers\EnterSecondarySchoolSurvey.cs" />
-    <Compile Include="Helpers\ExtractSecondarySchoolSurveyCheckboxes.cs" />
-    <Compile Include="Helpers\ParseSurveyText.cs" />
-    <Compile Include="Helpers\SubmitSecondarySchoolSurveyCheckboxes.cs" />
-    <Compile Include="Helpers\SurveyCheckboxCollections.cs" />
+    <Compile Include="Survey_Extraction\1AzureVisionAPI.cs" />
+    <Compile Include="Survey_Extraction\CheckboxData.cs" />
+    <Compile Include="Survey_Extraction\EnterSecondarySchoolSurvey.cs" />
+    <Compile Include="Survey_Extraction\3ExtractSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\2ParseSurveyText.cs" />
+    <Compile Include="Survey_Extraction\SubmitSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\SurveyCheckboxCollections.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.Designer.cs">
       <DependentUpon>201911282145429_InitialCreate.cs</DependentUpon>

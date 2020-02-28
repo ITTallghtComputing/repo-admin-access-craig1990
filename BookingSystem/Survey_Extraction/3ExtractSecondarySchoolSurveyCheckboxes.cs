@@ -13,7 +13,7 @@ namespace BookingSystem.Helpers
     public class ExtractSecondarySchoolSurveyCheckboxes
     {
         //private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\");
-        private string bitmapFolder = Path.Combine(HttpRuntime.AppDomainAppPath, "IronPDFDoc");
+        private string bitmapFolder = Path.Combine(HttpRuntime.AppDomainAppPath, "IronPDFDoc\\");
 
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
@@ -73,7 +73,6 @@ namespace BookingSystem.Helpers
                         //blank, un-marked pixel density of checkbox to measure against checkboxDensity above 
                         float blankCheckboxDensity = element.Value.AveragePixels;
 
-
                         //measures blank pixel density against passed in checkbox pixel density against a tolerance to determine if marked or not
                         if ((blankCheckboxDensity - checkboxDensity) >= densityTolerance)
                         {
@@ -91,6 +90,8 @@ namespace BookingSystem.Helpers
                     SubmitSecondarySchoolSurveyCheckboxes submitCheckboxes = new SubmitSecondarySchoolSurveyCheckboxes();
                     submitCheckboxes.UpdateSurvey(checkboxData, checkboxDataP2, surveyIDCounter);
 
+                    surveyIDCounter++;
+
                     //reset checkbox collections
                     checkboxData = new SurveyCheckboxCollections();
                     checkboxDataP2 = new SurveyCheckboxCollections();
@@ -100,9 +101,6 @@ namespace BookingSystem.Helpers
                 //Loop through Page 1 checkbox dictionary
                 else
                 {
-                    
-
-                    //loops through each checkbox in checkbox dictionary and compares
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
                     {
