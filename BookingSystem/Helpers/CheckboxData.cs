@@ -16,7 +16,7 @@ namespace BookingSystem.Helpers
         public int endY { get; set; }
 
         //average un-marked pixel density value for checkbox
-        public int AveragePixels { get; set; }
+        public float AveragePixels { get; set; }
 
         public bool IsChecked { get; set; }
     }

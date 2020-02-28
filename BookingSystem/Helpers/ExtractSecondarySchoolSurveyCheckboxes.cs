@@ -6,12 +6,15 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using IronPdf;
 using IronOcr;
+using System.IO;
 
 namespace BookingSystem.Helpers
 {
     public class ExtractSecondarySchoolSurveyCheckboxes
     {
-        private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\*.png");
+        //private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\");
+        private string bitmapFolder = Path.Combine(HttpRuntime.AppDomainAppPath, "IronPDFDoc");
+
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
@@ -19,9 +22,10 @@ namespace BookingSystem.Helpers
             //load PDF
             var pdf = PdfDocument.FromFile(filename);
             //Extract all PDF pages to a folder as Bitmap image files
-            pdf.RasterizeToImageFiles(bitmapFolder);
-            //Extract all pages as System.Drawing.Bitmap objects
-            
+            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
+
+
+            //Extract all pages as System.Drawing.Bitmap objects        
             //Bitmap[] pageImages = pdf.ToBitmap();
             //int numberPages = pageImages.Count();
 
@@ -33,19 +37,11 @@ namespace BookingSystem.Helpers
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
             SurveyCheckboxCollections checkboxDataP2 = new SurveyCheckboxCollections();
 
-            for (int i = 0; i < numberPages; i++)
+            for (int i = 1; i < numberPages; i++)
             {
 
-                Bitmap bm = new Bitmap($"~/IronPDFDoc2/{i++}.png", true);
-                BitmapData srcData = bm.LockBits(
-                new Rectangle(0, 0, bm.Width, bm.Height),
-                ImageLockMode.ReadOnly,
-                PixelFormat.Format32bppArgb);
+                Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
 
-                int stride = srcData.Stride;
-                IntPtr Scan0 = srcData.Scan0;
-
-                
 
                 //every 2nd iteration loop through Page 2 of checkbox dictionary and then update a survey with checkbox data
                 if (i % 2 == 0)
@@ -54,48 +50,32 @@ namespace BookingSystem.Helpers
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxDataP2.SecondarySchoolCheckboxes)
                     {
-                        int[] totals = new int[] { 0, 0, 0 };
-
                         int startX = element.Value.startX;
                         int endX = element.Value.endX;
                         int startY = element.Value.startY;
                         int endY = element.Value.endY;
-                        int width = endX - startX;
-                        int height = endY - startY;
 
-                        unsafe
+                        List<float> lResult = new List<float>();
+
+                        for (int y = startY; y < endY; y++)
                         {
-                            byte* p = (byte*)(void*)Scan0;
-
-                            for (int y = startY; y < endY; y++)
+                            for (int x = startX; x < endX; x++)
                             {
-                                for (int x = startX; x < endX; x++)
-                                {
-                                    for (int color = 0; color < 3; color++)
-                                    {
-                                        int idx = (y * stride) + x * 4 + color;
-
-                                        totals[color] += p[idx];
-                                    }
-                                }
+                                lResult.Add(bm.GetPixel(x, y).GetBrightness());
                             }
                         }
 
+                        //pixel density tolerance used to determine if checkbox is marked or not
+                        float densityTolerance = 5.5f; 
 
-                        //gets average colour to take into account different colour pens/marks
-                        //i.e. red, blue, black, green pens used for marking survey forms
-                        int avgB = totals[0] / (width * height);
-                        int avgG = totals[1] / (width * height);
-                        int avgR = totals[2] / (width * height);
-
-                        //get average overall pixel density to measure against constant to determine if marked or not
-                        int avgTotal = (avgB + avgG + avgR) / 3;
-
-                        //
-                        int blankaverageC = element.Value.AveragePixels;
+                        //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
+                        float checkboxDensity = lResult.Sum();
+                        //blank, un-marked pixel density of checkbox to measure against checkboxDensity above 
+                        float blankCheckboxDensity = element.Value.AveragePixels;
 
 
-                        if ((blankaverageC - avgTotal) >= 1)
+                        //measures blank pixel density against passed in checkbox pixel density against a tolerance to determine if marked or not
+                        if ((blankCheckboxDensity - checkboxDensity) >= densityTolerance)
                         {
                             element.Value.IsChecked = true;
                         }
@@ -123,50 +103,35 @@ namespace BookingSystem.Helpers
                     
 
                     //loops through each checkbox in checkbox dictionary and compares
+                    //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
                     {
-                        int[] totals = new int[] { 0, 0, 0 };
-
                         int startX = element.Value.startX;
                         int endX = element.Value.endX;
                         int startY = element.Value.startY;
                         int endY = element.Value.endY;
-                        int width = endX - startX;
-                        int height = endY - startY;
 
-                        unsafe
+                        List<float> lResult = new List<float>();
+
+                        for (int y = startY; y < endY; y++)
                         {
-                            byte* p = (byte*)(void*)Scan0;
-
-                            for (int y = startY; y < endY; y++)
+                            for (int x = startX; x < endX; x++)
                             {
-                                for (int x = startX; x < endX; x++)
-                                {
-                                    for (int color = 0; color < 3; color++)
-                                    {
-                                        int idx = (y * stride) + x * 4 + color;
-
-                                        totals[color] += p[idx];
-                                    }
-                                }
+                                lResult.Add(bm.GetPixel(x, y).GetBrightness());
                             }
                         }
 
+                        //pixel density tolerance used to determine if checkbox is marked or not
+                        float densityTolerance = 5.5f; 
 
-                        //gets average colour to take into account different colour pens/marks
-                        //i.e. red, blue, black, green pens used for marking survey forms
-                        int avgB = totals[0] / (width * height);
-                        int avgG = totals[1] / (width * height);
-                        int avgR = totals[2] / (width * height);
-
-                        //get average overall pixel density to measure against constant to determine if marked or not
-                        int avgTotal = (avgB + avgG + avgR) / 3;
-
-                        //
-                        int blankaverageC = element.Value.AveragePixels;
+                        //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
+                        float checkboxDensity = lResult.Sum();
+                        //blank, un-marked pixel density of checkbox to measure against checkboxDensity above 
+                        float blankCheckboxDensity = element.Value.AveragePixels;
 
 
-                        if ((blankaverageC - avgTotal) >= 1)
+                        //measures blank pixel density against passed in checkbox pixel density against a tolerance to determine if marked or not
+                        if ((blankCheckboxDensity - checkboxDensity) >= densityTolerance)
                         {
                             element.Value.IsChecked = true;
                         }

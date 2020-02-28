@@ -19,9 +19,9 @@ namespace BookingSystem.Helpers
     public class ParseSurveyText
     {
 
-        public int StartSurveyID { get; set; }
-        private bool startIDMarked;
-        public int EndSurveyID { get; set; }
+        //public int StartSurveyID { get; set; }
+        //private bool startIDMarked;
+        //public int EndSurveyID { get; set; }
 
 
         private RDSContext db = new RDSContext();
@@ -383,17 +383,19 @@ namespace BookingSystem.Helpers
                     answer5 = string.Empty;
                     answer6b = string.Empty;
 
-                    String lastSurvey = lines.Last();
-                    while (line.Equals(lastSurvey))
-                    {
-                        EndSurveyID = +surveyNumber;
-                    }
+                    //String lastSurvey = lines.Last();
+                    //while (line.Equals(lastSurvey))
+                    //{
+                    //    EndSurveyID = +surveyNumber;
+                    //}
 
                 }
 
-                ExtractSecondarySchoolSurveyCheckboxes extract1 = new ExtractSecondarySchoolSurveyCheckboxes();
-                extract1.ExtractCheckboxData(StartSurveyID, EndSurveyID, filename);
+                
             }
+
+           // ExtractSecondarySchoolSurveyCheckboxes extract1 = new ExtractSecondarySchoolSurveyCheckboxes();
+           // extract1.ExtractCheckboxData(StartSurveyID, EndSurveyID, filename);
         }
 
 
@@ -428,11 +430,11 @@ namespace BookingSystem.Helpers
             db.SaveChanges();
 
              
-            while(startIDMarked == false)
-            {
-                StartSurveyID = s1.Id;
-                startIDMarked = true;
-            }
+            //while(startIDMarked == false)
+            //{
+            //    StartSurveyID = s1.Id;
+            //    startIDMarked = true;
+            //}
         }
     }
 }
