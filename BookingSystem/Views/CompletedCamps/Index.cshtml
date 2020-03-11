@@ -267,13 +267,14 @@
                         <span class="caret"></span>
                     </button>
                     @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>*@
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
-                        <li>@Html.ActionLink("Details", "Details", new { id = item.Id })</li>
-                        <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
-                        <li role="separator" class="divider"></li>
-                        <li>@Html.ActionLink("Upload Surveys", "Upload", new { id = item.Id })</li>
-                    </ul>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
+                    <li>@Html.ActionLink("Details", "Details", new { id = item.Id })</li>
+                    <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
+                    <li role="separator" class="divider"></li>
+                    <li>@Html.ActionLink("Upload Surveys", "Upload", new { id = item.Id })</li>
+                    <li>@Html.ActionLink("Validate Surveys", "Validate", new { id = item.Id })</li>
+                </ul>
                 </li>
             </td>
 

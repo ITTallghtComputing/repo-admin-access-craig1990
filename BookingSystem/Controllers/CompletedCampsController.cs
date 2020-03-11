@@ -143,6 +143,10 @@ namespace BookingSystem.Controllers
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
             file.SaveAs(filepath);
+           
+            completedCamp.SurveyName = filename;
+            db.SaveChanges();
+
             await AzureVisionAPI.ExtractToTextFile(filepath);
             ParseSurveyText parse1 = new ParseSurveyText();
             await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath));
@@ -150,6 +154,15 @@ namespace BookingSystem.Controllers
 
 
             return View(completedCamp);
+        }
+
+
+
+        public ActionResult Validate(int? id)
+        {
+            CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+            string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
+            return File(filepath, "application/pdf");
         }
     }
 }

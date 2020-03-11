@@ -373,6 +373,7 @@
     <Content Include="Views\SecondarySchoolSurvey\Edit.cshtml" />
     <Content Include="Views\SecondarySchoolSurvey\Index.cshtml" />
     <Content Include="Views\School\Confirmation.cshtml" />
+    <Content Include="Views\CompletedCamps\Validate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

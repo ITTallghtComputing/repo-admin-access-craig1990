@@ -64,5 +64,6 @@ namespace BookingSystem.Models
         public int TotalGirls { get; set; }
         public int TotalBoys { get; set; }
         public int TotalPupils { get; set; }
+        public string SurveyName { get; set; }
     }
 }
