@@ -66,7 +66,7 @@ namespace BookingSystem.Helpers
                         }
 
                         //pixel density tolerance used to determine if checkbox is marked or not
-                        float densityTolerance = 5.5f; 
+                        float densityTolerance = 3.0f; 
 
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();

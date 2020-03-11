@@ -9,10 +9,10 @@ namespace BookingSystem.Helpers
     {
         private Dictionary<string, CheckboxData> secondarySchoolCheckboxes = new Dictionary<string, CheckboxData>()
             {
-                {"Q2Male", new CheckboxData() {startX = 182, startY = 197, endX = 238, endY = 227, AveragePixels = 1609.8711f} },
-                {"Q2Female", new CheckboxData() {startX = 249, startY = 196, endX = 313, endY = 239, AveragePixels = 2665.125f } },
-                {"Q2Other", new CheckboxData() {startX = 325, startY = 197, endX = 383, endY =  227, AveragePixels = 1669.1561f} },
-                {"Q2DontWantToSay", new CheckboxData() {startX = 385, startY = 194, endX = 528, endY =  229, AveragePixels = 4892.9985f} },
+                {"Q2Male", new CheckboxData() {startX = 182, startY = 197, endX = 238, endY = 227, AveragePixels = 1570.6020f} },
+                {"Q2Female", new CheckboxData() {startX = 249, startY = 196, endX = 313, endY = 239, AveragePixels = 2653.8170f } },
+                {"Q2Other", new CheckboxData() {startX = 325, startY = 197, endX = 383, endY =  227, AveragePixels = 1649.4240f} },
+                {"Q2DontWantToSay", new CheckboxData() {startX = 385, startY = 194, endX = 528, endY =  229, AveragePixels = 4781.2984f} },
                 //{"Q6Higher", new CheckboxData() {startX = 80, startY = 361, endX = 141, endY =  389, AveragePixels = 243} },
                 //{"Q6Ordinary", new CheckboxData() {startX = 142, startY = 361, endX = 218, endY =  389, AveragePixels = 238} },
                 //{"Q6Other", new CheckboxData() {startX = 217, startY = 361, endX = 277, endY =  390} },

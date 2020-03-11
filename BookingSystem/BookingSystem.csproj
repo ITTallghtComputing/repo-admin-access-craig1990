@@ -212,7 +212,7 @@
     <Compile Include="Survey_Extraction\EnterSecondarySchoolSurvey.cs" />
     <Compile Include="Survey_Extraction\3ExtractSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Survey_Extraction\2ParseSurveyText.cs" />
-    <Compile Include="Survey_Extraction\SubmitSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\UpdateSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Survey_Extraction\SurveyCheckboxCollections.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.cs" />
     <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.Designer.cs">
