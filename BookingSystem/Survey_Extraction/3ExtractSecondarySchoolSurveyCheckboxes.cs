@@ -37,14 +37,14 @@ namespace BookingSystem.Helpers
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
             SurveyCheckboxCollections checkboxDataP2 = new SurveyCheckboxCollections();
 
-            for (int i = 0; i <= numberPages; i++) //8 pages
+            for (int i = 1; i <= numberPages; i++) //8 pages
             {
-                Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                //Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                 //Loop through Page 1 checkbox dictionary
                 if (i % 2 != 0)
                 {
                     //create Bitmap with 1st page of Survey
-                    //Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                    Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
                     {
@@ -89,8 +89,9 @@ namespace BookingSystem.Helpers
                 //every 2nd iteration loop through Page 2 of checkbox dictionary and then update a survey with checkbox data
                 else if (i % 2 == 0)
                 {
+                    //int bitmapSecondPage = i+1;
                     //create Bitmap with 2nd page of Survey
-                    //Bitmap bm = new Bitmap(bitmapFolder + $"\\{i + 1}.png", true);
+                    Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxDataP2.SecondarySchoolCheckboxes)
                     {
