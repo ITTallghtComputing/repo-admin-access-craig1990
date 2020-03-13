@@ -19,10 +19,10 @@ namespace BookingSystem.Survey_Extraction
 
 
             answers.AddQ2Answer(checkboxesP1, id);
-
             answers.AddQ6Answer(checkboxesP1, id);
+            answers.AddQ7Answer(checkboxesP1, id);
 
-            
+
 
         }
 

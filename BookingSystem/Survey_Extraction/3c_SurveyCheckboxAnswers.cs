@@ -75,5 +75,42 @@ namespace BookingSystem.Survey_Extraction
             db.SaveChanges();
         }
 
+        //Adds Question 7 answer
+        public void AddQ7Answer(SurveyCheckboxCollections checkboxesP1, int id)
+        {
+            //find Survey record in db which matches id in order to update with checkbox data
+            var s1 = db.SecondarySchoolSurveys.FirstOrDefault(s => s.Id == id);
+
+            CheckboxData q7Physics = checkboxesP1.SecondarySchoolCheckboxes["Q7Physics"];
+            CheckboxData q7Biology = checkboxesP1.SecondarySchoolCheckboxes["Q7Biology"];
+            CheckboxData q7Chemistry = checkboxesP1.SecondarySchoolCheckboxes["Q7Chemistry"];
+            CheckboxData q7Science = checkboxesP1.SecondarySchoolCheckboxes["Q7Science"];
+            CheckboxData q7None = checkboxesP1.SecondarySchoolCheckboxes["Q7None"];
+
+
+            if (q7Physics.IsChecked)
+            {
+                s1.Q7 = ScienceSubjects.Physics;
+            }
+            else if (q7Biology.IsChecked)
+            {
+                s1.Q7 = ScienceSubjects.Biology;
+            }
+            else if (q7Chemistry.IsChecked)
+            {
+                s1.Q7 = ScienceSubjects.Chemistry;
+            }
+            else if (q7Science.IsChecked)
+            {
+                s1.Q7 = ScienceSubjects.ScienceJunior;
+            }
+            else
+            {
+                s1.Q7 = ScienceSubjects.None;
+            }
+
+            db.SaveChanges();
+        }
+
     }
 }
