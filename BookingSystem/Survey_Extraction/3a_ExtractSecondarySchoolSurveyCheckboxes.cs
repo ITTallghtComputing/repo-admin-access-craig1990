@@ -8,7 +8,7 @@ using IronPdf;
 using IronOcr;
 using System.IO;
 
-namespace BookingSystem.Helpers
+namespace BookingSystem.Survey_Extraction
 {
     public class ExtractSecondarySchoolSurveyCheckboxes
     {
@@ -24,12 +24,9 @@ namespace BookingSystem.Helpers
             //Extract all PDF pages to a folder as Bitmap image files
             pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
 
-
-            //Extract all pages as System.Drawing.Bitmap objects        
-            //Bitmap[] pageImages = pdf.ToBitmap();
-            //int numberPages = pageImages.Count();
-
+            //get number of pages in .PDF
             int numberPages = pdf.PageCount; 
+            //get number of Surveys in .PDF
             int numberSurveys = numberPages / 2;
 
 
@@ -39,13 +36,12 @@ namespace BookingSystem.Helpers
 
             for (int i = 1; i <= numberPages; i++) //8 pages
             {
-                //Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                 //Loop through Page 1 checkbox dictionary
                 if (i % 2 != 0)
                 {
                     //create Bitmap with 1st page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
-                    //loops through each checkbox in checkbox dictionary and compares
+                    //loops through each page 1 checkbox in page1 checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
                     {
                         int startX = element.Value.startX;
@@ -86,10 +82,9 @@ namespace BookingSystem.Helpers
 
                 }
 
-                //every 2nd iteration loop through Page 2 of checkbox dictionary and then update a survey with checkbox data
+                //every 2nd iteration loop through Page 2 checkbox dictionary and then update matching survey with checkbox data
                 else if (i % 2 == 0)
                 {
-                    //int bitmapSecondPage = i+1;
                     //create Bitmap with 2nd page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each checkbox in checkbox dictionary and compares

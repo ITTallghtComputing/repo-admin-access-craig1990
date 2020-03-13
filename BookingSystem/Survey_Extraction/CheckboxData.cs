@@ -5,7 +5,7 @@ using System.Web;
 
 //CheckboxData holds needed checkbox information such as checkbox (x,y) boxed coordinates, an un-marked pixel density value and IsChecked bool
 
-namespace BookingSystem.Helpers
+namespace BookingSystem.Survey_Extraction
 {
     public class CheckboxData
     {

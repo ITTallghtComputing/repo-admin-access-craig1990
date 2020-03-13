@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace BookingSystem.Helpers
+namespace BookingSystem.Survey_Extraction
 {
     //scans a data file which contains line by line text from 1-x numbers of surveys. Loops through data line by line
     //using 'constant' page markers to locate and record only the specific 'hand-written' answers to survey questions. 

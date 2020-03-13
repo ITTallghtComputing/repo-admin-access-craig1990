@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BookingSystem.Helpers
+namespace BookingSystem.Survey_Extraction
 {
     public class SurveyCheckboxCollections
     {
@@ -13,14 +13,14 @@ namespace BookingSystem.Helpers
                 {"Q2Female", new CheckboxData() {startX = 251, startY = 192, endX = 321, endY = 225, AveragePixels = 2175.5981f } },
                 {"Q2Other", new CheckboxData() {startX = 331, startY = 192, endX = 396, endY = 225, AveragePixels = 2022.347f} },
                 {"Q2DontWantToSay", new CheckboxData() {startX = 398, startY = 192, endX = 541, endY = 225, AveragePixels = 4391.0137f} },
-                //{"Q6Higher", new CheckboxData() {startX = 74, startY = 364, endX = 142, endY =  396} },
-                //{"Q6Ordinary", new CheckboxData() {startX = 142, startY = 364, endX = 222, endY =  395} },
-                //{"Q6Other", new CheckboxData() {startX = 223, startY = 364, endX = 285, endY =  394} },
-                //{"Q7Physics", new CheckboxData() {startX = 74, startY = 414, endX = 144, endY = 445 } },
-                //{"Q7Biology", new CheckboxData() {startX = 154, startY = 414, endX = 224, endY = 444 } },
-                //{"Q7Chemistry", new CheckboxData() {startX = 236, startY = 413, endX = 319, endY = 444 } },
-                //{"Q7Science", new CheckboxData() {startX = 332, startY = 413, endX = 403, endY = 444 } },
-                //{"Q7None", new CheckboxData() {startX = 404, startY = 413, endX = 467, endY = 443 } },
+                {"Q6Higher", new CheckboxData() {startX = 74, startY = 364, endX = 142, endY =  396, AveragePixels = 2053.0308f} },
+                {"Q6Ordinary", new CheckboxData() {startX = 142, startY = 364, endX = 222, endY =  395, AveragePixels = 2321.1863f} },
+                {"Q6Other", new CheckboxData() {startX = 223, startY = 364, endX = 285, endY =  394, AveragePixels = 1745.5236f} },
+                {"Q7Physics", new CheckboxData() {startX = 74, startY = 414, endX = 144, endY = 445, AveragePixels = 2041.3314f} },
+                {"Q7Biology", new CheckboxData() {startX = 154, startY = 414, endX = 224, endY = 444, AveragePixels = 1957.2627f} },
+                {"Q7Chemistry", new CheckboxData() {startX = 236, startY = 413, endX = 319, endY = 444, AveragePixels = 2399.8352f } },
+                {"Q7Science", new CheckboxData() {startX = 332, startY = 413, endX = 403, endY = 444, AveragePixels = 2062.9607f} },
+                {"Q7None", new CheckboxData() {startX = 404, startY = 413, endX = 467, endY = 443, AveragePixels = 1779.7137f} }
                 //{"Q9StrongAgree", new CheckboxData() {startX = 94, startY = 520, endX = 111, endY = 534 } },
                 //{"Q9Agree", new CheckboxData() {startX = 152, startY = 520, endX = 169, endY = 534 } },
                 //{"Q9NoOpinion", new CheckboxData() {startX = 207, startY = 520, endX = 222, endY = 533 } },

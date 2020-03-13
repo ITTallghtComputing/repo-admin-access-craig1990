@@ -17,7 +17,7 @@ using System.Web.Mvc;
 using System.Web;
 
 
-namespace BookingSystem.Helpers
+namespace BookingSystem.Survey_Extraction
 {
     public static class AzureVisionAPI
     {

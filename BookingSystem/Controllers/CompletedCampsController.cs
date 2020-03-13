@@ -10,10 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
 using System.IO;
-using BookingSystem.Helpers;
 using System.Threading.Tasks;
 
-namespace BookingSystem.Controllers
+namespace BookingSystem.Survey_Extraction
 {
     public class CompletedCampsController : Controller
     {
