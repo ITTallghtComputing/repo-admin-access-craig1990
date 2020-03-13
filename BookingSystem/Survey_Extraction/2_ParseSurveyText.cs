@@ -18,7 +18,7 @@ namespace BookingSystem.Survey_Extraction
 
     public class ParseSurveyText
     {
-
+        //Keep track of Survey IDs for checkbox mark extraction
         public int StartSurveyID { get; set; }
         private static bool startIDMarked = false;
         public int EndSurveyID { get; set; }

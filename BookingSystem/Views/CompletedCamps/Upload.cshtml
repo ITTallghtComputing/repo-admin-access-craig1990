@@ -11,16 +11,16 @@
 <br />
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-4" style="justify-content:center; align-content:center">
         <div>
             <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
             <br />
 
-            <form id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
+            <form style="height:250px; width:400px" id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
                 <div>
                     <input name="file" type="file" class="btn btn-link" required />
                     <br />
-                    <button type="submit" class="btn btn-block btn-primary">Import</button>
+                    <button style="position: absolute" type="submit" class="btn btn-block btn-primary">Import</button>
 
                 </div>
 

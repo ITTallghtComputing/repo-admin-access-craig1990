@@ -32,7 +32,6 @@ namespace BookingSystem.Survey_Extraction
 
 
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
-            SurveyCheckboxCollections checkboxDataP2 = new SurveyCheckboxCollections();
 
             for (int i = 1; i <= numberPages; i++) //8 pages
             {
@@ -59,8 +58,8 @@ namespace BookingSystem.Survey_Extraction
                             }
                         }
 
-                        //pixel density tolerance used to determine if checkbox is marked or not
-                        float densityTolerance = 3.5f;
+                        //pixel density tolerance used to determine if checkbox is marked or not                ***
+                        float densityTolerance = 2.5f;
 
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();
@@ -88,7 +87,7 @@ namespace BookingSystem.Survey_Extraction
                     //create Bitmap with 2nd page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each checkbox in checkbox dictionary and compares
-                    foreach (KeyValuePair<string, CheckboxData> element in checkboxDataP2.SecondarySchoolCheckboxes)
+                    foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxesP2)
                     {
                         int startX = element.Value.startX;
                         int endX = element.Value.endX;
@@ -105,8 +104,8 @@ namespace BookingSystem.Survey_Extraction
                             }
                         }
 
-                        //pixel density tolerance used to determine if checkbox is marked or not
-                        float densityTolerance = 3.5f;
+                        //pixel density tolerance used to determine if checkbox is marked or not              ***
+                        float densityTolerance = 2.5f;
 
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();
@@ -128,13 +127,12 @@ namespace BookingSystem.Survey_Extraction
 
                     //update a survey with checkbox data
                     SubmitSecondarySchoolSurveyCheckboxes submitCheckboxes = new SubmitSecondarySchoolSurveyCheckboxes();
-                    submitCheckboxes.UpdateSurvey(checkboxData, checkboxDataP2, surveyIDCounter);
+                    submitCheckboxes.UpdateSurvey(checkboxData, surveyIDCounter);
 
                     surveyIDCounter++;
 
                     //reset checkbox collections
                     checkboxData = new SurveyCheckboxCollections();
-                    checkboxDataP2 = new SurveyCheckboxCollections();
 
                 }
 

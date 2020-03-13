@@ -12,15 +12,23 @@ namespace BookingSystem.Survey_Extraction
     {
         private RDSContext db = new RDSContext();
 
-        public void UpdateSurvey(SurveyCheckboxCollections checkboxesP1, SurveyCheckboxCollections checkboxesP2, int id)
+        public void UpdateSurvey(SurveyCheckboxCollections checkboxes, int id)
         {
       
             SurveyCheckboxAnswers answers = new SurveyCheckboxAnswers();
 
+            //Add Page 1 checkbox answers
+            answers.AddQ2Answer(checkboxes, id);
+            answers.AddQ6Answer(checkboxes, id);
+            answers.AddQ7Answer(checkboxes, id);
+            answers.AddQ9Answer(checkboxes, id);
+            answers.AddQ10Answer(checkboxes, id);
 
-            answers.AddQ2Answer(checkboxesP1, id);
-            answers.AddQ6Answer(checkboxesP1, id);
-            answers.AddQ7Answer(checkboxesP1, id);
+            //Add Page 2 checkbox answers
+            answers.AddQ13Answer(checkboxes, id);
+            answers.AddQ14aAnswer(checkboxes, id);
+            answers.AddQ14bAnswer(checkboxes, id);
+
 
 
 
