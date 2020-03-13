@@ -178,6 +178,10 @@ namespace BookingSystem.Survey_Extraction
             {
                 s1.Q10 = Measure.Disagree;
             }
+            else if (q10StrongDisagree.IsChecked)
+            {
+                s1.Q10 = Measure.StronglyDisagree;
+            }
             else
             {
                 s1.Q10 = Measure.None;
@@ -258,7 +262,7 @@ namespace BookingSystem.Survey_Extraction
             db.SaveChanges();
         }
 
-        //Adds Question 14a answer
+        //Adds Question 14b answer
         public void AddQ14bAnswer(SurveyCheckboxCollections checkboxes, int id)
         {
             //find Survey record in db which matches id in order to update with checkbox data
@@ -285,6 +289,170 @@ namespace BookingSystem.Survey_Extraction
             else
             {
                 s1.Q14b = GoodBad.None;
+            }
+
+            db.SaveChanges();
+        }
+
+        //Adds Question 15 answer
+        public void AddQ15Answer(SurveyCheckboxCollections checkboxes, int id)
+        {
+            //find Survey record in db which matches id in order to update with checkbox data
+            var s1 = db.SecondarySchoolSurveys.FirstOrDefault(s => s.Id == id);
+
+            CheckboxData q15StrongAgree = checkboxes.SecondarySchoolCheckboxesP2["Q15StrongAgree"];
+            CheckboxData q15Agree = checkboxes.SecondarySchoolCheckboxesP2["Q15Agree"];
+            CheckboxData q15NoOpinion = checkboxes.SecondarySchoolCheckboxesP2["Q15NoOpinion"];
+            CheckboxData q15Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q15Disagree"];
+            CheckboxData q15StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q15StrongDisagree"];
+
+
+            if (q15StrongAgree.IsChecked)
+            {
+                s1.Q15 = Measure.StronglyAgree;
+            }
+            else if (q15Agree.IsChecked)
+            {
+                s1.Q15 = Measure.Agree;
+            }
+            else if (q15NoOpinion.IsChecked)
+            {
+                s1.Q15 = Measure.NoOpinion;
+            }
+            else if (q15Disagree.IsChecked)
+            {
+                s1.Q15 = Measure.Disagree;
+            }
+            else if (q15StrongDisagree.IsChecked)
+            {
+                s1.Q15 = Measure.StronglyDisagree;
+            }
+            else
+            {
+                s1.Q15 = Measure.None;
+            }
+
+            db.SaveChanges();
+        }
+
+        //Adds Question 16 answer
+        public void AddQ16Answer(SurveyCheckboxCollections checkboxes, int id)
+        {
+            //find Survey record in db which matches id in order to update with checkbox data
+            var s1 = db.SecondarySchoolSurveys.FirstOrDefault(s => s.Id == id);
+
+            CheckboxData q16StrongAgree = checkboxes.SecondarySchoolCheckboxesP2["Q16StrongAgree"];
+            CheckboxData q16Agree = checkboxes.SecondarySchoolCheckboxesP2["Q16Agree"];
+            CheckboxData q16NoOpinion = checkboxes.SecondarySchoolCheckboxesP2["Q16NoOpinion"];
+            CheckboxData q16Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q16Disagree"];
+            CheckboxData q16StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q16StrongDisagree"];
+
+
+            if (q16StrongAgree.IsChecked)
+            {
+                s1.Q16 = Measure.StronglyAgree;
+            }
+            else if (q16Agree.IsChecked)
+            {
+                s1.Q16 = Measure.Agree;
+            }
+            else if (q16NoOpinion.IsChecked)
+            {
+                s1.Q16 = Measure.NoOpinion;
+            }
+            else if (q16Disagree.IsChecked)
+            {
+                s1.Q16 = Measure.Disagree;
+            }
+            else if (q16StrongDisagree.IsChecked)
+            {
+                s1.Q16 = Measure.StronglyDisagree;
+            }
+            else
+            {
+                s1.Q16 = Measure.None;
+            }
+
+            db.SaveChanges();
+        }
+
+        //Adds Question 17 answer
+        public void AddQ17Answer(SurveyCheckboxCollections checkboxes, int id)
+        {
+            //find Survey record in db which matches id in order to update with checkbox data
+            var s1 = db.SecondarySchoolSurveys.FirstOrDefault(s => s.Id == id);
+
+            CheckboxData q17StrongAgree = checkboxes.SecondarySchoolCheckboxesP2["Q17StrongAgree"];
+            CheckboxData q17Agree = checkboxes.SecondarySchoolCheckboxesP2["Q17Agree"];
+            CheckboxData q17NoOpinion = checkboxes.SecondarySchoolCheckboxesP2["Q17NoOpinion"];
+            CheckboxData q17Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q17Disagree"];
+            CheckboxData q17StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q17StrongDisagree"];
+
+
+            if (q17StrongAgree.IsChecked)
+            {
+                s1.Q17 = Measure.StronglyAgree;
+            }
+            else if (q17Agree.IsChecked)
+            {
+                s1.Q17 = Measure.Agree;
+            }
+            else if (q17NoOpinion.IsChecked)
+            {
+                s1.Q17 = Measure.NoOpinion;
+            }
+            else if (q17Disagree.IsChecked)
+            {
+                s1.Q17 = Measure.Disagree;
+            }
+            else if (q17StrongDisagree.IsChecked)
+            {
+                s1.Q17 = Measure.StronglyDisagree;
+            }
+            else
+            {
+                s1.Q17 = Measure.None;
+            }
+
+            db.SaveChanges();
+        }
+
+        //Adds Question 19 answer
+        public void AddQ19Answer(SurveyCheckboxCollections checkboxes, int id)
+        {
+            //find Survey record in db which matches id in order to update with checkbox data
+            var s1 = db.SecondarySchoolSurveys.FirstOrDefault(s => s.Id == id);
+
+            CheckboxData q19StrongAgree = checkboxes.SecondarySchoolCheckboxesP2["Q19StrongAgree"];
+            CheckboxData q19Agree = checkboxes.SecondarySchoolCheckboxesP2["Q19Agree"];
+            CheckboxData q19NoOpinion = checkboxes.SecondarySchoolCheckboxesP2["Q19NoOpinion"];
+            CheckboxData q19Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q19Disagree"];
+            CheckboxData q19StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q19StrongDisagree"];
+
+
+            if (q19StrongAgree.IsChecked)
+            {
+                s1.Q19 = Measure.StronglyAgree;
+            }
+            else if (q19Agree.IsChecked)
+            {
+                s1.Q19 = Measure.Agree;
+            }
+            else if (q19NoOpinion.IsChecked)
+            {
+                s1.Q19 = Measure.NoOpinion;
+            }
+            else if (q19Disagree.IsChecked)
+            {
+                s1.Q19 = Measure.Disagree;
+            }
+            else if (q19StrongDisagree.IsChecked)
+            {
+                s1.Q19 = Measure.StronglyDisagree;
+            }
+            else
+            {
+                s1.Q19 = Measure.None;
             }
 
             db.SaveChanges();

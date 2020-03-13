@@ -59,7 +59,7 @@ namespace BookingSystem.Survey_Extraction
                         }
 
                         //pixel density tolerance used to determine if checkbox is marked or not                ***
-                        float densityTolerance = 2.5f;
+                        float densityTolerance = 2.0f;
 
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();
@@ -105,7 +105,7 @@ namespace BookingSystem.Survey_Extraction
                         }
 
                         //pixel density tolerance used to determine if checkbox is marked or not              ***
-                        float densityTolerance = 2.5f;
+                        float densityTolerance = 2.0f;
 
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();

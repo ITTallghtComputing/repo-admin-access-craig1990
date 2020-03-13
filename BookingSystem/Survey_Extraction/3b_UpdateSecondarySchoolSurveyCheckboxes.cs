@@ -28,6 +28,11 @@ namespace BookingSystem.Survey_Extraction
             answers.AddQ13Answer(checkboxes, id);
             answers.AddQ14aAnswer(checkboxes, id);
             answers.AddQ14bAnswer(checkboxes, id);
+            answers.AddQ15Answer(checkboxes, id);
+            answers.AddQ16Answer(checkboxes, id);
+            answers.AddQ17Answer(checkboxes, id);
+            answers.AddQ19Answer(checkboxes, id);
+
 
 
 
