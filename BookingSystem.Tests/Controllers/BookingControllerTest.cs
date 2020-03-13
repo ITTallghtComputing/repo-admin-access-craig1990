@@ -66,5 +66,5 @@ namespace BookingSystem.Tests.Controllers
     //        //Assert.IsNotNull(result);
     //        Assert.AreEqual(booking.OfficialSchoolName, model.OfficialSchoolName);
     //    }
-    //}
+    }
 }
