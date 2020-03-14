@@ -17,14 +17,16 @@ namespace BookingSystem.Controllers
     {
         private RDSContext db = new RDSContext();
 
+
         // GET: Booking
-        public ActionResult Index(string sortOrder, string searchString, string currentFilter, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewBag.LecturerSortParm = String.IsNullOrEmpty(sortOrder) ? "lecturer_desc" : "";
+            ViewBag.LecturerSortParm = sortOrder == "Lecturer" ? "lecturer_desc" : "Lecturer";
 
+            //paging
             if (searchString != null)
             {
                 page = 1;
@@ -55,6 +57,9 @@ namespace BookingSystem.Controllers
                     break;
                 case "date_desc":
                     bookings = bookings.OrderByDescending(s => s.Date);
+                    break;
+                case "Lecturer":
+                    bookings = bookings.OrderBy(s => s.LecturerName);
                     break;
                 case "lecturer_desc":
                     bookings = bookings.OrderByDescending(s => s.LecturerName);
