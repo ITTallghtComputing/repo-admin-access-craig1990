@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using BookingSystem.Models;
 using System.IO;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace BookingSystem.Survey_Extraction
 {
@@ -19,9 +20,60 @@ namespace BookingSystem.Survey_Extraction
         private RDSContext db = new RDSContext();
 
         // GET: CompletedCamp
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.CompletedCamps.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.LecturerSortParm = sortOrder == "Lecturer" ? "lecturer_desc" : "Lecturer";
+
+            //paging
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var compltedCamps = from s in db.CompletedCamps
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                compltedCamps = db.CompletedCamps.Where(s => s.OfficialSchoolName.Contains(searchString)
+                                       || s.RollNumber.Contains(searchString) || s.LecturerName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    compltedCamps = compltedCamps.OrderByDescending(s => s.OfficialSchoolName);
+                    break;
+                case "Date":
+                    compltedCamps = compltedCamps.OrderBy(s => s.Date);
+                    break;
+                case "date_desc":
+                    compltedCamps = compltedCamps.OrderByDescending(s => s.Date);
+                    break;
+                case "Lecturer":
+                    compltedCamps = compltedCamps.OrderBy(s => s.LecturerName);
+                    break;
+                case "lecturer_desc":
+                    compltedCamps = compltedCamps.OrderByDescending(s => s.LecturerName);
+                    break;
+                default:
+                    compltedCamps = compltedCamps.OrderBy(s => s.OfficialSchoolName);
+                    break;
+            }
+
+
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(compltedCamps.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: CompletedCamps/Details/5
