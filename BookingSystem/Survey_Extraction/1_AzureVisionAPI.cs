@@ -21,9 +21,9 @@ namespace BookingSystem.Survey_Extraction
 {
     public static class AzureVisionAPI
     {
-        static string subscriptionKey = ("ce1824b42f79415fafd2b2dabe3081c9");
-        static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/");
-        static string outfile = HttpContext.Current.Server.MapPath("~/testout2.txt");
+        private static string subscriptionKey = ("ce1824b42f79415fafd2b2dabe3081c9");
+        private static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/");
+        private static string outfile = HttpContext.Current.Server.MapPath("~/azureAPIresponse.txt");
 
         public static ComputerVisionClient Authenticate(string endpoint, string key)
         {

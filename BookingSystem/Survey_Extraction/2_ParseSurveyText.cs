@@ -200,7 +200,7 @@ namespace BookingSystem.Survey_Extraction
                 {
                     //constant marker to stop recording
                     //added 2nd constant to allow for special edge cases (sometimes Azure API did not return 9 at all)
-                    if (line.Contains("What science") || line.StartsWith("7."))
+                    if (line.Contains("What science") || line.StartsWith("7.") || line.Contains("19") || line.StartsWith("9") || line.StartsWith("%"))
                     {
                         recordq6b = 1;
                         continue;
