@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
+using PagedList;
 
 namespace BookingSystem.Controllers
 {
@@ -15,9 +16,46 @@ namespace BookingSystem.Controllers
         private RDSContext db = new RDSContext();
 
         // GET: SecondarySchoolSurvey
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.SecondarySchoolSurveys.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
+            //paging
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var surveys = from s in db.SecondarySchoolSurveys
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                surveys = db.SecondarySchoolSurveys.Where(s => s.OfficialSchoolName.Contains(searchString) || s.RollNumber.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    surveys = surveys.OrderByDescending(s => s.OfficialSchoolName);
+                    break;
+                default:
+                    surveys = surveys.OrderBy(s => s.OfficialSchoolName);
+                    break;
+            }
+
+
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            return View(surveys.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: SecondarySchoolSurvey/Details/5
