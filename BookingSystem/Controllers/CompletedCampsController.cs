@@ -42,7 +42,14 @@ namespace BookingSystem.Survey_Extraction
             var compltedCamps = from s in db.CompletedCamps
                            select s;
 
-            if (!String.IsNullOrEmpty(searchString))
+            //convert search string to a Date
+            var isDate = DateTime.TryParse(searchString, out var searchDate);
+            if (isDate)
+            {
+                compltedCamps = db.CompletedCamps
+                .Where(s => s.Date == searchDate);
+            }
+            else if (!String.IsNullOrEmpty(searchString))
             {
                 compltedCamps = db.CompletedCamps.Where(s => s.OfficialSchoolName.Contains(searchString)
                                        || s.RollNumber.Contains(searchString) || s.LecturerName.Contains(searchString));

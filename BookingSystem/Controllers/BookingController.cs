@@ -41,11 +41,21 @@ namespace BookingSystem.Controllers
             var bookings = from s in db.Bookings
                            select s;
 
-            if (!String.IsNullOrEmpty(searchString))
+            //convert search string to a Date
+            var isDate = DateTime.TryParse(searchString, out var searchDate);
+            if (isDate)
+            {
+                bookings = db.Bookings
+                .Where(s => s.Date == searchDate);
+            }
+            else if (!String.IsNullOrEmpty(searchString))
             {
                 bookings = db.Bookings.Where(s => s.OfficialSchoolName.Contains(searchString)
                                        || s.RollNumber.Contains(searchString) || s.LecturerName.Contains(searchString));
             }
+
+
+
 
             switch (sortOrder)
             {

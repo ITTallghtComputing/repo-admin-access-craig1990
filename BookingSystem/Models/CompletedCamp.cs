@@ -30,7 +30,7 @@ namespace BookingSystem.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         //remove timestamp from DateTime
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yy}")]
         public DateTime? Date { get; set; }
         [Required]
         public string StartTime { get; set; }
