@@ -15,7 +15,7 @@
         @using (Html.BeginForm())
         {
             <p>
-                @Html.TextBox("SearchString", null, new { placeholder = "School Name or Roll Number", style = "width: 300px" })
+                @Html.TextBox("SearchString", null, new { placeholder = "School Name, Roll Number, Camp Date", style = "width: 300px" })
                 <input type="submit" value="Search" class="btn btn-sm" />
             </p>
         }

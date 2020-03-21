@@ -88,6 +88,7 @@ namespace BookingSystem.Models
         public int Id { get; set; }
         public string RollNumber { get; set; }
         public string OfficialSchoolName { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? CampDate { get; set; }
         public string SurveyFileName { get; set; }
         public int FilePage { get; set; }
@@ -143,7 +144,7 @@ namespace BookingSystem.Models
         public bool Flag { get; set; }
         [Display(Name = "Flag Content")]
         public string FlagContent { get; set; }
-
+        
 
     }
 }

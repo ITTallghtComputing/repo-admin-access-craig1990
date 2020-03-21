@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -36,10 +37,22 @@ namespace BookingSystem.Controllers
             var surveys = from s in db.SecondarySchoolSurveys
                            select s;
 
-            if (!String.IsNullOrEmpty(searchString))
+            //convert search string to a Date
+            var isDate = DateTime.TryParse(searchString, out var searchDate);
+            if (isDate)
             {
-                surveys = db.SecondarySchoolSurveys.Where(s => s.OfficialSchoolName.Contains(searchString) || s.RollNumber.Contains(searchString));
+                surveys = db.SecondarySchoolSurveys
+                .Where(s => s.CampDate == searchDate);
             }
+            else if (!String.IsNullOrEmpty(searchString))
+            {
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    surveys = db.SecondarySchoolSurveys.Where(s => s.OfficialSchoolName.Contains(searchString) || s.RollNumber.Contains(searchString));
+                }
+            }
+
 
             switch (sortOrder)
             {
