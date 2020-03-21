@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BookingSystem.Models;
+using PagedList;
 
 namespace BookingSystem.Controllers
 {
@@ -17,9 +18,60 @@ namespace BookingSystem.Controllers
         private RDSContext db = new RDSContext();
 
         // GET: CampDate
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.CampDates.ToList());
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            ViewBag.LecturerSortParm = sortOrder == "Lecturer" ? "lecturer_desc" : "Lecturer";
+
+            //paging
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var dates = from s in db.CampDates
+                                select s;
+
+            //convert search string to a Date
+            var isDate = DateTime.TryParse(searchString, out var searchDate);
+            if (isDate)
+            {
+                dates = db.CampDates
+                .Where(s => s.Date == searchDate);
+            }
+            else if (!String.IsNullOrEmpty(searchString))
+            {
+                dates = db.CampDates.Where(s => s.LecturerName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                    
+                case "date_desc":
+                    dates = dates.OrderByDescending(s => s.Date);
+                    break;
+                case "Lecturer":
+                    dates = dates.OrderBy(s => s.LecturerName);
+                    break;
+                case "lecturer_desc":
+                    dates = dates.OrderByDescending(s => s.LecturerName);
+                    break;
+                default:
+                    dates = dates.OrderBy(s => s.Date);
+                    break;
+            }
+
+
+            int pageSize = 4;
+            int pageNumber = (page ?? 1);
+            return View(dates.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: CampDate/Details/5

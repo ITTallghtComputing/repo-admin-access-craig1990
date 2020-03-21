@@ -20,7 +20,8 @@ namespace BookingSystem.Controllers
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            ViewBag.NameSortParm = sortOrder == "Name" ? "name_desc" : "Name";
 
             //paging
             if (searchString != null)
@@ -59,8 +60,15 @@ namespace BookingSystem.Controllers
                 case "name_desc":
                     surveys = surveys.OrderByDescending(s => s.OfficialSchoolName);
                     break;
-                default:
+                case "Name":
                     surveys = surveys.OrderBy(s => s.OfficialSchoolName);
+                    break;
+
+                case "date_desc":
+                    surveys = surveys.OrderByDescending(s => s.CampDate);
+                    break;
+                default:
+                    surveys = surveys.OrderBy(s => s.CampDate);
                     break;
             }
 

@@ -22,7 +22,7 @@
     </div>
     <div id="left" style="float: left">
         <p>
-            <button onclick="location.href='@Url.Action("Create", "Booking")'" type="button" class="btn btn-primary">
+            <button onclick="location.href='@Url.Action("Create", "SecondarySchoolSurvey")'" type="button" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
             </button>
         </p>
@@ -44,7 +44,7 @@
             @Html.ActionLink("Official School Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().CampDate)
+            @Html.ActionLink("Camp Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.First().Q2)
