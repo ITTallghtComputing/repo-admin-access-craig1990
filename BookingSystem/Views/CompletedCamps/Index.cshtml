@@ -11,6 +11,14 @@
 <br />
 
 <div id="container">
+    <div id="left" style="float: left">
+        <p>
+            <button onclick="location.href='@Url.Action("Create", "CompletedCamps")'" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
+            </button>
+        </p>
+
+    </div>
     <div id="right" style="float: right">
         @using (Html.BeginForm())
         {
@@ -19,14 +27,6 @@
                 <input type="submit" value="Search" class="btn btn-sm" />
             </p>
         }
-    </div>
-    <div id="left" style="float: left">
-        <p>
-            <button onclick="location.href='@Url.Action("Create", "CompletedCamps")'" type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
-            </button>
-        </p>
-
     </div>
 </div>
 <br />
