@@ -28,7 +28,7 @@ namespace BookingSystem.Survey_Extraction
 
 
         //stores server friendly map path for data file
-        private static string datafile = HttpContext.Current.Server.MapPath("~/testout2.txt");
+        private static string datafile = HttpContext.Current.Server.MapPath("~/azureAPIresponse.txt");
         //creates a List of lines of text from data file
         private readonly List<string> lines = File.ReadAllLines(datafile).ToList();
 
