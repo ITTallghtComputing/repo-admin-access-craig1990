@@ -48,23 +48,25 @@ namespace BookingSystem.Survey_Extraction
         private int record7 = 1;
 
 
-       
-
-        //hold asnwers
+        //hold double asnwer 1, seperate to string answers 
         private double answer1;
-        private string answer3 = string.Empty;
-        private string answer4 = string.Empty;
-        private string answer5 = string.Empty;
-        private string answer6b;
-        private string answer8 = string.Empty;
-        private string answer11 = string.Empty;
-        private string answer12 = string.Empty;
-        private string answer13b = string.Empty;
-        private string answer14c = string.Empty;
-        private string answer18 = string.Empty;
-        private string answer20 = string.Empty;
 
-        private Dictionary<string, string> answers = new Dictionary<string, string>();
+        //dictionary of answers - used to store answers to be entered into a Survey object.
+        //also used to loop through to answers to determine if they are NULL for validation purposes
+        private Dictionary<string, string> answers = new Dictionary<string, string>()
+        {
+            { "answer3", string.Empty },
+            { "answer4", string.Empty},
+            { "answer5", string.Empty},
+            { "answer6b", string.Empty },
+            { "answer8", string.Empty },
+            { "answer11", string.Empty },
+            { "answer12", string.Empty},
+            { "answer13b", string.Empty},
+            { "answer14c", string.Empty },
+            { "answer18", string.Empty},
+            { "answer20", string.Empty}
+        };
 
 
         //hold page numbers
@@ -84,12 +86,7 @@ namespace BookingSystem.Survey_Extraction
 
     
         public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate, string filename)
-        {
-            answers.Add("answer3", answer3);
-            answers.Add("answer4", answer4);
-            answers.Add("answer5", answer5);
-            answers.Add("answer6b", answer6b);
-
+        { 
             foreach (string line in lines)
             {
 
@@ -242,7 +239,7 @@ namespace BookingSystem.Survey_Extraction
                     //else record the answer data
                     else
                     {
-                        answer8 += " " + line;
+                        answers["answer8"] += " " + line;
                     }
                 }
 
@@ -264,7 +261,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer11 += " " + line;
+                        answers["answer11"] += " " + line;
                     }
                 }
 
@@ -281,7 +278,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer12 += " " + line;
+                        answers["answer12"] += " " + line;
                     }
                 }
 
@@ -302,7 +299,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer13b += " " + line;
+                        answers["answer13b"] += " " + line;
                     }
                 }
 
@@ -321,7 +318,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer14c += " " + line;
+                        answers["answer14c"] += " " + line;
                     }
                 }
 
@@ -340,7 +337,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer18 += " " + line;
+                        answers["answer18"] += " " + line;
                     }
                 }
 
@@ -366,7 +363,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answer20 += " " + line;
+                        answers["answer20"] += " " + line;
                     }
                 }
 
@@ -386,13 +383,13 @@ namespace BookingSystem.Survey_Extraction
                     answers["answer4"] = string.Empty;
                     answers["answer5"] = string.Empty;
                     answers["answer6b"] = string.Empty;
-                    answer8 = string.Empty;
-                    answer11 = string.Empty;
-                    answer12 = string.Empty;
-                    answer13b = string.Empty;
-                    answer14c = string.Empty;
-                    answer18 = string.Empty;
-                    answer20 = string.Empty;
+                    answers["answer8"] = string.Empty;
+                    answers["answer11"] = string.Empty;
+                    answers["answer12"] = string.Empty;
+                    answers["answer13b"] = string.Empty;
+                    answers["answer14c"] = string.Empty;
+                    answers["answer18"] = string.Empty;
+                    answers["answer20"] = string.Empty;
 
 
                     EndSurveyID++;
@@ -424,13 +421,13 @@ namespace BookingSystem.Survey_Extraction
             s1.Q4 = answers["answer4"];
             s1.Q5 = answers["answer5"];
             s1.Q6b = answers["answer6b"];
-            s1.Q8 = answer8;
-            s1.Q11 = answer11;
-            s1.Q12 = answer12;
-            s1.Q13b = answer13b;
-            s1.Q14c = answer14c;
-            s1.Q18 = answer18;
-            s1.Q20 = answer20;
+            s1.Q8 = answers["answer8"];
+            s1.Q11 = answers["answer11"];
+            s1.Q12 = answers["answer12"];
+            s1.Q13b = answers["answer13b"];
+            s1.Q14c = answers["answer14c"];
+            s1.Q18 = answers["answer18"];
+            s1.Q20 = answers["answer20"];
 
             //check for blank answer boxes and set flag for validation
             foreach (var v in answers)
@@ -440,6 +437,11 @@ namespace BookingSystem.Survey_Extraction
                     s1.Flag = true;
                     s1.FlagContent += $"Blank answer box: {v.Key}. ";
                 }
+            }
+            if (answer1 == null)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "Blank answer box: answer1. ";
             }
 
 
