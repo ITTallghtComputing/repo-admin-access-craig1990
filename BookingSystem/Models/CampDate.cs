@@ -13,7 +13,7 @@ namespace BookingSystem.Models
     public class CampDate
     {
         //remove timestamp from DateTime
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yy}")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         public int Id { get; set; }
         public string LecturerName { get; set; }

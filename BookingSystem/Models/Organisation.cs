@@ -25,7 +25,7 @@ namespace BookingSystem.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         //remove timestamp from DateTime
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yy}")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? Date { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }

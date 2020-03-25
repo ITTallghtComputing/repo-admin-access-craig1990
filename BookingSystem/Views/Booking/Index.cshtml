@@ -12,6 +12,14 @@
 <br />
 
 <div id="container">
+    <div id="left" style="float: left">
+        <p>
+            <button onclick="location.href='@Url.Action("Create", "Booking")'" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
+            </button>
+        </p>
+
+    </div>
     <div id="right" style="float: right">
         @using (Html.BeginForm())
         {
@@ -21,14 +29,7 @@
             </p>
         }
     </div>
-    <div id="left" style="float: left">
-        <p>
-            <button onclick="location.href='@Url.Action("Create", "Booking")'" type="button" class="btn btn-primary">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
-            </button>
-        </p>
 
-    </div>
 </div>
 <br />
 <br />
