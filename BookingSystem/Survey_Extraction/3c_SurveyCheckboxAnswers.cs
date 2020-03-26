@@ -23,21 +23,39 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q2Other = checkboxes.SecondarySchoolCheckboxes["Q2Other"];
             CheckboxData q2DontWantToSay = checkboxes.SecondarySchoolCheckboxes["Q2DontWantToSay"];
 
+            int checkboxValidaiton = 0;
+
             if (q2Male.IsChecked)
             {
                 s1.Q2 = Gender.Male;
+                checkboxValidaiton++;
             }
-            else if (q2Female.IsChecked)
+            if (q2Female.IsChecked)
             {
                 s1.Q2 = Gender.Female;
+                checkboxValidaiton++;
             }
-            else if (q2Other.IsChecked)
+            if (q2Other.IsChecked)
             {
                 s1.Q2 = Gender.Other;
+                checkboxValidaiton++;
             }
-            else
+            if (q2DontWantToSay.IsChecked)
             {
                 s1.Q2 = Gender.None;
+                checkboxValidaiton++;
+            }
+
+            //validate only 1 checkbox has been marked 
+            if(checkboxValidaiton == 0)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "question2: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "question2: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();

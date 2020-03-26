@@ -67,7 +67,7 @@ namespace BookingSystem.Models
         
 
 
-        [Display(Name = "Age")]
+        [Display(Name = "Q1. Age")]
         public double Q1
         {
             get { return q1; }
@@ -93,51 +93,51 @@ namespace BookingSystem.Models
         public string SurveyFileName { get; set; }
         public int FilePage { get; set; }
 
-        [Display(Name = "Gender")]
+        [Display(Name = "Q2. Gender")]
         public Gender Q2 { get; set; }
-        [Display(Name = "Hours Gaming")]
+        [Display(Name = "Q3. Hours Gaming")]
         public string Q3 { get; set; }
-        [Display(Name = "Hours Social Media")]
+        [Display(Name = "Q4. Hours Social Media")]
         public string Q4 { get; set; }
-        [Display(Name = "Hours Working")]
+        [Display(Name = "Q5. Hours Working")]
         public string Q5 { get; set; }
-        [Display(Name = "Math Level")]
+        [Display(Name = "Q6a. Math Level")]
         public MathLevel Q6a { get; set; }
-        [Display(Name = "Recent Math Result")]
+        [Display(Name = "Q6b. Recent Math Result")]
         public string Q6b { get; set; }
-        [Display(Name = "Science Subjects")]
+        [Display(Name = "Q7. Science Subjects")]
         public ScienceSubjects Q7 { get; set; }
-        [Display(Name = "Computing Jobs Known")]
+        [Display(Name = "Q8. Computing Jobs Known")]
         public string Q8 { get; set; }
-        [Display(Name = "Consider IT Job")]
+        [Display(Name = "Q9. Consider IT Job")]
         public Measure Q9 { get; set; }
-        [Display(Name = "IT Skills Perception")]
+        [Display(Name = "Q10. IT Skills Perception")]
         public Measure Q10 { get; set; }
-        [Display(Name = "2 Reasons Against IT Job")]
+        [Display(Name = "Q11. 2 Reasons Against IT Job")]
         public string Q11 { get; set; }
-        [Display(Name = "2 Role Models & Jobs")]
+        [Display(Name = "Q12. 2 Role Models & Jobs")]
         public string Q12 { get; set; }
-        [Display(Name = "Family Members in IT")]
+        [Display(Name = "Q13a. Family Members in IT")]
         public YesNo Q13a { get; set; }
-        [Display(Name = "Which family member")]
+        [Display(Name = "Q13b. Which family member")]
         public string Q13b { get; set; }
-        [Display(Name = "Previous Computing Experience")]
+        [Display(Name = "Q14a. Previous Computing Experience")]
         public CompExperience Q14a { get; set; }
-        [Display(Name = "Good or Bad Experience")]
+        [Display(Name = "Q14b. Good or Bad Experience")]
         public GoodBad Q14b { get; set; }
-        [Display(Name = "Why was this?")]
+        [Display(Name = "Q14c. Why was this?")]
         public string Q14c { get; set; }
-        [Display(Name = "Consider a Job in IT")]
+        [Display(Name = "Q15. Consider a Job in IT")]
         public Measure Q15 { get; set; }
-        [Display(Name = "Camp IT Insight")]
+        [Display(Name = "Q16. Camp IT Insight")]
         public Measure Q16 { get; set; }
-        [Display(Name = "Camp IT Skills Insight")]
+        [Display(Name = "Q17. Camp IT Skills Insight")]
         public Measure Q17 { get; set; }
-        [Display(Name = "New Computing Knowledge")]
+        [Display(Name = "Q18. New Computing Knowledge")]
         public string Q18 { get; set; }
-        [Display(Name = "Camp  IT Skills Insight 2")]
+        [Display(Name = "Q19. Camp  IT Skills Insight 2")]
         public Measure Q19 { get; set; }
-        [Display(Name = "Feedback")]
+        [Display(Name = "Q20. Feedback")]
         public string Q20 { get; set; }
 
         [Display(Name = "Flag")]

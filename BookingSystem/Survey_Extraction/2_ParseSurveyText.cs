@@ -18,19 +18,19 @@ namespace BookingSystem.Survey_Extraction
 
     public class ParseSurveyText
     {
-        //Keep track of Survey IDs for checkbox mark extraction
-        public int StartSurveyID { get; set; }
-        private static bool startIDMarked = false;
-        public int EndSurveyID { get; set; }
-
-
         private RDSContext db = new RDSContext();
-
 
         //stores server friendly map path for data file
         private static string datafile = HttpContext.Current.Server.MapPath("~/azureAPIresponse.txt");
         //creates a List of lines of text from data file
         private readonly List<string> lines = File.ReadAllLines(datafile).ToList();
+
+
+        //Keep track of Survey IDs for checkbox mark extraction
+        public int StartSurveyID { get; set; }
+        private static bool startIDMarked = false;
+        public int EndSurveyID { get; set; }
+
 
         //start recording markers for loop
         private int recordq1 = 1;
@@ -49,7 +49,7 @@ namespace BookingSystem.Survey_Extraction
 
 
         //hold double asnwer 1, seperate to string answers 
-        private double answer1;
+        private double answer1 = 0;
 
         //dictionary of answers - used to store answers to be entered into a Survey object.
         //also used to loop through to answers to determine if they are NULL for validation purposes
@@ -435,13 +435,13 @@ namespace BookingSystem.Survey_Extraction
                 if (string.IsNullOrWhiteSpace(v.Value))
                 {
                     s1.Flag = true;
-                    s1.FlagContent += $"Blank answer box: {v.Key}. ";
+                    s1.FlagContent += $"{v.Key}: blank answer box. ";
                 }
             }
-            if (answer1 == null)
+            if (answer1 == 0)
             {
                 s1.Flag = true;
-                s1.FlagContent += "Blank answer box: answer1. ";
+                s1.FlagContent += "answer1: blank answer box. ";
             }
 
 
