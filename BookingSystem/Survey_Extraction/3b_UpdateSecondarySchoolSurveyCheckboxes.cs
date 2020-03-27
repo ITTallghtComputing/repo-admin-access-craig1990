@@ -33,10 +33,6 @@ namespace BookingSystem.Survey_Extraction
             answers.AddQ17Answer(checkboxes, id);
             answers.AddQ19Answer(checkboxes, id);
 
-
-
-
-
         }
 
     }

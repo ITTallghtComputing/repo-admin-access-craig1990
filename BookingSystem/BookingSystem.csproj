@@ -209,7 +209,6 @@
     </Compile>
     <Compile Include="Survey_Extraction\1_AzureVisionAPI.cs" />
     <Compile Include="Survey_Extraction\CheckboxData.cs" />
-    <Compile Include="Survey_Extraction\EnterSecondarySchoolSurvey.cs" />
     <Compile Include="Survey_Extraction\3a_ExtractSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Survey_Extraction\2_ParseSurveyText.cs" />
     <Compile Include="Survey_Extraction\3c_SurveyCheckboxAnswers.cs" />
