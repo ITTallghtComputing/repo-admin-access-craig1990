@@ -124,12 +124,26 @@ namespace BookingSystem.Controllers
             }
 
             //pass form data back to be fully resubmitted
-            var School = new School();
-            School = db.Schools.First(m => m.RollNumber == model.RollNumber);
-            School.Date = model.Date;
-            School.ValidationMsg = "Please complete all fields";
+            School school = new School();
+            school = db.Schools.First(m => m.RollNumber == model.RollNumber);
+            school.Date = model.Date;
+            school.OfficialSchoolName = model.OfficialSchoolName;
+            school.TeacherName = model.TeacherName;
+            school.Email = model.Email;
+            school.PhoneNumber = model.PhoneNumber;
+            school.Address1 = model.Address1;
+            school.Address2 = model.Address2;
+            school.Address3 = model.Address3;
+            school.Address4 = model.Address4;
+            school.County = model.County;
+            school.Eircode = model.Eircode;
+            school.StartTime = model.StartTime;
+            school.EndTime = model.EndTime;
+            school.ClassGroups = model.ClassGroups;
+            school.Topics = model.Topics;
+            school.ValidationMsg = "Please complete all fields";
 
-            return View(School);
+            return View(school);
         }
 
         [HttpPost]
@@ -149,27 +163,26 @@ namespace BookingSystem.Controllers
             }
 
             //pass form data back to be fully resubmitted
-            var Organisation = new Organisation();
-            Organisation = db.Organisations.First(m => m.Id == model.Id);
-            Organisation.OfficialSchoolName = model.OfficialSchoolName;
-            Organisation.Date = model.Date;
-            Organisation.TeacherName = model.TeacherName;
-            Organisation.Email = model.Email;
-            Organisation.PhoneNumber = model.PhoneNumber;
-            Organisation.Address1 = model.Address1;
-            Organisation.Address2 = model.Address2;
-            Organisation.Address3 = model.Address3;
-            Organisation.Address4 = model.Address4;
-            Organisation.County = model.County;
-            Organisation.Eircode = model.Eircode;
-            Organisation.StartTime = model.StartTime;
-            Organisation.EndTime = model.EndTime;
-            Organisation.ClassGroups = model.ClassGroups;
-            Organisation.Topics = model.Topics;
-            Organisation.Surveys = model.Surveys;
-            Organisation.ValidationMsg = "Please complete all fields";
+            Organisation organisation = new Organisation();
+            organisation = db.Organisations.First(m => m.Id == model.Id);
+            organisation.OfficialSchoolName = model.OfficialSchoolName;
+            organisation.Date = model.Date;
+            organisation.TeacherName = model.TeacherName;
+            organisation.Email = model.Email;
+            organisation.PhoneNumber = model.PhoneNumber;
+            organisation.Address1 = model.Address1;
+            organisation.Address2 = model.Address2;
+            organisation.Address3 = model.Address3;
+            organisation.Address4 = model.Address4;
+            organisation.County = model.County;
+            organisation.Eircode = model.Eircode;
+            organisation.StartTime = model.StartTime;
+            organisation.EndTime = model.EndTime;
+            organisation.ClassGroups = model.ClassGroups;
+            organisation.Topics = model.Topics;
+            organisation.ValidationMsg = "Please complete all fields";
 
-            return View(Organisation);
+            return View(organisation);
         }
 
         [HttpGet]
