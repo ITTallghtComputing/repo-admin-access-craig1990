@@ -4,6 +4,15 @@
     ViewBag.Title = "Booking";
 }
 
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+
 @*<div class="row">
     <div class="col-md-6 col-md-offset-4">
         <br />
@@ -14,43 +23,43 @@
         <br />
         <br />*@
 
-        <form asp-controller="School" asp-action="Booking" method="post" style="width: 300px; margin: auto ">
+<form asp-controller="School" asp-action="Booking" method="post" style="width: 300px; margin: auto ">
 
-            <br />
-            <br />
-            <br />
-            <h4><strong>Welcome to CSinc Camp Bookings</strong></h4>
-            <br />
-            <br />
-            <br />
+    <br />
+    <br />
+    <br />
+    <h4><strong>Welcome to CSinc Camp Bookings</strong></h4>
+    <br />
+    <br />
+    <br />
 
-            <div>
+    <div>
 
-                <br />
+        <br />
 
-                <div class="form-group">
-                    <label for="RollNumber">School Roll Number:</label>
-                    <br />
-                    <input style="width:300px" asp-for="School.RollNumber" id="txtRoll" name="RollNumber" class="form-control" required autocomplete="off" />
-                    <br />
-                    @Html.ActionLink("Click if organisation without school roll number", "BookingOrg", "School", new { @class = "elements" }, null)
-                </div>
+        <div class="form-group">
+            <label for="RollNumber">School Roll Number:</label>
+            <br />
+            <input style="width:300px" asp-for="School.RollNumber" id="txtRoll" name="RollNumber" class="form-control" required autocomplete="off" />
+            <br />
+            @Html.ActionLink("Click if organisation without school roll number", "BookingOrg", "School", new { @class = "elements" }, null)
+        </div>
 
-            </div>
-            <br />
-            <div>
-                <br />
-                <label for="Date">Choose Camp Date:</label>
-                <br />
-                <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" class="form-control" required autocomplete="off" />
-            </div>
-            <br />
-            <br />
-            <br />
-            <input type="submit" value="Submit" class="submit btn btn-block btn-primary" />
-        </form>
-    @*</div>
-</div>*@
+    </div>
+    <br />
+    <div>
+        <br />
+        <label for="Date">Choose Camp Date:</label>
+        <br />
+        <input style="width:300px" asp-for="School.Date" id="txtDate" name="Date" class="form-control" required autocomplete="off" />
+    </div>
+    <br />
+    <br />
+    <br />
+    <input type="submit" value="Submit" class="submit btn btn-block btn-primary" />
+</form>
+@*</div>
+    </div>*@
 
 <br />
 <br />
@@ -66,12 +75,12 @@
     <script>
                 jQuery(function () {
 
-                    var enableDays = ['@Html.Raw(string.Join("','", Model.Select(d => d.Date.ToString("dd-MM-yyyy"))))'];
+                    var enableDays = ['@Html.Raw(string.Join("','", Model.Select(d => d.Date.ToString("dd/MM/yyyy"))))'];
 
                     console.log(enableDays);
 
                      function enableAllTheseDays(date) {
-                         var fDate = $.datepicker.formatDate('dd-mm-yy', date);
+                         var fDate = $.datepicker.formatDate('dd/mm/yy', date);
                          var result = [false, ""];
                          $.each(enableDays, function(k, d) {
                          if (fDate === d) {

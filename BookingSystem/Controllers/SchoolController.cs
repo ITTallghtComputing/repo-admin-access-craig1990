@@ -18,8 +18,6 @@ namespace BookingSystem.Controllers
         public ActionResult Booking()
         {
             var model = db.CampDates.ToList();
-
-            //test
             return View(model);
         }
 
@@ -34,12 +32,14 @@ namespace BookingSystem.Controllers
         [HttpPost]
         public ActionResult Booking(School model)
         {
-            //get row in SchoolDb which matches RollNumber   
-            School school = db.Schools.FirstOrDefault(m => m.RollNumber == model.RollNumber);
-            //get row in DatepickerDb which matches Date
+            //get row in SchoolDb which matches RollNumber
 
-            if (school.OfficialSchoolName != null)
+            var schoolresult = db.Schools.Where(m => m.RollNumber == model.RollNumber);
+            School school = schoolresult.FirstOrDefault();
+
+            if (school != null)
             {
+                //get row in DatepickerDb which matches Date
                 CampDate date = db.CampDates.First(m => m.Date == model.Date);
 
                 //add extra information from 2nd csv to main school object
@@ -69,7 +69,11 @@ namespace BookingSystem.Controllers
 
                 return RedirectToAction("BookingForm", "School", new RouteValueDictionary(school));
             }
-            return View();
+
+            //if roll number is invalid then create error message and return list of dates again
+            ViewBag.ErrorMessage = "Invalid Roll Number";
+            var dateModel = db.CampDates.ToList();
+            return View(dateModel);
         }
 
         [HttpPost]
