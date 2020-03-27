@@ -34,37 +34,42 @@ namespace BookingSystem.Controllers
         [HttpPost]
         public ActionResult Booking(School model)
         {
-            //get row in SchoolDb which matches RollNumber
-            School school = db.Schools.First(m => m.RollNumber == model.RollNumber);
+            //get row in SchoolDb which matches RollNumber   
+            School school = db.Schools.FirstOrDefault(m => m.RollNumber == model.RollNumber);
             //get row in DatepickerDb which matches Date
-            CampDate date = db.CampDates.First(m => m.Date == model.Date);
 
-            //add extra information from 2nd csv to main school object
-            School2 school2 = db.School2.First(m => m.RollNumber == model.RollNumber);
-            school.Email = school2.Email;
-            school.PhoneNumber = school2.PhoneNumber;
-            school.PrincipalName = school2.PrincipalName;
-            school.DeisSchool = school2.DeisSchool;
-            school.SchoolGender = school2.SchoolGender;
-            school.PupilAttendanceType = school2.PupilAttendanceType;
-            school.IrishClassification = school2.IrishClassification;
-            school.GaeltachtArea = school2.GaeltachtArea;
-            school.FeePayingSchool = school2.FeePayingSchool;
-            school.Religion = school2.Religion;
-            school.OpenClosedStatus = school2.OpenClosedStatus;
-            school.TotalGirls = school2.TotalGirls.GetValueOrDefault();
-            school.TotalBoys = school2.TotalBoys.GetValueOrDefault();
-            school.TotalPupils = school2.TotalPupils;
+            if (school.OfficialSchoolName != null)
+            {
+                CampDate date = db.CampDates.First(m => m.Date == model.Date);
 
-            //add camp lecturer and camp date to main school object
-            var lecturer = date.LecturerName;
-            school.LecturerName = lecturer;
-            school.Date = model.Date;
+                //add extra information from 2nd csv to main school object
+                School2 school2 = db.School2.First(m => m.RollNumber == model.RollNumber);
+                school.Email = school2.Email;
+                school.PhoneNumber = school2.PhoneNumber;
+                school.PrincipalName = school2.PrincipalName;
+                school.DeisSchool = school2.DeisSchool;
+                school.SchoolGender = school2.SchoolGender;
+                school.PupilAttendanceType = school2.PupilAttendanceType;
+                school.IrishClassification = school2.IrishClassification;
+                school.GaeltachtArea = school2.GaeltachtArea;
+                school.FeePayingSchool = school2.FeePayingSchool;
+                school.Religion = school2.Religion;
+                school.OpenClosedStatus = school2.OpenClosedStatus;
+                school.TotalGirls = school2.TotalGirls.GetValueOrDefault();
+                school.TotalBoys = school2.TotalBoys.GetValueOrDefault();
+                school.TotalPupils = school2.TotalPupils;
 
-            //save Db changes
-            db.SaveChanges();
+                //add camp lecturer and camp date to main school object
+                var lecturer = date.LecturerName;
+                school.LecturerName = lecturer;
+                school.Date = model.Date;
 
-            return RedirectToAction("BookingForm", "School", new RouteValueDictionary(school));
+                //save Db changes
+                db.SaveChanges();
+
+                return RedirectToAction("BookingForm", "School", new RouteValueDictionary(school));
+            }
+            return View();
         }
 
         [HttpPost]
@@ -142,7 +147,22 @@ namespace BookingSystem.Controllers
             //pass form data back to be fully resubmitted
             var Organisation = new Organisation();
             Organisation = db.Organisations.First(m => m.Id == model.Id);
+            Organisation.OfficialSchoolName = model.OfficialSchoolName;
             Organisation.Date = model.Date;
+            Organisation.TeacherName = model.TeacherName;
+            Organisation.Email = model.Email;
+            Organisation.PhoneNumber = model.PhoneNumber;
+            Organisation.Address1 = model.Address1;
+            Organisation.Address2 = model.Address2;
+            Organisation.Address3 = model.Address3;
+            Organisation.Address4 = model.Address4;
+            Organisation.County = model.County;
+            Organisation.Eircode = model.Eircode;
+            Organisation.StartTime = model.StartTime;
+            Organisation.EndTime = model.EndTime;
+            Organisation.ClassGroups = model.ClassGroups;
+            Organisation.Topics = model.Topics;
+            Organisation.Surveys = model.Surveys;
             Organisation.ValidationMsg = "Please complete all fields";
 
             return View(Organisation);

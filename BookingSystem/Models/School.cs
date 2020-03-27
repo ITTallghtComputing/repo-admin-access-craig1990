@@ -13,6 +13,7 @@ namespace BookingSystem.Models
     public class School
     {
         public int Id { get; set; }
+        [Required(ErrorMessage ="Valid School Roll Number Required")]
         public string RollNumber { get; set; }
         public string OfficialSchoolName { get; set; }
         public string TeacherName { get; set; }
