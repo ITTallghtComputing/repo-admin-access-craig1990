@@ -55,17 +55,17 @@ namespace BookingSystem.Survey_Extraction
         //also used to loop through to answers to determine if they are NULL for validation purposes
         private Dictionary<string, string> answers = new Dictionary<string, string>()
         {
-            { "answer3", string.Empty },
-            { "answer4", string.Empty},
-            { "answer5", string.Empty},
-            { "answer6b", string.Empty },
-            { "answer8", string.Empty },
-            { "answer11", string.Empty },
-            { "answer12", string.Empty},
-            { "answer13b", string.Empty},
-            { "answer14c", string.Empty },
-            { "answer18", string.Empty},
-            { "answer20", string.Empty}
+            { "Answer3", string.Empty},
+            { "Answer4", string.Empty},
+            { "Answer5", string.Empty},
+            { "Answer6b", string.Empty},
+            { "Answer8", string.Empty},
+            { "Answer11", string.Empty },
+            { "Answer12", string.Empty},
+            { "Answer13b", string.Empty},
+            { "Answer14c", string.Empty},
+            { "Answer18", string.Empty},
+            { "Answer20", string.Empty}
         };
 
 
@@ -148,7 +148,7 @@ namespace BookingSystem.Survey_Extraction
                     else
                     {
                         //record answer 3
-                        answers["answer3"] = line;
+                        answers["Answer3"] = line;
                         continue;
                     }
                 }
@@ -171,7 +171,7 @@ namespace BookingSystem.Survey_Extraction
                     else
                     {
                         //record answer 4
-                        answers["answer4"] = line;
+                        answers["Answer4"] = line;
                         continue;
                     }
                 }
@@ -190,7 +190,7 @@ namespace BookingSystem.Survey_Extraction
                     else
                     {
                         //record answer 5
-                        answers["answer5"] = line;
+                        answers["Answer5"] = line;
                         continue;
                     }
                 }
@@ -215,7 +215,7 @@ namespace BookingSystem.Survey_Extraction
                     //else record the answer data
                     else
                     {
-                        answers["answer6b"] += " " + line;
+                        answers["Answer6b"] += " " + line;
                     }
                 }
 
@@ -239,7 +239,7 @@ namespace BookingSystem.Survey_Extraction
                     //else record the answer data
                     else
                     {
-                        answers["answer8"] += " " + line;
+                        answers["Answer8"] += " " + line;
                     }
                 }
 
@@ -261,7 +261,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer11"] += " " + line;
+                        answers["Answer11"] += " " + line;
                     }
                 }
 
@@ -278,7 +278,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer12"] += " " + line;
+                        answers["Answer12"] += " " + line;
                     }
                 }
 
@@ -299,7 +299,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer13b"] += " " + line;
+                        answers["Answer13b"] += " " + line;
                     }
                 }
 
@@ -318,7 +318,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer14c"] += " " + line;
+                        answers["Answer14c"] += " " + line;
                     }
                 }
 
@@ -337,7 +337,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer18"] += " " + line;
+                        answers["Answer18"] += " " + line;
                     }
                 }
 
@@ -363,7 +363,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["answer20"] += " " + line;
+                        answers["Answer20"] += " " + line;
                     }
                 }
 
@@ -379,17 +379,17 @@ namespace BookingSystem.Survey_Extraction
                     //reset answers for next survey
                     
                     answer1 = 0;
-                    answers["answer3"] = string.Empty;
-                    answers["answer4"] = string.Empty;
-                    answers["answer5"] = string.Empty;
-                    answers["answer6b"] = string.Empty;
-                    answers["answer8"] = string.Empty;
-                    answers["answer11"] = string.Empty;
-                    answers["answer12"] = string.Empty;
-                    answers["answer13b"] = string.Empty;
-                    answers["answer14c"] = string.Empty;
-                    answers["answer18"] = string.Empty;
-                    answers["answer20"] = string.Empty;
+                    answers["Answer3"] = string.Empty;
+                    answers["Answer4"] = string.Empty;
+                    answers["Answer5"] = string.Empty;
+                    answers["Answer6b"] = string.Empty;
+                    answers["Answer8"] = string.Empty;
+                    answers["Answer11"] = string.Empty;
+                    answers["Answer12"] = string.Empty;
+                    answers["Answer13b"] = string.Empty;
+                    answers["Answer14c"] = string.Empty;
+                    answers["Answer18"] = string.Empty;
+                    answers["Answer20"] = string.Empty;
 
 
                     EndSurveyID++;
@@ -417,17 +417,17 @@ namespace BookingSystem.Survey_Extraction
             s1.FilePage = pageNumber;
 
             s1.Q1 = answer1;
-            s1.Q3 = answers["answer3"];
-            s1.Q4 = answers["answer4"];
-            s1.Q5 = answers["answer5"];
-            s1.Q6b = answers["answer6b"];
-            s1.Q8 = answers["answer8"];
-            s1.Q11 = answers["answer11"];
-            s1.Q12 = answers["answer12"];
-            s1.Q13b = answers["answer13b"];
-            s1.Q14c = answers["answer14c"];
-            s1.Q18 = answers["answer18"];
-            s1.Q20 = answers["answer20"];
+            s1.Q3 = answers["Answer3"];
+            s1.Q4 = answers["Answer4"];
+            s1.Q5 = answers["Answer5"];
+            s1.Q6b = answers["Answer6b"];
+            s1.Q8 = answers["Answer8"];
+            s1.Q11 = answers["Answer11"];
+            s1.Q12 = answers["Answer12"];
+            s1.Q13b = answers["Answer13b"];
+            s1.Q14c = answers["Answer14c"];
+            s1.Q18 = answers["Answer18"];
+            s1.Q20 = answers["Answer20"];
 
             //check for blank answer boxes and set flag for validation
             foreach (var v in answers)
@@ -435,13 +435,14 @@ namespace BookingSystem.Survey_Extraction
                 if (string.IsNullOrWhiteSpace(v.Value))
                 {
                     s1.Flag = true;
-                    s1.FlagContent += $"{v.Key}: blank answer box. ";
+                    s1.FlagContent += $"| {v.Key}: blank answer box. ";
                 }
             }
-            if (answer1 == 0)
+            //check for blank age checkbox or invalid ages to prevent outliers in data)
+            if (answer1 == 0 || answer1 > 21 || answer1 <= 10 )
             {
                 s1.Flag = true;
-                s1.FlagContent += "answer1: blank answer box. ";
+                s1.FlagContent += "| Answer1: blank answer box. ";
             }
 
 

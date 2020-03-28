@@ -23,8 +23,10 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q2Other = checkboxes.SecondarySchoolCheckboxes["Q2Other"];
             CheckboxData q2DontWantToSay = checkboxes.SecondarySchoolCheckboxes["Q2DontWantToSay"];
 
+            //numbers of checkboxes marked for validation
             int checkboxValidaiton = 0;
 
+            //update SecondarySchoolSurvey checkbox answers in database with IsChecked values from checkbox dictionary 
             if (q2Male.IsChecked)
             {
                 s1.Q2 = Gender.Male;
@@ -50,12 +52,12 @@ namespace BookingSystem.Survey_Extraction
             if(checkboxValidaiton == 0)
             {
                 s1.Flag = true;
-                s1.FlagContent += "question2: no checkboxes marked. ";
+                s1.FlagContent += "| Question2: no checkboxes marked. ";
             }
             else if (checkboxValidaiton > 1)
             {
                 s1.Flag = true;
-                s1.FlagContent += "question2: more than 1 checkboxes marked. ";
+                s1.FlagContent += "| Question2: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -72,23 +74,36 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q6Other = checkboxes.SecondarySchoolCheckboxes["Q6Other"];
 
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;     
+
             if (q6Higher.IsChecked)
             {
                 s1.Q6a = MathLevel.Higher;
+                checkboxValidaiton++;
             }
-            else if (q6Ordinary.IsChecked)
+            if (q6Ordinary.IsChecked)
             {
                 s1.Q6a = MathLevel.Ordinary;
+                checkboxValidaiton++;
             }
-            else if (q6Other.IsChecked)
+            if (q6Other.IsChecked)
             {
                 s1.Q6a = MathLevel.Other;
-            }
-            else
-            {
-                s1.Q6a = MathLevel.None;
+                checkboxValidaiton++;
             }
 
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question6: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question6: more than 1 checkboxes marked. ";
+            }
 
             db.SaveChanges();
         }
@@ -105,26 +120,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q7Science = checkboxes.SecondarySchoolCheckboxes["Q7Science"];
             CheckboxData q7None = checkboxes.SecondarySchoolCheckboxes["Q7None"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q7Physics.IsChecked)
             {
                 s1.Q7 = ScienceSubjects.Physics;
+                checkboxValidaiton++;
             }
-            else if (q7Biology.IsChecked)
+            if (q7Biology.IsChecked)
             {
                 s1.Q7 = ScienceSubjects.Biology;
+                checkboxValidaiton++;
             }
-            else if (q7Chemistry.IsChecked)
+            if (q7Chemistry.IsChecked)
             {
                 s1.Q7 = ScienceSubjects.Chemistry;
+                checkboxValidaiton++;
             }
-            else if (q7Science.IsChecked)
+            if (q7Science.IsChecked)
             {
                 s1.Q7 = ScienceSubjects.ScienceJunior;
+                checkboxValidaiton++;
             }
-            else
+            if (q7None.IsChecked)
             {
                 s1.Q7 = ScienceSubjects.None;
+                checkboxValidaiton++;
+            }
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question7: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question7: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -143,25 +177,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q9StrongDisagree = checkboxes.SecondarySchoolCheckboxes["Q9StrongDisagree"];
 
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
+
             if (q9StrongAgree.IsChecked)
             {
                 s1.Q9 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q9Agree.IsChecked)
+            if (q9Agree.IsChecked)
             {
                 s1.Q9 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q9NoOpinion.IsChecked)
+            if (q9NoOpinion.IsChecked)
             {
                 s1.Q9 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q9Disagree.IsChecked)
+            if (q9Disagree.IsChecked)
             {
                 s1.Q9 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else
+            if (q9StrongDisagree.IsChecked)
             {
-                s1.Q9 = Measure.None;
+                s1.Q9 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
+            }
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question9: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question9: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -179,30 +233,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q10Disagree = checkboxes.SecondarySchoolCheckboxes["Q10Disagree"];
             CheckboxData q10StrongDisagree = checkboxes.SecondarySchoolCheckboxes["Q10StrongDisagree"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q10StrongAgree.IsChecked)
             {
                 s1.Q10 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q10Agree.IsChecked)
+            if (q10Agree.IsChecked)
             {
                 s1.Q10 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q10NoOpinion.IsChecked)
+            if (q10NoOpinion.IsChecked)
             {
                 s1.Q10 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q10Disagree.IsChecked)
+            if (q10Disagree.IsChecked)
             {
                 s1.Q10 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else if (q10StrongDisagree.IsChecked)
+            if (q10StrongDisagree.IsChecked)
             {
                 s1.Q10 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q10 = Measure.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question10: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question10: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -218,21 +287,32 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q13Yes = checkboxes.SecondarySchoolCheckboxesP2["Q13Yes"];
             CheckboxData q13No = checkboxes.SecondarySchoolCheckboxesP2["Q13No"];
 
-
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q13Yes.IsChecked)
             {
                 s1.Q13a = YesNo.Yes;
+                checkboxValidaiton++;
             }
-            else if (q13No.IsChecked)
+            if (q13No.IsChecked)
             {
                 s1.Q13a = YesNo.No;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q13a = YesNo.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question13: no checkboxes marked. ";
             }
-    
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question13: more than 1 checkboxes marked. ";
+            }
+
 
             db.SaveChanges();
         }
@@ -249,31 +329,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q14SelfTaught = checkboxes.SecondarySchoolCheckboxesP2["Q14SelfTaught"];
             CheckboxData q14Other = checkboxes.SecondarySchoolCheckboxesP2["Q14Other"];
 
-
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q14CoderDojo.IsChecked)
             {
                 s1.Q14a = CompExperience.CoderDojo;
+                checkboxValidaiton++;
             }
-            else if (q14InSchool.IsChecked)
+            if (q14InSchool.IsChecked)
             {
                 s1.Q14a = CompExperience.School;
+                checkboxValidaiton++;
             }
-            else if (q14Camp.IsChecked)
+            if (q14Camp.IsChecked)
             {
                 s1.Q14a = CompExperience.Camp;
+                checkboxValidaiton++;
             }
-            else if (q14SelfTaught.IsChecked)
+            if (q14SelfTaught.IsChecked)
             {
                 s1.Q14a = CompExperience.SelfTaught;
+                checkboxValidaiton++;
             }
-            else if (q14Other.IsChecked)
+            if (q14Other.IsChecked)
             {
                 s1.Q14a = CompExperience.Other;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q14a = CompExperience.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question14a: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question14a: more than 1 checkboxes marked. ";
             }
 
 
@@ -290,23 +384,35 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q14bNeither = checkboxes.SecondarySchoolCheckboxesP2["Q14bNeither"];
             CheckboxData q14bBad = checkboxes.SecondarySchoolCheckboxesP2["Q14bBad"];
 
-
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q14bGood.IsChecked)
             {
                 s1.Q14b = GoodBad.Good;
+                checkboxValidaiton++;
             }
-            else if (q14bNeither.IsChecked)
+            if (q14bNeither.IsChecked)
             {
                 s1.Q14b = GoodBad.NeitherGoodOrBad;
+                checkboxValidaiton++;
             }
-            else if (q14bBad.IsChecked)
+            if (q14bBad.IsChecked)
             {
                 s1.Q14b = GoodBad.Bad;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q14b = GoodBad.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question14b: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question14b: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -324,30 +430,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q15Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q15Disagree"];
             CheckboxData q15StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q15StrongDisagree"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q15StrongAgree.IsChecked)
             {
                 s1.Q15 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q15Agree.IsChecked)
+            if (q15Agree.IsChecked)
             {
                 s1.Q15 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q15NoOpinion.IsChecked)
+            if (q15NoOpinion.IsChecked)
             {
                 s1.Q15 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q15Disagree.IsChecked)
+            if (q15Disagree.IsChecked)
             {
                 s1.Q15 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else if (q15StrongDisagree.IsChecked)
+            if (q15StrongDisagree.IsChecked)
             {
                 s1.Q15 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q15 = Measure.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question15: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question15: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -365,30 +486,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q16Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q16Disagree"];
             CheckboxData q16StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q16StrongDisagree"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q16StrongAgree.IsChecked)
             {
                 s1.Q16 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q16Agree.IsChecked)
+            if (q16Agree.IsChecked)
             {
                 s1.Q16 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q16NoOpinion.IsChecked)
+            if (q16NoOpinion.IsChecked)
             {
                 s1.Q16 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q16Disagree.IsChecked)
+            if (q16Disagree.IsChecked)
             {
                 s1.Q16 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else if (q16StrongDisagree.IsChecked)
+            if (q16StrongDisagree.IsChecked)
             {
                 s1.Q16 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q16 = Measure.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question16: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question16: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -406,30 +542,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q17Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q17Disagree"];
             CheckboxData q17StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q17StrongDisagree"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q17StrongAgree.IsChecked)
             {
                 s1.Q17 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q17Agree.IsChecked)
+            if (q17Agree.IsChecked)
             {
                 s1.Q17 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q17NoOpinion.IsChecked)
+            if (q17NoOpinion.IsChecked)
             {
                 s1.Q17 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q17Disagree.IsChecked)
+            if (q17Disagree.IsChecked)
             {
                 s1.Q17 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else if (q17StrongDisagree.IsChecked)
+            if (q17StrongDisagree.IsChecked)
             {
                 s1.Q17 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q17 = Measure.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question17: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question17: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -447,30 +598,45 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q19Disagree = checkboxes.SecondarySchoolCheckboxesP2["Q19Disagree"];
             CheckboxData q19StrongDisagree = checkboxes.SecondarySchoolCheckboxesP2["Q19StrongDisagree"];
 
+            //numbers of checkboxes marked for validation
+            int checkboxValidaiton = 0;
 
             if (q19StrongAgree.IsChecked)
             {
                 s1.Q19 = Measure.StronglyAgree;
+                checkboxValidaiton++;
             }
-            else if (q19Agree.IsChecked)
+            if (q19Agree.IsChecked)
             {
                 s1.Q19 = Measure.Agree;
+                checkboxValidaiton++;
             }
-            else if (q19NoOpinion.IsChecked)
+            if (q19NoOpinion.IsChecked)
             {
                 s1.Q19 = Measure.NoOpinion;
+                checkboxValidaiton++;
             }
-            else if (q19Disagree.IsChecked)
+            if (q19Disagree.IsChecked)
             {
                 s1.Q19 = Measure.Disagree;
+                checkboxValidaiton++;
             }
-            else if (q19StrongDisagree.IsChecked)
+            if (q19StrongDisagree.IsChecked)
             {
                 s1.Q19 = Measure.StronglyDisagree;
+                checkboxValidaiton++;
             }
-            else
+
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton == 0)
             {
-                s1.Q19 = Measure.None;
+                s1.Flag = true;
+                s1.FlagContent += "| Question19: no checkboxes marked. ";
+            }
+            else if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question19: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
