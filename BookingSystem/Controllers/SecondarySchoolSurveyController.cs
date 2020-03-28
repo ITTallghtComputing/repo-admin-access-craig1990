@@ -37,7 +37,8 @@ namespace BookingSystem.Controllers
             ViewBag.CurrentFilter = searchString;
 
             var surveys = from s in db.SecondarySchoolSurveys
-                           select s;
+                              select s;
+            
 
             //convert search string to a Date
             var isDate = DateTime.TryParse(searchString, out var searchDate);

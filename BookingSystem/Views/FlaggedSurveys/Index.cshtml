@@ -1,0 +1,264 @@
+﻿@model PagedList.IPagedList<BookingSystem.Models.SecondarySchoolSurvey>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Flagged Surveys</h2>
+<br />
+<br />
+
+<div id="container">
+    <div id="left" style="float: left">
+        <p>
+            <button onclick="location.href='@Url.Action("Create", "SecondarySchoolSurvey")'" type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create New
+            </button>
+        </p>
+
+    </div>
+</div>
+<br />
+<br />
+<br />
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().RollNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().OfficialSchoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CampDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Q2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Q1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Flag)
+        </th>
+
+
+        @*<th>
+                @Html.DisplayNameFor(model => model.Q6b)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q3)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyFileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilePage)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Q6a)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q11)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q12)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q13a)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q13b)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q14a)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q14b)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q14c)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q15)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q16)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q17)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q18)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q19)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q20)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FlagContent)
+            </th>
+            <th></th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficialSchoolName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flag)
+            </td>
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Q6b)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q5)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q3)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyFileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilePage)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q6a)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q7)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q8)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q9)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q10)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q11)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q12)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q13a)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q13b)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q14a)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q14b)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q14c)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q15)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q16)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q17)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q18)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q19)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Q20)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlagContent)
+                </td>*@
+
+
+            <td>
+                <li class="dropdown" style="list-style-type: none">
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Options
+                        <span class="caret"></span>
+                    </button>
+                    @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>*@
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
+                        <li>@Html.ActionLink("Details", "Details", new { id = item.Id })</li>
+                        <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
+                    </ul>
+                </li>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

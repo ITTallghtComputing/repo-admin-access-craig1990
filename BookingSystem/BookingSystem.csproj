@@ -200,6 +200,7 @@
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CampDateController.cs" />
     <Compile Include="Controllers\CompletedCampsController.cs" />
+    <Compile Include="Controllers\FlaggedSurveysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SchoolController.cs" />
@@ -382,6 +383,11 @@
     <Content Include="Views\SecondarySchoolSurvey\Index.cshtml" />
     <Content Include="Views\School\Confirmation.cshtml" />
     <Content Include="Views\CompletedCamps\Validate.cshtml" />
+    <Content Include="Views\FlaggedSurveys\Create.cshtml" />
+    <Content Include="Views\FlaggedSurveys\Delete.cshtml" />
+    <Content Include="Views\FlaggedSurveys\Details.cshtml" />
+    <Content Include="Views\FlaggedSurveys\Edit.cshtml" />
+    <Content Include="Views\FlaggedSurveys\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

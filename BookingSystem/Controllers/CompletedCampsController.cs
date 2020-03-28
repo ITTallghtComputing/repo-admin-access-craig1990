@@ -12,6 +12,7 @@ using BookingSystem.Models;
 using System.IO;
 using System.Threading.Tasks;
 using PagedList;
+using System.Web.Routing;
 
 namespace BookingSystem.Survey_Extraction
 {
@@ -219,8 +220,13 @@ namespace BookingSystem.Survey_Extraction
         public ActionResult Validate(int? id)
         {
             CompletedCamp completedCamp = db.CompletedCamps.Find(id);
-            string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
-            return File(filepath, "application/pdf");
+            //direct to list flagged surveys with school id
+            return RedirectToAction("Index", "FlaggedSurveys", new { id = id });
+
+
+            //CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+            //string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
+            //return File(filepath, "application/pdf");
         }
     }
 }
