@@ -144,7 +144,7 @@
 
             <div class="input-group">
                 <span class="input-group-addon">
-                    <input type="checkbox" aria-label="...">
+                    <input asp-for="Booking.Surveys" type="checkbox" aria-label="..." onclick="$(this).val(this.checked ? true : false)">
                 </span>
                 <label style="width:350px;" class="form-control" for="Surveys">Would you like to take part in research surveys?</label>
             </div><!-- /input-group -->
