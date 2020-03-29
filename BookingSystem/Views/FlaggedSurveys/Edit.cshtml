@@ -6,6 +6,20 @@
 
 <h2>Edit</h2>
 
+<br/>
+<div id="right" style="float: right">
+    <p>
+        <button formtarget="_blank" onclick="window.open('@Url.Action("OpenPDF", "FlaggedSurveys", new { id = ViewBag.CompletedCamp } )')" 
+                type="button" class="btn btn-primary"> 
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Open Survey PDF </button>
+    </p>
+
+
+
+</div>
+<br/>
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -273,7 +287,3 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

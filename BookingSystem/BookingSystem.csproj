@@ -383,9 +383,7 @@
     <Content Include="Views\SecondarySchoolSurvey\Index.cshtml" />
     <Content Include="Views\School\Confirmation.cshtml" />
     <Content Include="Views\CompletedCamps\Validate.cshtml" />
-    <Content Include="Views\FlaggedSurveys\Create.cshtml" />
     <Content Include="Views\FlaggedSurveys\Delete.cshtml" />
-    <Content Include="Views\FlaggedSurveys\Details.cshtml" />
     <Content Include="Views\FlaggedSurveys\Edit.cshtml" />
     <Content Include="Views\FlaggedSurveys\Index.cshtml" />
   </ItemGroup>

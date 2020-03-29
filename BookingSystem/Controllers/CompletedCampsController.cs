@@ -222,11 +222,13 @@ namespace BookingSystem.Survey_Extraction
             CompletedCamp completedCamp = db.CompletedCamps.Find(id);
             //direct to list flagged surveys with school id
             return RedirectToAction("Index", "FlaggedSurveys", new { id = id });
-
-
-            //CompletedCamp completedCamp = db.CompletedCamps.Find(id);
-            //string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
-            //return File(filepath, "application/pdf");
         }
+
+        //public ActionResult OpenPDF(int? id)
+        //{
+        //    CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+        //    string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
+        //    return File(filepath, "application/pdf");
+        //}
     }
 }

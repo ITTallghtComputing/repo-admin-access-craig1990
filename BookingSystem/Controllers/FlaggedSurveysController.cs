@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -32,31 +33,10 @@ namespace BookingSystem.Controllers
             return View(surveys.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: FlaggedSurveys/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SecondarySchoolSurvey secondarySchoolSurvey = db.SecondarySchoolSurveys.Find(id);
-            if (secondarySchoolSurvey == null)
-            {
-                return HttpNotFound();
-            }
-            return View(secondarySchoolSurvey);
-        }
-
-        // GET: FlaggedSurveys/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
         // GET: FlaggedSurveys/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -66,6 +46,13 @@ namespace BookingSystem.Controllers
             {
                 return HttpNotFound();
             }
+
+            //get school id to send back as parameter to Index view
+            var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
+            var campID = school.Id;
+
+            ViewBag.CompletedCamp = campID;
+
             return View(secondarySchoolSurvey);
         }
 
@@ -122,6 +109,14 @@ namespace BookingSystem.Controllers
             //direct to list flagged surveys with school id
             return RedirectToAction("Index", "FlaggedSurveys", new { id = id2 });
         }
+
+        public ActionResult OpenPDF(int? id)
+        {
+            CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+            string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
+            return File(filepath, "application/pdf");
+        }
+
 
         protected override void Dispose(bool disposing)
         {
