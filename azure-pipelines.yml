@@ -51,7 +51,7 @@ steps:
 
 - task: BeanstalkDeployApplication@1
   inputs:
-    awsCredentials: 'awsPipelineConn'
+    awsCredentials: 'craigittdAWScon'
     regionName: 'eu-west-1'
     applicationName: 'CampBookingSys'
     environmentName: 'Campbookingsys-env'
