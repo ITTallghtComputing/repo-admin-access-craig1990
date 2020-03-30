@@ -81,11 +81,15 @@ namespace BookingSystem.Controllers
         // GET: FlaggedSurveys/Delete/5
         public ActionResult Delete(int? id)
         {
+            SecondarySchoolSurvey secondarySchoolSurvey = db.SecondarySchoolSurveys.Find(id);
+            var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
+            var id2 = school.Id;
+
+            ViewBag.SchoolID = id2;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SecondarySchoolSurvey secondarySchoolSurvey = db.SecondarySchoolSurveys.Find(id);
             if (secondarySchoolSurvey == null)
             {
                 return HttpNotFound();

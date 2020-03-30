@@ -48,10 +48,10 @@
             @Html.ActionLink("Camp Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Q2)
+            Gender
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Q1)
+            Age
         </th>
         <th>
             @Html.DisplayNameFor(model => model.First().Flag)
@@ -255,11 +255,11 @@
                         <span class="caret"></span>
                     </button>
                     @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options <span class="caret"></span></a>*@
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
-                        <li>@Html.ActionLink("Details", "Details", new { id = item.Id })</li>
-                        <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
-                    </ul>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
+                    <li>@Html.ActionLink("Details", "Details", new { id = item.Id })</li>
+                    <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
+                </ul>
                 </li>
             </td>
 

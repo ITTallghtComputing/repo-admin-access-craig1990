@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<br/>
-<h4>@Model.OfficialSchoolName Camp Booking</h4>
+<br />
+<h3>Camp Booking Details</h3>
+<h4>@Model.OfficialSchoolName</h4>
+<br />
 <hr />
 
 
@@ -332,25 +332,24 @@
 
         </div>
 
-
         <div class="col-lg-6">
             <br />
    
             <p>
-                <button style="width:550px" formtarget="_blank" onclick="window.open('https://www.google.com/maps/search/?api=1&query=@Model.OfficialSchoolName+@Model.Address1+@Model.County+@Model.Eircode')"
-                        type="button" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-road" aria-hidden="true"></span> Get Directions
-                </button>
+                <a target="_blank" style="width:100%" href="https://www.google.com/maps/search/?api=1&query=@Model.OfficialSchoolName+@Model.Address1+@Model.County+@Model.Eircode"
+                   class="btn btn-primary">
+                    <span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+                    Get Directions
+                </a>
             </p>
 
 
-            <div id="map" style="height: 550px; width: 550px; margin-top:10px; "></div>
+            <div class="embed-responsive embed-responsive-16by9">
+
+                <div id="map" class="embed-responsive-item" style="border: 1px solid black;"></div>
+            </div>
 
         </div>
-
-
-
-
     </div>
 </div>
 
