@@ -117,6 +117,11 @@ namespace BookingSystem.Controllers
             return File(filepath, "application/pdf");
         }
 
+        public FileStreamResult GetPDF()
+        {
+            FileStream fs = new FileStream("c:\\PeterPDF2.pdf", FileMode.Open, FileAccess.Read);
+            return File(fs, "application/pdf");
+        }
 
         protected override void Dispose(bool disposing)
         {

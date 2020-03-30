@@ -320,3 +320,55 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<div class="col-md-7 d-felx">
+    <div id="map" style="height: 550px; width: 100%; margin-top:50px; "></div>
+</div>
+
+
+
+<!--GoogleMaps API-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWlIQIpK1TyUjyUE5d0nvH-hUV6D0rcyE&callback=initMap">
+</script>
+
+<script>
+
+
+    function initMap() {
+        var map;
+        var geocoder = new google.maps.Geocoder();
+
+        //pass school name, address and Eircode to the geocode API to parse into LAT LNG
+        var address = '@Model.OfficialSchoolName, @Model.Address1, @Model.County, @Model.Eircode, Ireland';
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+
+        var latlng = new google.maps.LatLng(-15.15, 20.65);
+        var mapOptions = {
+            zoom: 16,
+            center: latlng
+        }
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);     
+    }
+
+</script>
+
+
+
+@*<script>
+
+    $(function () {
+        $('#exampleModal').modal('hidden');
+    });
+
+</script>*@
