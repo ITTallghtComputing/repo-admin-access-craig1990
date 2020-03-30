@@ -179,14 +179,7 @@ namespace BookingSystem.Survey_Extraction
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
 
         public ActionResult Upload(int? id)
         {

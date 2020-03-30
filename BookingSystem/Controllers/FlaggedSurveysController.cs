@@ -72,6 +72,7 @@ namespace BookingSystem.Controllers
                 var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
                 var id = school.Id;
 
+
                 //direct to list flagged surveys with school id
                 return RedirectToAction("Index", "FlaggedSurveys", new { id = id });
             }
@@ -121,11 +122,11 @@ namespace BookingSystem.Controllers
             return File(filepath, "application/pdf");
         }
 
-        public FileStreamResult GetPDF()
-        {
-            FileStream fs = new FileStream("c:\\PeterPDF2.pdf", FileMode.Open, FileAccess.Read);
-            return File(fs, "application/pdf");
-        }
+        //public FileStreamResult GetPDF()
+        //{
+        //    FileStream fs = new FileStream("c:\\PeterPDF2.pdf", FileMode.Open, FileAccess.Read);
+        //    return File(fs, "application/pdf");
+        //}
 
         protected override void Dispose(bool disposing)
         {

@@ -13,12 +13,7 @@
 
 <br />
 <div id="right" style="float: right">
-    <p>
-        <button formtarget="_blank" onclick="window.open('@Url.Action("OpenPDF", "FlaggedSurveys", new { id = ViewBag.CompletedCamp })')"
-                type="button" class="btn btn-primary">
-            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Open Survey PDF
-        </button>
-    </p>
+    
 
 
 
@@ -350,8 +345,13 @@
             <br />
             <br />
             <br />
-            @Model.FilePage
-            <iframe width="700" height="1600" src="@Url.Action("OpenPDF", new { id = 8 })"></iframe>
+            <p>
+                <button style="width:700px" formtarget="_blank" onclick="window.open('@Url.Action("OpenPDF", "FlaggedSurveys", new { id = ViewBag.CompletedCamp })')"
+                        type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Open Survey PDF
+                </button>
+            </p>
+            <iframe width="700" height="1600" src="@Url.Action("OpenPDF", new { id = ViewBag.CompletedCamp })"></iframe>
 
         </div>
     </div>

@@ -18,18 +18,21 @@ namespace BookingSystem.Survey_Extraction
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
-            int surveyIDCounter = startID;
             //load PDF
             var pdf = PdfDocument.FromFile(filename);
             //Extract all PDF pages to a folder as Bitmap image files
             pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
 
+            //used to keep track of surveys IDs for Stamping and to updateSurvey() with checkbox data
+            int surveyIDCounter = startID;
+            //current page for stamping purposes
+            int currentPage = 1;
             //get number of pages in .PDF
             int numberPages = pdf.PageCount; 
             //get number of Surveys in .PDF
             int numberSurveys = numberPages / 2;
-
-
+    
+         
 
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
 
@@ -84,6 +87,9 @@ namespace BookingSystem.Survey_Extraction
                 //every 2nd iteration loop through Page 2 checkbox dictionary and then update matching survey with checkbox data
                 else if (i % 2 == 0)
                 {
+                    //STAMPS the survey ID on uploaded PDF file for validation comparisons 
+                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 50, Height = 50, Opacity = 50, Rotation = -45, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+
                     //create Bitmap with 2nd page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each checkbox in checkbox dictionary and compares
@@ -128,14 +134,19 @@ namespace BookingSystem.Survey_Extraction
                     //update a survey with checkbox data
                     SubmitSecondarySchoolSurveyCheckboxes submitCheckboxes = new SubmitSecondarySchoolSurveyCheckboxes();
                     submitCheckboxes.UpdateSurvey(checkboxData, surveyIDCounter);
-
                     surveyIDCounter++;
 
                     //reset checkbox collections
                     checkboxData = new SurveyCheckboxCollections();
 
-                }
 
+                    //STAMP page with survey ID
+                    pdf.StampHTML(ForegroundStamp, currentPage);
+                    currentPage+=2;
+
+                }
+                pdf.SaveAs(filename);
+                
             }
 
         }
