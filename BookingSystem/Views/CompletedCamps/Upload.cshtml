@@ -16,7 +16,7 @@
             <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
             <br />
 
-            <form style="height:250px; width:400px" id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
+            <form style=" width:400px" id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
                 <div>
                     <input name="file" type="file" class="btn btn-link" required />
                     <br />
