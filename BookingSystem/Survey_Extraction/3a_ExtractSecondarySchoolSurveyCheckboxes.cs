@@ -26,7 +26,7 @@ namespace BookingSystem.Survey_Extraction
             //used to keep track of surveys IDs for Stamping and to updateSurvey() with checkbox data
             int surveyIDCounter = startID;
             //current page for stamping purposes
-            int currentPage = 1;
+            int currentPage = 0;
             //get number of pages in .PDF
             int numberPages = pdf.PageCount; 
             //get number of Surveys in .PDF
@@ -41,6 +41,10 @@ namespace BookingSystem.Survey_Extraction
                 //Loop through Page 1 checkbox dictionary
                 if (i % 2 != 0)
                 {
+                    //STAMPS the survey ID on uploaded PDF file for validation comparisons 
+                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Rotation = -45, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+                    pdf.StampHTML(ForegroundStamp, currentPage);
+                    currentPage++;
                     //create Bitmap with 1st page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
                     //loops through each page 1 checkbox in page1 checkbox dictionary and compares
@@ -88,7 +92,10 @@ namespace BookingSystem.Survey_Extraction
                 else if (i % 2 == 0)
                 {
                     //STAMPS the survey ID on uploaded PDF file for validation comparisons 
-                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 50, Height = 50, Opacity = 50, Rotation = -45, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Rotation = -45, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+                    //STAMP page with survey ID
+                    pdf.StampHTML(ForegroundStamp, currentPage);
+                    currentPage ++;
 
                     //create Bitmap with 2nd page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
@@ -138,11 +145,6 @@ namespace BookingSystem.Survey_Extraction
 
                     //reset checkbox collections
                     checkboxData = new SurveyCheckboxCollections();
-
-
-                    //STAMP page with survey ID
-                    pdf.StampHTML(ForegroundStamp, currentPage);
-                    currentPage+=2;
 
                 }
                 pdf.SaveAs(filename);
