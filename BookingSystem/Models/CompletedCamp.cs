@@ -65,5 +65,15 @@ namespace BookingSystem.Models
         public int TotalBoys { get; set; }
         public int TotalPupils { get; set; }
         public string SurveyName { get; set; }
+        //totals to show on completed camp index
+        private static int tpupils = 0;
+        public int GetTotalPupils()
+        {
+            return tpupils;
+        }
+        public void SetTotalPupils(int pupils)
+        {
+            tpupils += pupils;
+        }
     }
 }

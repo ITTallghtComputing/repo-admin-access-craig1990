@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Update Schools Database";
+}
+
+<h2>Update Schools Database</h2>
+<br />
+
+<div>
+    <p>Latitude, Longitude Excel File</p>
+    <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CSO_CSVUpload")">
+        <div>
+            <input name="file" type="file" required />
+            <br />
+            <button type="submit">Import</button>
+        </div>
+    </form>
+</div>
+
+
+<br />
+<br />
+
+<div>
+    <p>School Gender, Numbers Excel File</p>
+    <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload2", "CSO_CSVUpload")">
+        <div>
+            <input name="file" type="file" required />
+            <br />
+            <button type="submit">Import</button>
+        </div>
+    </form>
+</div>

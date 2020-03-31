@@ -200,6 +200,7 @@
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CampDateController.cs" />
     <Compile Include="Controllers\CompletedCampsController.cs" />
+    <Compile Include="Controllers\CSO_CSVUploadController.cs" />
     <Compile Include="Controllers\FlaggedSurveysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -226,12 +227,12 @@
       <DependentUpon>202003311243176_data1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ContextA2\ConfigData.cs" />
-    <Compile Include="Survey_Extraction\1_AzureVisionAPI.cs" />
+    <Compile Include="Survey_Extraction\1a_AzureVisionAPI.cs" />
     <Compile Include="Survey_Extraction\CheckboxData.cs" />
-    <Compile Include="Survey_Extraction\3a_ExtractSecondarySchoolSurveyCheckboxes.cs" />
-    <Compile Include="Survey_Extraction\2_ParseSurveyText.cs" />
-    <Compile Include="Survey_Extraction\3c_SurveyCheckboxAnswers.cs" />
-    <Compile Include="Survey_Extraction\3b_UpdateSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\2a_ExtractSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\1b_ParseSurveyText.cs" />
+    <Compile Include="Survey_Extraction\2c_SurveyCheckboxAnswers.cs" />
+    <Compile Include="Survey_Extraction\2b_UpdateSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Survey_Extraction\SurveyCheckboxCollections.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
@@ -386,9 +387,11 @@
     <Content Include="Views\FlaggedSurveys\Delete.cshtml" />
     <Content Include="Views\FlaggedSurveys\Edit.cshtml" />
     <Content Include="Views\FlaggedSurveys\Index.cshtml" />
+    <Content Include="Views\CSO_CSVUpload\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CSVuploads\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
