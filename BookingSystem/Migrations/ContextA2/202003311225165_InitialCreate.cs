@@ -107,6 +107,7 @@ namespace BookingSystem.Migrations.ContextA2
                         TotalGirls = c.Int(nullable: false),
                         TotalBoys = c.Int(nullable: false),
                         TotalPupils = c.Int(nullable: false),
+                        SurveyName = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -188,7 +189,7 @@ namespace BookingSystem.Migrations.ContextA2
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RollNumber = c.String(),
+                        RollNumber = c.String(nullable: false),
                         OfficialSchoolName = c.String(),
                         TeacherName = c.String(),
                         Address1 = c.String(),
@@ -231,21 +232,22 @@ namespace BookingSystem.Migrations.ContextA2
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.SecondarySchools",
+                "dbo.SecondarySchoolSurveys",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Q6b = c.Double(nullable: false),
-                        Q5 = c.Double(nullable: false),
-                        Q4 = c.Double(nullable: false),
-                        Q3 = c.Double(nullable: false),
                         Q1 = c.Double(nullable: false),
                         RollNumber = c.String(),
+                        OfficialSchoolName = c.String(),
                         CampDate = c.DateTime(),
                         SurveyFileName = c.String(),
                         FilePage = c.Int(nullable: false),
                         Q2 = c.Int(nullable: false),
+                        Q3 = c.String(),
+                        Q4 = c.String(),
+                        Q5 = c.String(),
                         Q6a = c.Int(nullable: false),
+                        Q6b = c.String(),
                         Q7 = c.Int(nullable: false),
                         Q8 = c.String(),
                         Q9 = c.Int(nullable: false),
@@ -272,7 +274,7 @@ namespace BookingSystem.Migrations.ContextA2
         
         public override void Down()
         {
-            DropTable("dbo.SecondarySchools");
+            DropTable("dbo.SecondarySchoolSurveys");
             DropTable("dbo.Schools");
             DropTable("dbo.School2");
             DropTable("dbo.Organisations");

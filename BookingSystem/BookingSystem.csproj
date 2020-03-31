@@ -208,6 +208,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ContextA1\202003311225036_InitialCreate.cs" />
+    <Compile Include="Migrations\ContextA1\202003311225036_InitialCreate.Designer.cs">
+      <DependentUpon>202003311225036_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ContextA1\202003311243042_User1.cs" />
+    <Compile Include="Migrations\ContextA1\202003311243042_User1.Designer.cs">
+      <DependentUpon>202003311243042_User1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ContextA1\ConfigUser.cs" />
+    <Compile Include="Migrations\ContextA2\202003311225165_InitialCreate.cs" />
+    <Compile Include="Migrations\ContextA2\202003311225165_InitialCreate.Designer.cs">
+      <DependentUpon>202003311225165_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ContextA2\202003311243176_data1.cs" />
+    <Compile Include="Migrations\ContextA2\202003311243176_data1.Designer.cs">
+      <DependentUpon>202003311243176_data1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ContextA2\ConfigData.cs" />
     <Compile Include="Survey_Extraction\1_AzureVisionAPI.cs" />
     <Compile Include="Survey_Extraction\CheckboxData.cs" />
     <Compile Include="Survey_Extraction\3a_ExtractSecondarySchoolSurveyCheckboxes.cs" />
@@ -215,24 +233,6 @@
     <Compile Include="Survey_Extraction\3c_SurveyCheckboxAnswers.cs" />
     <Compile Include="Survey_Extraction\3b_UpdateSecondarySchoolSurveyCheckboxes.cs" />
     <Compile Include="Survey_Extraction\SurveyCheckboxCollections.cs" />
-    <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.cs" />
-    <Compile Include="Migrations\ContextA1\201911282145429_InitialCreate.Designer.cs">
-      <DependentUpon>201911282145429_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ContextA1\201911282151363_User1.cs" />
-    <Compile Include="Migrations\ContextA1\201911282151363_User1.Designer.cs">
-      <DependentUpon>201911282151363_User1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ContextA1\ConfigUser.cs" />
-    <Compile Include="Migrations\ContextA2\201911282146115_InitialCreate.cs" />
-    <Compile Include="Migrations\ContextA2\201911282146115_InitialCreate.Designer.cs">
-      <DependentUpon>201911282146115_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ContextA2\201911282151513_Data1.cs" />
-    <Compile Include="Migrations\ContextA2\201911282151513_Data1.Designer.cs">
-      <DependentUpon>201911282151513_Data1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ContextA2\ConfigData.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\CampDate.cs" />
@@ -401,17 +401,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\ContextA1\201911282145429_InitialCreate.resx">
-      <DependentUpon>201911282145429_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA1\202003311225036_InitialCreate.resx">
+      <DependentUpon>202003311225036_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA1\201911282151363_User1.resx">
-      <DependentUpon>201911282151363_User1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA1\202003311243042_User1.resx">
+      <DependentUpon>202003311243042_User1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA2\201911282146115_InitialCreate.resx">
-      <DependentUpon>201911282146115_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA2\202003311225165_InitialCreate.resx">
+      <DependentUpon>202003311225165_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ContextA2\201911282151513_Data1.resx">
-      <DependentUpon>201911282151513_Data1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ContextA2\202003311243176_data1.resx">
+      <DependentUpon>202003311243176_data1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

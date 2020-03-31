@@ -37,8 +37,8 @@ namespace BookingSystem.Migrations.ContextA1
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser
                 {
-                    UserName = "user1@test.com",
-                    Email = "user1@test.com"
+                    UserName = "user1@tudublin.ie",
+                    Email = "user1@tudublin.com"
                 };
 
                 manager.Create(user, "password");
@@ -50,8 +50,8 @@ namespace BookingSystem.Migrations.ContextA1
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser
                 {
-                    UserName = "user2@test.com",
-                    Email = "user2@test.com"
+                    UserName = "user2@tudublin.ie",
+                    Email = "user2@tudublin.ie"
                 };
 
                 manager.Create(user, "password");
@@ -63,8 +63,8 @@ namespace BookingSystem.Migrations.ContextA1
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser
                 {
-                    UserName = "user3@test.com",
-                    Email = "user3@test.com"
+                    UserName = "user3@tudublin.ie",
+                    Email = "user3@tudublin.ie"
                 };
 
                 manager.Create(user, "password");

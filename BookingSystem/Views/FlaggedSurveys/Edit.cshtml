@@ -351,7 +351,7 @@
                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Open Survey PDF
                 </button>
             </p>
-            <iframe width="700" height="1600" src="@Url.Action("OpenPDF", new { id = ViewBag.CompletedCamp })"></iframe>
+            <iframe width="700" height="1600" src="@Url.Action("OpenPDF", new { id = ViewBag.CompletedCamp })#page=@Model.FilePage"></iframe>
 
         </div>
     </div>
