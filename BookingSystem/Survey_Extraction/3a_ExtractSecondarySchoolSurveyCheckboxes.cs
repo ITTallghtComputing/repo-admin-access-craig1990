@@ -42,7 +42,7 @@ namespace BookingSystem.Survey_Extraction
                 if (i % 2 != 0)
                 {
                     //STAMPS the survey ID on uploaded PDF file for validation comparisons 
-                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Rotation = -45, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>Survey ID: {surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
                     pdf.StampHTML(ForegroundStamp, currentPage);
                     currentPage++;
                     //create Bitmap with 1st page of Survey
@@ -92,7 +92,7 @@ namespace BookingSystem.Survey_Extraction
                 else if (i % 2 == 0)
                 {
                     //STAMPS the survey ID on uploaded PDF file for validation comparisons 
-                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>{surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Rotation = -45, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
+                    var ForegroundStamp = new HtmlStamp() { Html = $"<h2 style='color:red'>Survey ID: {surveyIDCounter}", Width = 70, Height = 70, Opacity = 100, Top = 5, ZIndex = HtmlStamp.StampLayer.OnTopOfExistingPDFContent };
                     //STAMP page with survey ID
                     pdf.StampHTML(ForegroundStamp, currentPage);
                     currentPage ++;

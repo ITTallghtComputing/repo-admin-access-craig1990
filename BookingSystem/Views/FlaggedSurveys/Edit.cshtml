@@ -346,7 +346,7 @@
             <br />
             <br />
             <p>
-                <button style="width:700px" formtarget="_blank" onclick="window.open('@Url.Action("OpenPDF", "FlaggedSurveys", new { id = ViewBag.CompletedCamp })')"
+                <button style="width:700px" formtarget="_blank" onclick="window.open('@Url.Action("OpenPDF", "FlaggedSurveys", new { id = ViewBag.CompletedCamp })#page=@Model.FilePage')"
                         type="button" class="btn btn-primary">
                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Open Survey PDF
                 </button>

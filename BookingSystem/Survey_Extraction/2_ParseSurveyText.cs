@@ -414,7 +414,7 @@ namespace BookingSystem.Survey_Extraction
             s1.OfficialSchoolName = officialSchoolName;
             s1.CampDate = campDate;
             s1.SurveyFileName = null;
-            s1.FilePage = pageNumber;
+            s1.FilePage = pageNumber-1;
 
             s1.Q1 = answer1;
             s1.Q3 = answers["Answer3"];
