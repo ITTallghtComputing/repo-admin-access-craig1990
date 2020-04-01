@@ -11,6 +11,8 @@ namespace BookingSystem.Models
 {
     public class CompletedCamp
     {
+        private RDSContext db = new RDSContext();
+
         public int Id { get; set; }
         public string RollNumber { get; set; }
         [Required]
@@ -74,6 +76,16 @@ namespace BookingSystem.Models
         public void SetTotalPupils(int pupils)
         {
             tpupils += pupils;
+        }
+        //get total number of surveys uploaded for Completed Camp Index view
+        [DisplayName("Surveys Processed")]
+        public int NumberSurveys
+        {
+            get
+            {
+                int numberSurveys = db.SecondarySchoolSurveys.Where(s => s.RollNumber == RollNumber).Count();
+                return numberSurveys;
+            }
         }
     }
 }

@@ -3,31 +3,41 @@
     ViewBag.Title = "Update Schools Database";
 }
 
-<h2>Update Schools Database</h2>
 <br />
+<h3>Populate Schools Database</h3>
+<h4>Dataset Upload</h4>
+<br />
+<h6>Accepts live excel files from <a href="https://www.cso.ie" target="_blank">cso.ie</a> </h6>
+<hr />
 
-<div>
-    <p>Latitude, Longitude Excel File</p>
-    <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CSO_CSVUpload")">
+<br />
+<div class="row">
+    <div class="col-md-6 col-md-offset-4" style="justify-content:center; align-content:center">
+        <br/>
         <div>
-            <input name="file" type="file" required />
-            <br />
-            <button type="submit">Import</button>
+            <p>Latitude, Longitude Excel File</p>
+            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default">
+                <div>
+                    <input name="file" type="file" required />
+                    <br />
+                    <button class="btn btn-block btn-primary" type="submit">Import</button>
+                </div>
+            </form>
         </div>
-    </form>
-</div>
 
 
-<br />
-<br />
-
-<div>
-    <p>School Gender, Numbers Excel File</p>
-    <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload2", "CSO_CSVUpload")">
+        <br />
+        <br />
+        <br />
         <div>
-            <input name="file" type="file" required />
-            <br />
-            <button type="submit">Import</button>
+            <p>School Gender, Numbers Excel File</p>
+            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload2", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default">
+                <div>
+                    <input name="file" type="file" required />
+                    <br />
+                    <button class="btn btn-block btn-primary" type="submit">Import</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
