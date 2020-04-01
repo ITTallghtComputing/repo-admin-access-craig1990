@@ -67,17 +67,43 @@ namespace BookingSystem.Models
         public int TotalBoys { get; set; }
         public int TotalPupils { get; set; }
         public string SurveyName { get; set; }
-        //totals to show on completed camp index
+
+        //get total number of student surveys
         private static int tpupils = 0;
-        public int GetTotalPupils()
+        public int Tpupils
         {
-            return tpupils;
+            get
+            {
+                int totalGirls = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Female).Count();
+                int totalBoys = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Male).Count();
+                int studentTotal = db.SecondarySchoolSurveys.Count();
+                return studentTotal;
+            }
         }
-        public void SetTotalPupils(int pupils)
+
+        //get total number of girl student surveys
+        private static int tgirls = 0;
+        public int Tgirls
         {
-            tpupils += pupils;
+            get
+            {
+                int totalGirls = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Female).Count();
+                return totalGirls;
+            }
         }
-        //get total number of surveys uploaded for Completed Camp Index view
+
+        //get total number of male student surveys
+        private static int tboys = 0;
+        public int Tboys
+        {
+            get
+            {
+                int totalBoys = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Male).Count();
+                return totalBoys;
+            }
+        }
+
+        //get total number of surveys uploaded for a school camp
         [DisplayName("Surveys Processed")]
         public int NumberSurveys
         {

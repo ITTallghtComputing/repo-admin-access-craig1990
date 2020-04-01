@@ -225,7 +225,7 @@ namespace BookingSystem.Controllers
             camp.X = booking.X;
             camp.Y = booking.Y;
 
-            camp.SetTotalPupils(camp.TotalPupils);
+            //camp.SetTotalPupils(camp.TotalPupils);
 
             db.CompletedCamps.Add(camp);
 
