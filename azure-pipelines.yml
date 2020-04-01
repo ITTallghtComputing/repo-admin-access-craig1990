@@ -51,9 +51,9 @@ steps:
 
 - task: BeanstalkDeployApplication@1
   inputs:
-    awsCredentials: 'craigittdAWScon'
+    awsCredentials: 'TUdubAWS'
     regionName: 'eu-west-1'
-    applicationName: 'CampBookingSys'
-    environmentName: 'Campbookingsys-env'
+    applicationName: 'BookingSystem'
+    environmentName: 'BookingSystem-dev'
     applicationType: 'aspnet'
     webDeploymentArchive: '$(build.artifactstagingdirectory)\BookingSystem.zip'
