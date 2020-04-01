@@ -28,6 +28,19 @@ namespace BookingSystem.Controllers
             //get list of flagged surveys from a school
             var surveys = db.SecondarySchoolSurveys.Where(s => s.Flag == true && s.OfficialSchoolName == schoolName).OrderBy(s => s.Id);
 
+            //determine if a school camp has flagged surveys that will need to be validated
+            CompletedCamp completedCamp = db.CompletedCamps.Find(id);
+            int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == completedCamp.OfficialSchoolName);
+            if (numberFlagged > 0)
+            {
+                completedCamp.SurveysValidated = CompletedCamp.Validated.Yes;
+            }
+            else if (numberFlagged == 0)
+            {
+                completedCamp.SurveysValidated = CompletedCamp.Validated.No;
+            }
+
+
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(surveys.ToPagedList(pageNumber, pageSize));

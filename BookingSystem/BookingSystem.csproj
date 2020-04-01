@@ -388,6 +388,7 @@
     <Content Include="Views\FlaggedSurveys\Edit.cshtml" />
     <Content Include="Views\FlaggedSurveys\Index.cshtml" />
     <Content Include="Views\CSO_CSVUpload\Upload.cshtml" />
+    <Content Include="Views\CompletedCamps\Confirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

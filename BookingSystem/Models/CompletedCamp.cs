@@ -9,8 +9,15 @@ using System.Web;
 
 namespace BookingSystem.Models
 {
+    
     public class CompletedCamp
     {
+        public enum Validated
+        {
+            No,
+            Yes
+        }
+
         private RDSContext db = new RDSContext();
 
         public int Id { get; set; }
@@ -67,22 +74,20 @@ namespace BookingSystem.Models
         public int TotalBoys { get; set; }
         public int TotalPupils { get; set; }
         public string SurveyName { get; set; }
+        [DisplayName("Validation Required")]
+        public Validated SurveysValidated { get; set; }
 
         //get total number of student surveys
-        private static int tpupils = 0;
         public int Tpupils
         {
             get
             {
-                int totalGirls = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Female).Count();
-                int totalBoys = db.SecondarySchoolSurveys.Where(p => p.Q2 == Gender.Male).Count();
                 int studentTotal = db.SecondarySchoolSurveys.Count();
                 return studentTotal;
             }
         }
 
         //get total number of girl student surveys
-        private static int tgirls = 0;
         public int Tgirls
         {
             get
@@ -93,7 +98,6 @@ namespace BookingSystem.Models
         }
 
         //get total number of male student surveys
-        private static int tboys = 0;
         public int Tboys
         {
             get
@@ -112,6 +116,24 @@ namespace BookingSystem.Models
                 int numberSurveys = db.SecondarySchoolSurveys.Where(s => s.RollNumber == RollNumber).Count();
                 return numberSurveys;
             }
+        }
+
+        //return current number of flagged surveys
+        public int NumberFlaggedSurveys
+        {
+            get
+            {
+                int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == OfficialSchoolName);
+                return numberFlagged;
+            }
+        }
+
+        //set number of flagged camp surveys
+        public int InitialNumFlaggedSurveys { get; set; }
+        public void setNumberFlaggedSurveys()
+        {
+                int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == OfficialSchoolName);
+                InitialNumFlaggedSurveys = numberFlagged;
         }
     }
 }

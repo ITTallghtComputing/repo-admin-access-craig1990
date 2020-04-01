@@ -34,8 +34,8 @@
 <br />
 <p>
     Total Surveys: @Model.First().Tpupils
-    &nbsp;&nbsp;&nbsp;&nbsp;Total Male: @Model.First().Tboys
-    &nbsp;&nbsp;&nbsp;&nbsp;Total Female: @Model.First().Tgirls
+    &nbsp;&nbsp;&nbsp;&nbsp;Marked Male: @Model.First().Tboys
+    &nbsp;&nbsp;&nbsp;&nbsp;Marked Female: @Model.First().Tgirls
 </p>
 <p>
     <button onclick="location.href='@Url.Action("Index", "Booking")'" type="button" class="btn btn-block">
@@ -81,13 +81,7 @@
         </th>*@
         <th>
             @Html.ActionLink("Camp Date", "Index", new { sortOrder = ViewBag.DateSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().StartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().EndTime)
-        </th>
+
         @*<th>
             @Html.DisplayNameFor(model => model.Surveys)
         </th>
@@ -160,8 +154,11 @@
         <th>
             @Html.DisplayNameFor(model => model.TotalPupils)
         </th>*@
-        <th>   
+        <th style="text-align: center;">
             @Html.DisplayNameFor(model => model.First().NumberSurveys)
+        </th>
+        <th style="text-align: center;">
+            @Html.DisplayNameFor(model => model.First().SurveysValidated)
         </th>
         <th></th>
     </tr>
@@ -204,12 +201,6 @@
         </td>*@
     <td>
         @Html.DisplayFor(modelItem => item.Date)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.StartTime)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.EndTime)
     </td>
     @*<td>
             @Html.DisplayFor(modelItem => item.Surveys)
@@ -283,8 +274,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.TotalPupils)
         </td>*@
-    <td>
+    <td style="text-align: center;">
         @Html.DisplayFor(modelItem => item.NumberSurveys)
+    </td>
+    <td style="text-align: center;">
+        @Html.DisplayFor(modelItem => item.SurveysValidated)
     </td>
     <td>
         <li class="dropdown" style="list-style-type: none">

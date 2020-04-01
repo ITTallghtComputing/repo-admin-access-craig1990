@@ -1,0 +1,23 @@
+﻿@model BookingSystem.Models.CompletedCamp
+
+@{
+    ViewBag.Title = "Completed";
+}
+
+<h2>Upload and Extraction was successful</h2>
+<br />
+<br />
+<div>
+    Number of surveys processed and entered into database: @Model.NumberSurveys
+    Number os surveys flagged and ready for validation: @Model.NumberFlaggedSurveys
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Return to Completed Camps", "Index")
+    </div>
+}

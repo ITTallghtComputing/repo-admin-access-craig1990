@@ -6,15 +6,19 @@
 }
 
 <br />
-<h4><strong></strong></h4>
+<h3>School Surveys Upload &amp; Extraction</h3>
+<h4>PDF Upload</h4>
 <br />
-<br />
+<h6>Accepts a .PDF upload containing all of a school camps surveys</h6>
+<hr />
 
+<br />
 <div class="row">
     <div class="col-md-6 col-md-offset-4" style="justify-content:center; align-content:center">
         <div>
-            <p><strong>Upload Surveys for @Model.OfficialSchoolName in .PDF format</strong></p>
-            <br />
+            <br/>
+            <p>Upload Surveys for <strong>@Model.OfficialSchoolName</strong> in .PDF format</p>
+            <br/>
 
             <form style=" width:400px" id="upload" class="btn btn-default" method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CompletedCamps")" onsubmit="document.getElementById('loading').style.display='block'">
                 <div>
@@ -32,7 +36,6 @@
             <img id="loading" src="../../Content/processing.gif" alt="Updating ..." style="display:none;" />
         </div>
         <br />
-    </div>
 </div>
 
 

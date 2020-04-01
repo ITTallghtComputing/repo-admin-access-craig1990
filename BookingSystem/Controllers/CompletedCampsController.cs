@@ -79,6 +79,22 @@ namespace BookingSystem.Survey_Extraction
             }
 
 
+            
+            //loop over each completed camp to determine if each camp has flagged surveys which need to be validated
+            foreach (CompletedCamp camp in compltedCamps)
+            {
+                int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == camp.OfficialSchoolName);
+                if (numberFlagged > 0)
+                {
+                    camp.SurveysValidated = CompletedCamp.Validated.Yes;
+                }
+                else if (numberFlagged == 0)
+                {
+                    camp.SurveysValidated = CompletedCamp.Validated.No;
+                }
+            }
+
+
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             return View(compltedCamps.ToPagedList(pageNumber, pageSize));
@@ -142,7 +158,7 @@ namespace BookingSystem.Survey_Extraction
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,RollNumber,OfficialSchoolName,TeacherName,Address1,Address2,Address3,Address4,Eircode,County,Email,PhoneNumber,Date,StartTime,EndTime,Surveys,AcademicYear,LocalAuthority,X,Y,ITMEast,ITMNorth,Latitude,Longitude,ClassGroups,Topics,LecturerName,PrincipalName,DeisSchool,SchoolGender,PupilAttendanceType,IrishClassification,GaeltachtArea,FeePayingSchool,Religion,OpenClosedStatus,TotalGirls,TotalBoys,TotalPupils")] CompletedCamp completedCamp)
+        public ActionResult Edit([Bind(Include = "Id,RollNumber,OfficialSchoolName,TeacherName,Address1,Address2,Address3,Address4,Eircode,County,Email,PhoneNumber,Date,StartTime,EndTime,Surveys,AcademicYear,LocalAuthority,X,Y,ITMEast,ITMNorth,Latitude,Longitude,ClassGroups,Topics,LecturerName,PrincipalName,DeisSchool,SchoolGender,PupilAttendanceType,IrishClassification,GaeltachtArea,FeePayingSchool,Religion,OpenClosedStatus,TotalGirls,TotalBoys,TotalPupils,SurveysValidated")] CompletedCamp completedCamp)
         {
             if (ModelState.IsValid)
             {
@@ -180,7 +196,7 @@ namespace BookingSystem.Survey_Extraction
         }
 
 
-
+       
         public ActionResult Upload(int? id)
         {
             CompletedCamp completedCamp = db.CompletedCamps.Find(id);
@@ -197,18 +213,27 @@ namespace BookingSystem.Survey_Extraction
             file.SaveAs(filepath);
            
             completedCamp.SurveyName = filename;
-            db.SaveChanges();
-
+           
+            //send PDF to Azure OCR Read API and saved returned text in textfile
             await AzureVisionAPI.ExtractToTextFile(filepath);
+            //extract survey answers from textfile
             ParseSurveyText parse1 = new ParseSurveyText();
             await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath));
 
+            
 
 
-            return View(completedCamp);
+            db.SaveChanges();
+
+            return RedirectToAction("Confirmation", "CompletedCamps", new { id = id });
         }
 
-
+        [HttpGet]
+        public ActionResult Confirmation(int? id)
+        {
+            var camp = db.CompletedCamps.FirstOrDefault(c => c.Id == id);
+            return View(camp);
+        }
 
         public ActionResult Validate(int? id)
         {
