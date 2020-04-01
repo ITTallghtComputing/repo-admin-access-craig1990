@@ -78,7 +78,7 @@ namespace BookingSystem.Models
         public Validated SurveysValidated { get; set; }
 
         //get total number of student surveys
-        public int Tpupils
+        public int TotalPupilSurveys
         {
             get
             {
@@ -88,7 +88,7 @@ namespace BookingSystem.Models
         }
 
         //get total number of girl student surveys
-        public int Tgirls
+        public int TotalGirlsSurveys
         {
             get
             {
@@ -98,7 +98,7 @@ namespace BookingSystem.Models
         }
 
         //get total number of male student surveys
-        public int Tboys
+        public int TotalBoysSurveys
         {
             get
             {
@@ -126,14 +126,6 @@ namespace BookingSystem.Models
                 int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == OfficialSchoolName);
                 return numberFlagged;
             }
-        }
-
-        //set number of flagged camp surveys
-        public int InitialNumFlaggedSurveys { get; set; }
-        public void setNumberFlaggedSurveys()
-        {
-                int numberFlagged = db.SecondarySchoolSurveys.Count(s => s.Flag == true && s.OfficialSchoolName == OfficialSchoolName);
-                InitialNumFlaggedSurveys = numberFlagged;
         }
     }
 }

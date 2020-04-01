@@ -6,7 +6,8 @@
 }
 
 <br />
-<h2>Completed Camps</h2>
+<h3>Completed Camps</h3>
+<hr />
 <br />
 <br />
 
@@ -33,9 +34,9 @@
 
 <br />
 <p>
-    Total Surveys: @Model.First().Tpupils
-    &nbsp;&nbsp;&nbsp;&nbsp;Marked Male: @Model.First().Tboys
-    &nbsp;&nbsp;&nbsp;&nbsp;Marked Female: @Model.First().Tgirls
+    Total Surveys: @Model.First().TotalPupilSurveys
+    &nbsp;&nbsp;&nbsp;&nbsp;Marked Male: @Model.First().TotalBoysSurveys
+    &nbsp;&nbsp;&nbsp;&nbsp;Marked Female: @Model.First().TotalGirlsSurveys
 </p>
 <p>
     <button onclick="location.href='@Url.Action("Index", "Booking")'" type="button" class="btn btn-block">
