@@ -4,20 +4,24 @@
     ViewBag.Title = "Completed";
 }
 
-<h2>Upload and Extraction was successful</h2>
-<br />
-<br />
-<div>
-    <p>Number of surveys processed and entered into database: @Model.NumberSurveys</p>
-    <p>Number os surveys flagged and ready for validation: @Model.NumberFlaggedSurveys</p>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <br />
+            <br />
+            <h3>Upload and Extraction was successful</h3>
+            <hr />
+            <br />
+            <br />
+            <div>
+                <p>School Camp: @Model.OfficialSchoolName</p>
+                <p>Number of surveys processed and entered into database: @Model.NumberSurveys</p>
+                <p>Number of surveys flagged and ready for validation: @Model.NumberFlaggedSurveys</p>
+                <br />
+            </div>
+
+            <input onclick="location.href='@Url.Action("Index", "CompletedCamps")'" type="submit" value="Return to Completed Camps" class="btn  btn-info" />
+
+
+
+        </div>
 </div>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @Html.ActionLink("Return to Completed Camps", "Index")
-    </div>
-}
