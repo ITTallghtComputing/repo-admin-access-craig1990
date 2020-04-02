@@ -89,7 +89,6 @@ namespace BookingSystem.Controllers
                 var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
                 var id = school.Id;
 
-
                 //direct to list flagged surveys with school id
                 return RedirectToAction("Index", "FlaggedSurveys", new { id = id });
             }

@@ -144,7 +144,6 @@ namespace BookingSystem.Models
         public bool Flag { get; set; }
         [Display(Name = "Flag Content")]
         public string FlagContent { get; set; }
-        
 
     }
 }

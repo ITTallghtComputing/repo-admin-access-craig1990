@@ -435,6 +435,8 @@ namespace BookingSystem.Survey_Extraction
                 if (s1.FlagContent == null)
                 {
                     s1.Flag = true;
+
+                    s1.FlagContent += $"(Click flag to hide) |";
                     s1.FlagContent += $"{v.Key}: blank answer box. ";
                 }
                 else if (string.IsNullOrWhiteSpace(v.Value))
