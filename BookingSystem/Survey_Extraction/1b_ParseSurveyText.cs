@@ -432,7 +432,12 @@ namespace BookingSystem.Survey_Extraction
             //check for blank answer boxes and set flag for validation
             foreach (var v in answers)
             {
-                if (string.IsNullOrWhiteSpace(v.Value))
+                if (s1.FlagContent == null)
+                {
+                    s1.Flag = true;
+                    s1.FlagContent += $"{v.Key}: blank answer box. ";
+                }
+                else if (string.IsNullOrWhiteSpace(v.Value))
                 {
                     s1.Flag = true;
                     s1.FlagContent += $"| {v.Key}: blank answer box. ";

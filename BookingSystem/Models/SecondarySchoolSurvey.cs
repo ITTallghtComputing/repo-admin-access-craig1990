@@ -127,17 +127,17 @@ namespace BookingSystem.Models
         public GoodBad Q14b { get; set; }
         [Display(Name = "Q14c. Why was this?")]
         public string Q14c { get; set; }
-        [Display(Name = "Q15. Consider a Job in IT")]
+        [Display(Name = "Q1. Consider a Job in IT")]
         public Measure Q15 { get; set; }
-        [Display(Name = "Q16. Camp IT Insight")]
+        [Display(Name = "Q2. Camp IT Insight")]
         public Measure Q16 { get; set; }
-        [Display(Name = "Q17. Camp IT Skills Insight")]
+        [Display(Name = "Q3. Camp IT Skills Insight")]
         public Measure Q17 { get; set; }
-        [Display(Name = "Q18. New Computing Knowledge")]
+        [Display(Name = "Q4. New Computing Knowledge")]
         public string Q18 { get; set; }
-        [Display(Name = "Q19. Camp  IT Skills Insight 2")]
+        [Display(Name = "Q5. Camp  IT Skills Insight 2")]
         public Measure Q19 { get; set; }
-        [Display(Name = "Q20. Feedback")]
+        [Display(Name = "Q6. Feedback")]
         public string Q20 { get; set; }
 
         [Display(Name = "Flag")]

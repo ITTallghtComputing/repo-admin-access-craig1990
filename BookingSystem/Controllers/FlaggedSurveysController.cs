@@ -64,6 +64,10 @@ namespace BookingSystem.Controllers
             var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
             var campID = school.Id;
 
+            //break flag content string into list to display each flag in View
+            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+            ViewBag.FlagList = listStrLineElements;
+
             ViewBag.CompletedCamp = campID;
 
             return View(secondarySchoolSurvey);

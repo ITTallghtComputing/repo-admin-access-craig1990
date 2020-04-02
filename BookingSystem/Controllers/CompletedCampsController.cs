@@ -211,18 +211,18 @@ namespace BookingSystem.Survey_Extraction
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = Server.MapPath(Path.Combine("~/Surveys/", filename));
             file.SaveAs(filepath);
-           
+
             completedCamp.SurveyName = filename;
-           
+
             //send PDF to Azure OCR Read API and saved returned text in textfile
             await AzureVisionAPI.ExtractToTextFile(filepath);
             //extract survey answers from textfile
             ParseSurveyText parse1 = new ParseSurveyText();
             await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath));
 
-            
 
 
+            await Task.Delay(1000);
             db.SaveChanges();
 
             return RedirectToAction("Confirmation", "CompletedCamps", new { id = id });

@@ -7,9 +7,17 @@
 
 <br />
 <h3>Flagged Surveys</h3>
-<h4>@Model.First().OfficialSchoolName</h4>
-<hr />
+@if (Model == null)
+{
+    <h3>@Model.First().OfficialSchoolName</h3>
+}
 
+<hr />
+@if (Model != null)
+{
+    <br />
+    <h3>No Flagged Surveys found</h3>
+}
 
 <br />
 <br />
