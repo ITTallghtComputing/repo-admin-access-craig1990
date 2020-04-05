@@ -117,7 +117,7 @@ namespace BookingSystem.Models
                 return numberSurveys;
             }
         }
-
+        [DisplayName("Number of Flagged Surveys")]
         //return current number of flagged surveys
         public int NumberFlaggedSurveys
         {
