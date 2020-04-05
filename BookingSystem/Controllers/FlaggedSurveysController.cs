@@ -102,6 +102,10 @@ namespace BookingSystem.Controllers
             var school = db.CompletedCamps.FirstOrDefault(s => s.OfficialSchoolName == secondarySchoolSurvey.OfficialSchoolName);
             var id2 = school.Id;
 
+            //break flag content string into list to display each flag in View
+            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+            ViewBag.FlagList = listStrLineElements;
+
             ViewBag.SchoolID = id2;
             if (id == null)
             {

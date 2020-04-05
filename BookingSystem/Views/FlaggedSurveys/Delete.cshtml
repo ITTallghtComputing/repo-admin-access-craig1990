@@ -65,12 +65,15 @@
                     @Html.DisplayFor(model => model.Flag)
                 </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.FlagContent)
-                </dt>
-
                 <dd>
-                    @Html.DisplayFor(model => model.FlagContent)
+                    <p><strong>Flagged Questions</strong></p>
+                    @foreach (var item in ViewBag.FLagList)
+                    {
+                        <div>
+                            @item
+                        </div>
+                    }
+
                 </dd>
             </dl>
 
