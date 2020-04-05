@@ -140,6 +140,7 @@ namespace BookingSystem.Controllers
             school.StartTime = model.StartTime;
             school.EndTime = model.EndTime;
             school.ClassGroups = model.ClassGroups;
+            school.Surveys = model.Surveys;
             school.Topics = model.Topics;
             school.ValidationMsg = "Please complete all fields";
 
@@ -180,6 +181,7 @@ namespace BookingSystem.Controllers
             organisation.EndTime = model.EndTime;
             organisation.ClassGroups = model.ClassGroups;
             organisation.Topics = model.Topics;
+            organisation.Surveys = model.Surveys;
             organisation.ValidationMsg = "Please complete all fields";
 
             return View(organisation);

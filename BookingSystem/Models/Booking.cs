@@ -12,11 +12,13 @@ namespace BookingSystem.Models
     public class Booking
     {
         public int Id { get; set; }
+        [DisplayName("Roll Number")]
         public string RollNumber { get; set; }
         [Required]
         [DisplayName("School/Organisation Name")]
         public string OfficialSchoolName { get; set; }
         [Required]
+        [DisplayName("Teacher Name")]
         public string TeacherName { get; set; }
         [Required]
         public string Address1 { get; set; }
@@ -28,13 +30,17 @@ namespace BookingSystem.Models
         public string County { get; set; }
         [Required]
         public string Email { get; set; }
+        [DisplayName("Phone Number")]
         public string PhoneNumber { get; set; }
+        [DisplayName("Camp Date")]
         //remove timestamp from DateTime
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime? Date { get; set; }
         [Required]
+        [DisplayName("Start Time")]
         public string StartTime { get; set; }
         [Required]
+        [DisplayName("End Time")]
         public string EndTime { get; set; }
         public bool? Surveys { get; set; }
         public string AcademicYear { get; set; }
@@ -46,12 +52,13 @@ namespace BookingSystem.Models
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
         [Required]
+        [DisplayName("Class Groups")]
         public string ClassGroups { get; set; }
         [Required]
         public string Topics { get; set; }
-        [DisplayName("Lecturer Name")]
+        [DisplayName("Camp Lecturer")]
         public string LecturerName { get; set; }
-        [DisplayName("Organisation Name")]
+        [DisplayName("Principal Name")]
         public string PrincipalName { get; set; }
         public string DeisSchool { get; set; }
         public string SchoolGender { get; set; }

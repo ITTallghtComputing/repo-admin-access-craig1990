@@ -16,6 +16,8 @@
         <div class="col-md-6">
 
             <div>
+                <h4>School Contact Details</h4>
+                <br />
 
                 <dl class="dl-horizontal">
                     <dt>
@@ -40,6 +42,14 @@
 
                     <dd>
                         @Html.DisplayFor(model => model.TeacherName)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PrincipalName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.PrincipalName)
                     </dd>
 
                     <dt>
@@ -106,12 +116,24 @@
                         @Html.DisplayFor(model => model.PhoneNumber)
                     </dd>
 
+                    <hr />
+                    <h4>Camp Details</h4>
+                    <br />
+
                     <dt>
                         @Html.DisplayNameFor(model => model.Date)
                     </dt>
 
                     <dd>
                         @Html.DisplayFor(model => model.Date)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LecturerName)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.LecturerName)
                     </dd>
 
                     <dt>
@@ -139,70 +161,6 @@
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.AcademicYear)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.AcademicYear)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.LocalAuthority)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.LocalAuthority)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.X)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.X)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Y)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Y)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ITMEast)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ITMEast)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ITMNorth)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.ITMNorth)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Latitude)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Latitude)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Longitude)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Longitude)
-                    </dd>
-
-                    <dt>
                         @Html.DisplayNameFor(model => model.ClassGroups)
                     </dt>
 
@@ -217,21 +175,25 @@
                     <dd>
                         @Html.DisplayFor(model => model.Topics)
                     </dd>
+                    
+                    <hr />
+                    <h4>Additional School Details</h4>
+                    <br />
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.LecturerName)
+                        @Html.DisplayNameFor(model => model.LocalAuthority)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.LecturerName)
+                        @Html.DisplayFor(model => model.LocalAuthority)
                     </dd>
 
                     <dt>
-                        @Html.DisplayNameFor(model => model.PrincipalName)
+                        @Html.DisplayNameFor(model => model.AcademicYear)
                     </dt>
 
                     <dd>
-                        @Html.DisplayFor(model => model.PrincipalName)
+                        @Html.DisplayFor(model => model.AcademicYear)
                     </dd>
 
                     <dt>
@@ -322,6 +284,59 @@
                         @Html.DisplayFor(model => model.TotalPupils)
                     </dd>
 
+                    <hr />
+                    <h4>School Coordinates</h4>
+                    <br />
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.X)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.X)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Y)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Y)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ITMEast)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ITMEast)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ITMNorth)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ITMNorth)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Latitude)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Latitude)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Longitude)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Longitude)
+                    </dd>
+
+
                 </dl>
             </div>
             <p>
@@ -346,7 +361,7 @@
 
             <div class="embed-responsive embed-responsive-16by9">
 
-                <div id="map" class="embed-responsive-item" style="border: 1px solid black;"></div>
+                <div id="map" class="embed-responsive-item" style="border: thin solid;"></div>
             </div>
 
         </div>

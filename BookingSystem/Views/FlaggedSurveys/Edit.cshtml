@@ -84,7 +84,6 @@
 
             @*Show list of flagged question content and allow user to hide each flag to know which flags have been fixed.
             Does not delete flag from DB as we still want to keep a record of flags*@
-
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
 
