@@ -15,28 +15,27 @@ namespace BookingSystem.Survey_Extraction
         //private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\");
         private string bitmapFolder = Path.Combine(HttpRuntime.AppDomainAppPath, "IronPDFDoc\\");
 
-
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
             //load PDF
             var pdf = PdfDocument.FromFile(filename);
-            //Extract all PDF pages to a folder as Bitmap image files
-            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
-
             //used to keep track of surveys IDs for Stamping and to updateSurvey() with checkbox data
             int surveyIDCounter = startID;
             //current page for stamping purposes
             int currentPage = 0;
             //get number of pages in .PDF
-            int numberPages = pdf.PageCount; 
+            int numberPages = pdf.PageCount;
             //get number of Surveys in .PDF
             int numberSurveys = numberPages / 2;
-    
-         
+
+            //Extract all PDF pages to a folder as Bitmap image files
+            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
+
 
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
 
-            for (int i = 1; i <= numberPages; i++) //8 pages
+            //loop through Bitmaps
+            for (int i = 1; i <= numberPages; i++) 
             {
                 //Loop through Page 1 checkbox dictionary
                 if (i % 2 != 0)
@@ -47,6 +46,11 @@ namespace BookingSystem.Survey_Extraction
                     currentPage++;
                     //create Bitmap with 1st page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                    //Crop Bitmap to fix any distortion from scanning
+                    //Important as all Survey checkboxes XY locations need to be consistant to get accurate pixel density measurements 
+                    Bitmap croppedBm = cropSurvey(bm);
+                    //croppedBm.Save($"{bitmapFolder}\\croppedSurvey{i}.png", ImageFormat.Png);
+
                     //loops through each page 1 checkbox in page1 checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
                     {
@@ -61,7 +65,7 @@ namespace BookingSystem.Survey_Extraction
                         {
                             for (int x = startX; x < endX; x++)
                             {
-                                lResult.Add(bm.GetPixel(x, y).GetBrightness());
+                                lResult.Add(croppedBm.GetPixel(x, y).GetBrightness());
                             }
                         }
 
@@ -99,6 +103,11 @@ namespace BookingSystem.Survey_Extraction
 
                     //create Bitmap with 2nd page of Survey
                     Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                    //Crop Bitmap to fix any distortion from scanning
+                    //Important as all Survey checkboxes XY locations need to be consistant to get accurate pixel density measurements 
+                    Bitmap croppedBm = cropSurvey(bm);
+                    //croppedBm.Save($"{bitmapFolder}\\croppedSurvey{i}.png", ImageFormat.Png);
+
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxesP2)
                     {
@@ -113,7 +122,7 @@ namespace BookingSystem.Survey_Extraction
                         {
                             for (int x = startX; x < endX; x++)
                             {
-                                lResult.Add(bm.GetPixel(x, y).GetBrightness());
+                                lResult.Add(croppedBm.GetPixel(x, y).GetBrightness());
                             }
                         }
 
@@ -147,13 +156,51 @@ namespace BookingSystem.Survey_Extraction
                     checkboxData = new SurveyCheckboxCollections();
 
                 }
+
+                //Save PDF with new Survey ID stamps
                 pdf.SaveAs(filename);
                 
             }
 
         }
 
-        
+        //Crop a Survey page to fix any distortion from scanning
+        //Important as all Survey checkboxes XY locations need to be consistant to get accurate pixel density measurements 
+        public Bitmap cropSurvey(Bitmap bm)
+        {
+            //Start crop location
+            int cropX = 0;
+            int cropY = 0;
+            bool cropFlag = false;
+
+            //Find start crop location
+            for (int y = 0; y < 120; y++)
+            {
+                for (int x = 0; x < 62; x++)
+                {
+                    float pixelBrightness = bm.GetPixel(x, y).GetBrightness();
+                    if (pixelBrightness < 0.8 && cropFlag == false)
+                    {
+                        cropFlag = true;
+                        cropX = x;
+                        cropY = y;
+                    }
+                }
+            }
+
+            //Use start crop location to crop Survey page
+            Rectangle crop = new Rectangle(cropX, cropY, 495, 665);
+            Bitmap croppedSurvey = new Bitmap(crop.Width, crop.Height);
+
+            using (Graphics g = Graphics.FromImage(croppedSurvey))
+            {
+                g.DrawImage(bm, new Rectangle(0, 0, croppedSurvey.Width, croppedSurvey.Height),
+                                 crop,
+                                 GraphicsUnit.Pixel);
+            }
+
+            return croppedSurvey;
+        }
 
     }
 }

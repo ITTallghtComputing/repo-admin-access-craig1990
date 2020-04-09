@@ -12,12 +12,13 @@
 
 <br />
 <div class="row">
+
     <div class="col-md-6 col-md-offset-4" style="justify-content:center; align-content:center">
-        <br/>
+        <br />
         <div>
             <p>Latitude, Longitude Excel File</p>
             <br />
-            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default">
+            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default" onsubmit="document.getElementById('loading').style.display='block'">
                 <div>
                     <input name="file" type="file" required />
                     <br />
@@ -33,7 +34,7 @@
         <div>
             <p>School Gender, Numbers Excel File</p>
             <br />
-            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload2", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default">
+            <form method="post" enctype="multipart/form-data" action="@Url.Action("Upload2", "CSO_CSVUpload")" style=" width:400px" class="btn btn-default" onsubmit="document.getElementById('loading').style.display='block'">
                 <div>
                     <input name="file" type="file" required />
                     <br />
@@ -41,5 +42,9 @@
                 </div>
             </form>
         </div>
+        <img style="margin-left:80px; display:none;" id="loading" src="../../Content/loading2.gif" alt="Updating ..." />
+         
+       
     </div>
+
 </div>
