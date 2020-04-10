@@ -334,40 +334,35 @@ namespace BookingSystem.Survey_Extraction
 
             if (q14CoderDojo.IsChecked)
             {
-                s1.Q14a = CompExperience.CoderDojo;
+                s1.Q14a = "Coder Dojo. ";
                 checkboxValidaiton++;
             }
             if (q14InSchool.IsChecked)
             {
-                s1.Q14a = CompExperience.School;
+                s1.Q14a += "In School. ";
                 checkboxValidaiton++;
             }
             if (q14Camp.IsChecked)
             {
-                s1.Q14a = CompExperience.Camp;
+                s1.Q14a += "Camp. ";
                 checkboxValidaiton++;
             }
             if (q14SelfTaught.IsChecked)
             {
-                s1.Q14a = CompExperience.SelfTaught;
+                s1.Q14a += "Self Taught. ";
                 checkboxValidaiton++;
             }
             if (q14Other.IsChecked)
             {
-                s1.Q14a = CompExperience.Other;
+                s1.Q14a += "Other. ";
                 checkboxValidaiton++;
             }
 
-            //validate only 1 checkbox has been marked 
+            //validate at least 1 checkbox has been marked
             if (checkboxValidaiton == 0)
             {
                 s1.Flag = true;
                 s1.FlagContent += "| Question14a: no checkboxes marked. ";
-            }
-            else if (checkboxValidaiton > 1)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question14a: more than 1 checkboxes marked. ";
             }
 
 

@@ -71,7 +71,12 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.FlagContent)
+                    @foreach (var item in ViewBag.FLagList)
+                    {
+                        <div>
+                            @item
+                        </div>
+                    }
                 </dd>
             </dl>
 
@@ -229,7 +234,7 @@
             <dd>
                 @Html.DisplayFor(model => model.Q14c)
             </dd>
-
+            <hr/>
             <dt>
                 @Html.DisplayNameFor(model => model.Q15)
             </dt>

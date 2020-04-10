@@ -45,15 +45,6 @@ namespace BookingSystem.Models
         Yes,
         No
     }
-    public enum CompExperience
-    {
-        None,
-        CoderDojo,
-        School,
-        Camp,
-        SelfTaught,
-        Other
-    }
     public enum GoodBad
     {
         None,
@@ -122,7 +113,7 @@ namespace BookingSystem.Models
         [Display(Name = "Q13b. Which family member")]
         public string Q13b { get; set; }
         [Display(Name = "Q14a. Previous Computing Experience")]
-        public CompExperience Q14a { get; set; }
+        public string Q14a { get; set; }
         [Display(Name = "Q14b. Good or Bad Experience")]
         public GoodBad Q14b { get; set; }
         [Display(Name = "Q14c. Why was this?")]

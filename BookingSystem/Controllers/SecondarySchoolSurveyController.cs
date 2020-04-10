@@ -77,7 +77,7 @@ namespace BookingSystem.Controllers
                     break;
             }
 
-
+            
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -96,6 +96,11 @@ namespace BookingSystem.Controllers
             {
                 return HttpNotFound();
             }
+
+            //break flag content string into list to display each flag in View
+            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+            ViewBag.FlagList = listStrLineElements;
+
             return View(secondarySchoolSurvey);
         }
 
@@ -134,6 +139,11 @@ namespace BookingSystem.Controllers
             {
                 return HttpNotFound();
             }
+
+            //break flag content string into list to display each flag in View
+            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+            ViewBag.FlagList = listStrLineElements;
+
             return View(secondarySchoolSurvey);
         }
 
@@ -165,6 +175,10 @@ namespace BookingSystem.Controllers
             {
                 return HttpNotFound();
             }
+            //break flag content string into list to display each flag in View
+            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+            ViewBag.FlagList = listStrLineElements;
+
             return View(secondarySchoolSurvey);
         }
 
