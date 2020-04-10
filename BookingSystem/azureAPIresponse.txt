@@ -1,12 +1,11 @@
-Same
 MITT
 Secondary School Study
-Institute of lachnology fellazit
+lastfuce of Technology Tellagift
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
 1. What age are you (years)?
-16
+12
 2. Please select your gender.
 MALE
 FEMALE
@@ -15,11 +14,137 @@ DON'T WANT TO DECLARE
 3. How many hours do you spend playing computer games per day (console or phone)?
 2
 4. How many hours do you spend on social media (eg snapchat) per day?
+4
 5. How many hours a week do you work at a part time job (0 if none)?
+5
 6. At what level are you currently studying Math's?
 HIGHER ORDINARY OTHER
 Most recent math's result
-92
+66
+9
+7. What science subject(s) do you study?
+PHYSICS BIOLOGY
+CHEMISTRY
+SCIENCE
+NONE
+8. Name any two computing / IT jobs that you know of?
+App Developer
+Data Analysis
+9. I would consider a career in computing / IT / programming-
+Strongly Agree
+O
+O
+O
+O
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+10. I am good at using IT, so I think I will be good at computing / programming.
+O
+O
+O
+Strongly Agree
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+11. Give two reasons that would discourage you from a career in computing / IT / programming?
+Too hard
+Not my thing
+12. Name two role models / idols that you have and their job?
+Name Michael O'leary
+Bill Gates
+Job Ryanair
+Job
+Microsoft
+Page 1 of 2
+WITT
+Secondary School Study
+MADUBLIN
+Institute of Technology Tallagti
+Student Perception of Computers
+Roisin Faherty, Keith Quille
+13. Are any of your family members working in computing / IT?
+YES NO
+If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
+Cousin
+14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
+CODER DOJO IN SCHOOL CAMP SELF TAUGHT
+OTHER
+If you selected any from Q14, was the general experience:
+GOOD NEITHER GOOD OR BAD
+BAD
+And why (short answer, under 4 words)
+I was too young at the time
+To be completed after the camp.
+1. I would now consider a career in computing / II.
+O
+O
+O
+Strongly Agree
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+2. The camp showed me what a career in computing / IT really was.
+Agree
+O
+O
+O
+Strongly Agree
+No Opinion
+O
+Disagree
+Strongly Disagree
+3. The camp showed / highlighted that I was no good at programming or computing.
+O
+O
+Strongly Agree
+Agree
+O
+No Opinion
+Disagree
+Strongly Disagree
+4. Give two things that you did not know about computing / programming until after the camp?
+Python
+Coding
+5. I was better than I first thought (before the camp) at programming / computing.
+O
+Strongly Agree
+O
+Agree
+No Opinion
+O
+Disagree
+Strongly Disagree
+6. Any feedback / comments about the camp (good or bad)?
+I would like to learn more
+Thank you for taking this survey.
+Page 2 of 2
+MITT
+Secondary School Study
+lastfuce of lachnology Tellagift
+Student Perception of Computers
+Roisin Faherty, Keith Quille
+To be completed before the camp.
+1. What age are you (years)?
+13
+2. Please select your gender.
+MALE
+FEMALE
+OTHER
+DON'T WANT TO DECLARE
+3. How many hours do you spend playing computer games per day (console or phone)?
+5
+4. How many hours do you spend on social media (eg snapchat) per day?
+2
+5. How many hours a week do you work at a part time job (0 if none)?
+S
+6. At what level are you currently studying Math's?
+HIGHER ORDINARY OTHER
+Most recent math's result
+67
 19
 7. What science subject(s) do you study?
 PHYSICS BIOLOGY
@@ -27,19 +152,21 @@ CHEMISTRY
 SCIENCE
 NONE
 8. Name any two computing / IT jobs that you know of?
-test
-test
-9. I would consider a career in computing / IT / programming-
-O
-Agree
+Data Science
+Networking
+9. I would consider a career in computing / IT / programming.
 O
 Strongly Agree
+O
+O
 No Opinion
 O
 O
+Agree
 Disagree
 Strongly Disagree
 10. I am good at using IT, so I think I will be good at computing / programming.
+O
 O
 O
 O
@@ -49,14 +176,15 @@ No Opinion
 Disagree
 Strongly Disagree
 11. Give two reasons that would discourage you from a career in computing / IT / programming?
-test
-test
+Too much to learn
+Not interesting
 12. Name two role models / idols that you have and their job?
+Name Steve Jobs
 Name
-test
-Name test
+Valentino Rossi
 Job
-Job
+Apple
+Job Professional bike racer
 Page 1 of 2
 WITT
 Secondary School Study
@@ -67,7 +195,7 @@ Roisin Faherty, Keith Quille
 13. Are any of your family members working in computing / IT?
 YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
-test
+Brother.
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
 CODER DOJO IN SCHOOL CAMP SELF TAUGHT
 OTHER
@@ -75,9 +203,10 @@ If you selected any from Q14, was the general experience:
 GOOD NEITHER GOOD OR BAD
 BAD
 And why (short answer, under 4 words)
-test
+I couldn't type fast enough
 To be completed after the camp.
 1. I would now consider a career in computing / IT.
+O
 O
 Strongly Agree
 Agree
@@ -86,79 +215,85 @@ Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
+O
+O
+O
 Strongly Agree
 Agree
-O
-O
 No Opinion
-O
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
 O
 O
+O
+O
+O
 Strongly Agree
 Agree
-O
-2)
 No Opinion
 Disagree
 Strongly Disagree
 4. Give two things that you did not know about computing / programming until after the camp?
-test
-test
+Programming
+Data Science
 5. I was better than I first thought (before the camp) at programming / computing.
 O
-Strongly Agree
 O
+Strongly Agree
 Agree
 No Opinion
 O
 Disagree
+O
 Strongly Disagree
 6.
 Any feedback / comments about the camp (good or bad)?
-test
+Good fun
 Thank you for taking this survey.
 Page 2 of 2
-Same
 MITT
 Secondary School Study
-institute of lachnology Tellagift
+lastfuce of lachnology Tellagift
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
 1. What age are you (years)?
+14
 2. Please select your gender.
 MALE
 FEMALE
 OTHER
 DON'T WANT TO DECLARE
 3. How many hours do you spend playing computer games per day (console or phone)?
+6
 4. How many hours do you spend on social media (eg snapchat) per day?
 5. How many hours a week do you work at a part time job (0 if none)?
+6
 6. At what level are you currently studying Math's?
 HIGHER ORDINARY OTHER
 Most recent math's result
-0 0 00
+78
+9
 7. What science subject(s) do you study?
 PHYSICS BIOLOGY
 CHEMISTRY
 SCIENCE
 NONE
 8. Name any two computing / IT jobs that you know of?
+Programming
+Software Developer
 9. I would consider a career in computing / IT / programming.
 O
 O
+O
+O
 Strongly Agree
-O
 Agree
-O
 No Opinion
 Disagree
 Strongly Disagree
 10. I am good at using IT, so I think I will be good at computing / programming.
-O
 O
 O
 O
@@ -168,11 +303,16 @@ No Opinion
 Disagree
 Strongly Disagree
 11. Give two reasons that would discourage you from a career in computing / IT / programming?
+other interests
+Not my thing
 12. Name two role models / idols that you have and their job?
+Name James Deone
 Name
-Name
+Cristiano Ronaldo
+Job Professional
 Job
-Job
+Footballer
+drift racer
 Page 1 of 2
 WITT
 Secondary School Study
@@ -183,12 +323,14 @@ Roisin Faherty, Keith Quille
 13. Are any of your family members working in computing / IT?
 YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
+Sister
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
 CODER DOJO IN SCHOOL CAMP SELF TAUGHT OTHER
 If you selected any from Q14, was the general experience:
 GOOD NEITHER GOOD OR BAD
 BAD
 And why (short answer, under 4 words)
+Too hard for me at the time
 To be completed after the camp.
 1. I would now consider a career in computing / IT.
 O
@@ -200,11 +342,11 @@ Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
+O
+O
+O
 Strongly Agree
-O
-O
 Agree
-O
 No Opinion
 Disagree
 Strongly Disagree
@@ -213,166 +355,67 @@ O
 O
 Strongly Agree
 Agree
+O
 No Opinion
 Disagree
-O
 Strongly Disagree
 4. Give two things that you did not know about computing / programming until after the camp?
+Data Analysis
+Bebras Challenge
 5. I was better than I first thought (before the camp) at programming / computing.
 O
 Strongly Agree
 O
 O
-Agree
 No Opinion
+O
 Disagree
 O
+Agree
 Strongly Disagree
-6.
-Any feedback / comments about the camp (good or bad)?
+6. Any feedback / comments about the camp (good or bad)?
+I found it very interesting
 Thank you for taking this survey.
 Page 2 of 2
-Same
 MITT
 Secondary School Study
-institute of lachnology Tellagift
+lastfuce of Technology Tellagit
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
 1. What age are you (years)?
+15
 2. Please select your gender.
+O
 MALE
 FEMALE
 OTHER
 DON'T WANT TO DECLARE
 3. How many hours do you spend playing computer games per day (console or phone)?
+4
 4. How many hours do you spend on social media (eg snapchat) per day?
+4
 5. How many hours a week do you work at a part time job (0 if none)?
+2
 6. At what level are you currently studying Math's?
 HIGHER ORDINARY OTHER
 Most recent math's result
-7. What science subject(s) do you study?
-0 0 00
-PHYSICS BIOLOGY
-CHEMISTRY
-SCIENCE
-NONE
-8. Name any two computing / IT jobs that you know of?
-9. I would consider a career in computing / IT / programming.
-O
-Strongly Agree
-O
-O
-Agree
-No Opinion
-Disagree
-Strongly Disagree
-10. I am good at using IT, so I think I will be good at computing / programming.
-O
-O
-O
-O
-Strongly Agree
-Agree
-No Opinion
-Disagree
-Strongly Disagree
-11. Give two reasons that would discourage you from a career in computing / IT / programming?
-12. Name two role models / idols that you have and their job?
-Name
-Name
-Job
-Job
-Page 1 of 2
-WITT
-Secondary School Study
-MADUBLIN
-Institute of Technology Tallagti
-Student Perception of Computers
-Roisin Faherty, Keith Quille
-13. Are any of your family members working in computing / IT?
-YES NO
-If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
-14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
-CODER DOJO IN SCHOOL CAMP SELF TAUGHT
-OTHER
-If you selected any from Q14, was the general experience:
-GOOD NEITHER GOOD OR BAD
-BAD
-And why (short answer, under 4 words)
-To be completed after the camp.
-1. I would now consider a career in computing / IT.
-O
-Strongly Agree
-Agree
-No Opinion
-Disagree
-Strongly Disagree
-2. The camp showed me what a career in computing / IT really was.
-O
-O
-Disagree
-O
-Strongly Agree
-Agree
-No Opinion
-O
-Strongly Disagree
-3. The camp showed / highlighted that I was no good at programming or computing.
-O
-O
-Strongly Agree
-Agree
-No Opinion
-Disagree
-O
-Strongly Disagree
-4. Give two things that you did not know about computing / programming until after the camp?
-5. I was better than I first thought (before the camp) at programming / computing.
-O
-Strongly Agree
-O
-No Opinion
-O
-Disagree
-O
-Agree
-Strongly Disagree
-6.
-Any feedback / comments about the camp (good or bad)?
-Thank you for taking this survey.
-Page 2 of 2
-Same
-MITT
-Secondary School Study
-institute of lachnology Tellagift
-Student Perception of Computers
-Roisin Faherty, Keith Quille
-To be completed before the camp.
-1. What age are you (years)?
-2. Please select your gender.
-MALE
-FEMALE
-OTHER
-DON'T WANT TO DECLARE
-3. How many hours do you spend playing computer games per day (console or phone)?
-4. How many hours do you spend on social media (eg snapchat) per day?
-5. How many hours a week do you work at a part time job (0 if none)?
-6. At what level are you currently studying Math's?
-HIGHER ORDINARY OTHER
-Most recent math's result
-0 0 00
+88
+9%
 7. What science subject(s) do you study?
 PHYSICS BIOLOGY
 CHEMISTRY
 SCIENCE
 NONE
 8. Name any two computing / IT jobs that you know of?
+Software Engineer
+Web Design
 9. I would consider a career in computing / IT / programming.
 O
+O
+O
+O
 Strongly Agree
-O
-O
 Agree
 No Opinion
 Disagree
@@ -387,11 +430,17 @@ No Opinion
 Disagree
 Strongly Disagree
 11. Give two reasons that would discourage you from a career in computing / IT / programming?
+other interests
+Too hard
 12. Name two role models / idols that you have and their job?
 Name
+Lionel Messi
 Name
+Thierry Henry
 Job
+Footballer
 Job
+Footballer
 Page 1 of 2
 WITT
 Secondary School Study
@@ -402,6 +451,7 @@ Roisin Faherty, Keith Quille
 13. Are any of your family members working in computing / IT?
 YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
+Uncle
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
 CODER DOJO IN SCHOOL CAMP SELF TAUGHT
 OTHER
@@ -409,9 +459,136 @@ If you selected any from Q14, was the general experience:
 GOOD NEITHER GOOD OR BAD
 BAD
 And why (short answer, under 4 words)
+it didn't interest me
 To be completed after the camp.
 1. I would now consider a career in computing / IT.
 O
+Strongly Agree
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+2. The camp showed me what a career in computing / IT really was.
+O
+Strongly Agree
+Agree
+O
+O
+No Opinion
+O
+Disagree
+Strongly Disagree
+3. The camp showed / highlighted that I was no good at programming or computing.
+O
+O
+Agree
+O
+Strongly Agree
+No Opinion
+Disagree
+Strongly Disagree
+4. Give two things that you did not know about computing / programming until after the camp?
+Micro Bit
+Python
+5. I was better than I first thought (before the camp) at programming / computing.
+O
+O
+Strongly Agree
+O
+Agree
+O
+No Opinion
+O
+Disagree
+Strongly Disagree
+6.
+Any feedback / comments about the camp (good or bad)?
+Too hard for
+me
+Thank you for taking this survey.
+Page 2 of 2
+MITT
+Secondary School Study
+lastfuce of Technology Tellagit
+Student Perception of Computers
+Roisin Faherty, Keith Quille
+To be completed before the camp.
+1. What age are you (years)? 1 6
+2. Please select your gender.
+MALE
+FEMALE
+OTHER
+DON'T WANT TO DECLARE
+3. How many hours do you spend playing computer games per day (console or phone)?
+2
+4. How many hours do you spend on social media (eg snapchat) per day?
+3
+5. How many hours a week do you work at a part time job (0 if none)?
+12
+6. At what level are you currently studying Math's?
+HIGHER ORDINARY OTHER
+Most recent math's result
+78
+7. What science subject(s) do you study?
+PHYSICS BIOLOGY
+CHEMISTRY
+SCIENCE
+NONE
+8. Name any two computing / IT jobs that you know of?
+App Developer
+Web Design
+9. I would consider a career in computing / IT / programming.
+O
+Strongly Agree
+O
+O
+O
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+10. I am good at using IT, so I think I will be good at computing / programming.
+O
+O
+O
+Strongly Agree
+Agree
+No Opinion
+Disagree
+Strongly Disagree
+11. Give two reasons that would discourage you from a career in computing / IT / programming?
+Not interesting
+Too much to learn
+12. Name two role models / idols that you have and their job?
+Name
+Jeff Bezos
+Name
+Michael O'leary
+Job
+Amazon
+Job
+Ryanair
+Page 1 of 2
+WITT
+Secondary School Study
+MADUBLIN
+Institute of Technology Tallagti
+Student Perception of Computers
+Roisin Faherty, Keith Quille
+13. Are any of your family members working in computing / IT?
+YES NO
+If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
+Aunt
+14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
+CODER DOJO IN SCHOOL CAMP SELF TAUGHT
+OTHER
+If you selected any from Q14, was the general experience:
+GOOD NEITHER GOOD OR BAD
+BAD
+And why (short answer, under 4 words)
+I found it very interesting
+To be completed after the camp.
+1. I would now consider a career in computing / IT.
 O
 Strongly Agree
 Agree
@@ -421,28 +598,29 @@ Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
 O
+O
 Strongly Agree
-O
 Agree
-O
 No Opinion
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
 O
 O
+O
 Strongly Agree
 Agree
 No Opinion
 Disagree
-O
 Strongly Disagree
 4. Give two things that you did not know about computing / programming until after the camp?
+Data Analysis
+Data Science
 5. I was better than I first thought (before the camp) at programming / computing.
+O
 Strongly Agree
 O
 Agree
-O
 No Opinion
 O
 Disagree
@@ -450,5 +628,6 @@ O
 Strongly Disagree
 6.
 Any feedback / comments about the camp (good or bad)?
+I would now like to study computing in college
 Thank you for taking this survey.
 Page 2 of 2
