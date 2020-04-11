@@ -7,13 +7,13 @@
 
 <br />
 <h3>Flagged Surveys</h3>
-@if (Model == null)
+@if (ViewBag.Validation == true)
 {
     <h4>@Model.First().OfficialSchoolName</h4>
 }
 
 <hr />
-@if (Model != null)
+@if (ViewBag.Validation == false)
 {
     <br />
     <h3>No Flagged Surveys found</h3>

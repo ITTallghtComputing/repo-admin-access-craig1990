@@ -98,8 +98,17 @@ namespace BookingSystem.Controllers
             }
 
             //break flag content string into list to display each flag in View
-            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
-            ViewBag.FlagList = listStrLineElements;
+            if(secondarySchoolSurvey.FlagContent != null)
+            {
+                List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+                ViewBag.FlagList = listStrLineElements;
+            }
+            else
+            {
+                List<string> listStringLineElements = new List<string>();
+                listStringLineElements.Add("No Flags");
+                ViewBag.FlagList = listStringLineElements;
+            }
 
             return View(secondarySchoolSurvey);
         }
@@ -141,8 +150,17 @@ namespace BookingSystem.Controllers
             }
 
             //break flag content string into list to display each flag in View
-            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
-            ViewBag.FlagList = listStrLineElements;
+            if (secondarySchoolSurvey.FlagContent != null)
+            {
+                List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+                ViewBag.FlagList = listStrLineElements;
+            }
+            else
+            {
+                List<string> listStringLineElements = new List<string>();
+                listStringLineElements.Add("No Flags");
+                ViewBag.FlagList = listStringLineElements;
+            }
 
             return View(secondarySchoolSurvey);
         }
@@ -176,8 +194,17 @@ namespace BookingSystem.Controllers
                 return HttpNotFound();
             }
             //break flag content string into list to display each flag in View
-            List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
-            ViewBag.FlagList = listStrLineElements;
+            if (secondarySchoolSurvey.FlagContent != null)
+            {
+                List<string> listStrLineElements = secondarySchoolSurvey.FlagContent.Split('|').ToList();
+                ViewBag.FlagList = listStrLineElements;
+            }
+            else
+            {
+                List<string> listStringLineElements = new List<string>();
+                listStringLineElements.Add("No Flags");
+                ViewBag.FlagList = listStringLineElements;
+            }
 
             return View(secondarySchoolSurvey);
         }

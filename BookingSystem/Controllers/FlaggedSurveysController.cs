@@ -40,6 +40,14 @@ namespace BookingSystem.Controllers
                 completedCamp.SurveysValidated = CompletedCamp.Validated.No;
             }
 
+            if(completedCamp.SurveysValidated == CompletedCamp.Validated.Yes)
+            {
+                ViewBag.Validation = true;
+            }
+            else
+            {
+                ViewBag.Validation = false;
+            }
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);

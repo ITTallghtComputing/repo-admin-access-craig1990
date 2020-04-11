@@ -251,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\loading2.gif" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\processing.gif" />
     <Content Include="Content\themes\base\accordion.css" />
