@@ -7,16 +7,18 @@
 
 <br />
 <h3>Flagged Surveys</h3>
-@if (Model != null)
+@if (Model == null)
 {
     <h4>@Model.First().OfficialSchoolName</h4>
 }
 
 <hr />
-@if (Model == null)
+@if (Model != null)
 {
     <br />
     <h3>No Flagged Surveys found</h3>
+    @Html.ActionLink("Back to Completed Camps", "Index", "CompletedCamps")
+    <br/>
 }
 
 <br />
