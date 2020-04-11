@@ -7,17 +7,75 @@ using System.Drawing.Imaging;
 using IronPdf;
 using IronOcr;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BookingSystem.Survey_Extraction
 {
+    public static class CropSurvey
+    {
+        public static void cropSurveys(string filename, string bitmapFolder)
+        {
+            //load PDF
+            var pdf = PdfDocument.FromFile(filename);
+            //Extract all PDF pages to a folder as Bitmap image files
+            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
+            //get number of pages in .PDF
+            int numberPages = pdf.PageCount;
+
+            for (int i = 1; i <= numberPages; i++)
+            {
+                Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+
+                //Start crop location
+                int cropX = 0;
+                int cropY = 0;
+                bool cropFlag = false;
+
+
+                //Find start crop location
+                for (int y = 0; y < 120; y++)
+                {
+                    for (int x = 0; x < 62; x++)
+                    {
+                        float pixelBrightness = bm.GetPixel(x, y).GetBrightness();
+                        if (pixelBrightness < 0.8 && cropFlag == false)
+                        {
+                            cropFlag = true;
+                            cropX = x;
+                            cropY = y;
+                        }
+                    }
+                }
+
+                //Use start crop location to crop Survey page
+                Rectangle crop = new Rectangle(cropX, cropY, 495, 665);
+                Bitmap croppedSurvey = new Bitmap(crop.Width, crop.Height);
+
+                using (Graphics g = Graphics.FromImage(croppedSurvey))
+                {
+                    g.DrawImage(bm, new Rectangle(0, 0, croppedSurvey.Width, croppedSurvey.Height),
+                                     crop,
+                                     GraphicsUnit.Pixel);
+                }
+
+                croppedSurvey.Save(bitmapFolder + $"\\croppedSurvey{i}.png", ImageFormat.Png);
+            }
+
+        }
+    }
+
     public class ExtractSecondarySchoolSurveyCheckboxes
     {
         //private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\");
         private string bitmapFolder = Path.Combine(HttpRuntime.AppDomainAppPath, "IronPDFDoc\\");
+        
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
-    
+
+            //crop all surveys
+            CropSurvey.cropSurveys(filename, bitmapFolder);
+
             //load PDF
             var pdf = PdfDocument.FromFile(filename);
             //used to keep track of surveys IDs for Stamping and to updateSurvey() with checkbox data
@@ -28,8 +86,7 @@ namespace BookingSystem.Survey_Extraction
             int numberPages = pdf.PageCount;
             //get number of Surveys in .PDF
             int numberSurveys = numberPages / 2;
-            //Extract all PDF pages to a folder as Bitmap image files
-            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
+            
 
 
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
@@ -45,8 +102,7 @@ namespace BookingSystem.Survey_Extraction
                     pdf.StampHTML(ForegroundStamp, currentPage);
                     currentPage++;
                     //create Bitmap with 1st page of Survey
-                    Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
-
+                    Bitmap bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true);
 
                     //loops through each page 1 checkbox in page1 checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxes)
@@ -100,7 +156,7 @@ namespace BookingSystem.Survey_Extraction
                     currentPage ++;
 
                     //create Bitmap with 2nd page of Survey
-                    Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                    Bitmap bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true);
 
                     //loops through each checkbox in checkbox dictionary and compares
                     foreach (KeyValuePair<string, CheckboxData> element in checkboxData.SecondarySchoolCheckboxesP2)
@@ -139,7 +195,6 @@ namespace BookingSystem.Survey_Extraction
                         }
 
                     }
-
 
                     //update a survey with checkbox data
                     SubmitSecondarySchoolSurveyCheckboxes submitCheckboxes = new SubmitSecondarySchoolSurveyCheckboxes();
