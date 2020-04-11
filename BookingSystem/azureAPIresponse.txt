@@ -1,13 +1,12 @@
 MITT
 Secondary School Study
-lastfuce of Technology Tellagift
+lastfuce of lachnology Tellagift
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
 1. What age are you (years)?
 12
-2. Please select your gender.
-MALE
+2. Please select your gender. |MALE
 FEMALE
 OTHER
 DON'T WANT TO DECLARE
@@ -31,16 +30,18 @@ NONE
 App Developer
 Data Analysis
 9. I would consider a career in computing / IT / programming-
+O
+O
 Strongly Agree
 O
-O
-O
-O
 Agree
+O
+O
 No Opinion
 Disagree
 Strongly Disagree
 10. I am good at using IT, so I think I will be good at computing / programming.
+O
 O
 O
 O
@@ -61,12 +62,12 @@ Microsoft
 Page 1 of 2
 WITT
 Secondary School Study
-MADUBLIN
+AMMADUBLIN
 Institute of Technology Tallagti
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 13. Are any of your family members working in computing / IT?
-YES NO
+V YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
 Cousin
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
@@ -79,7 +80,7 @@ And why (short answer, under 4 words)
 I was too young at the time
 To be completed after the camp.
 1. I would now consider a career in computing / II.
-O
+V
 O
 O
 Strongly Agree
@@ -88,21 +89,23 @@ No Opinion
 Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
-Agree
+(J
 O
 O
 O
 Strongly Agree
-No Opinion
+Agree
 O
+No Opinion
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
 O
 O
+O
+O
 Strongly Agree
 Agree
-O
 No Opinion
 Disagree
 Strongly Disagree
@@ -111,8 +114,8 @@ Python
 Coding
 5. I was better than I first thought (before the camp) at programming / computing.
 O
-Strongly Agree
 O
+Strongly Agree
 Agree
 No Opinion
 O
@@ -156,17 +159,15 @@ Data Science
 Networking
 9. I would consider a career in computing / IT / programming.
 O
+O
+O
+O
 Strongly Agree
-O
-O
-No Opinion
-O
-O
 Agree
+No Opinion
 Disagree
 Strongly Disagree
 10. I am good at using IT, so I think I will be good at computing / programming.
-O
 O
 O
 O
@@ -197,15 +198,14 @@ YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
 Brother.
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
-CODER DOJO IN SCHOOL CAMP SELF TAUGHT
-OTHER
+CODER DOJO IN SCHOOL CAMP SELF TAUGHT OTHER
 If you selected any from Q14, was the general experience:
 GOOD NEITHER GOOD OR BAD
 BAD
 And why (short answer, under 4 words)
 I couldn't type fast enough
 To be completed after the camp.
-1. I would now consider a career in computing / IT.
+1. I would now consider a career in computing / II.
 O
 O
 Strongly Agree
@@ -216,16 +216,14 @@ Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
 O
-O
+Agree
 O
 Strongly Agree
-Agree
 No Opinion
+O
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
-O
-O
 O
 O
 O
@@ -240,12 +238,12 @@ Data Science
 5. I was better than I first thought (before the camp) at programming / computing.
 O
 O
-Strongly Agree
-Agree
 No Opinion
 O
 Disagree
 O
+Strongly Agree
+Agree
 Strongly Disagree
 6.
 Any feedback / comments about the camp (good or bad)?
@@ -261,7 +259,7 @@ To be completed before the camp.
 1. What age are you (years)?
 14
 2. Please select your gender.
-MALE
+)MALE
 FEMALE
 OTHER
 DON'T WANT TO DECLARE
@@ -280,6 +278,7 @@ Most recent math's result
 PHYSICS BIOLOGY
 CHEMISTRY
 SCIENCE
+O
 NONE
 8. Name any two computing / IT jobs that you know of?
 Programming
@@ -310,10 +309,9 @@ Not my thing
 Name James Deone
 Name
 Cristiano Ronaldo
-Job Professional
+Job Professional drift racer
 Job
 Footballer
-drift racer
 Page 1 of 2
 WITT
 Secondary School Study
@@ -326,7 +324,8 @@ YES NO
 If so, what family member(s) is it (eg, parent, guardian, brother, sister etc.)
 Sister
 14. Have you any previous computing experience (even attended a single day)? Select one or many areas:
-CODER DOJO IN SCHOOL CAMP SELF TAUGHT OTHER
+CODER DOJO IN SCHOOL CAMP SELF TAUGHT
+OTHER
 If you selected any from Q14, was the general experience:
 GOOD NEITHER GOOD OR BAD
 BAD
@@ -343,12 +342,12 @@ Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
-O
-O
-O
 Strongly Agree
+O
+O
 Agree
 No Opinion
+O
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
@@ -356,23 +355,22 @@ O
 O
 Strongly Agree
 Agree
-O
 No Opinion
 Disagree
+O
 Strongly Disagree
 4. Give two things that you did not know about computing / programming until after the camp?
 Data Analysis
 Bebras Challenge
 5. I was better than I first thought (before the camp) at programming / computing.
-O
 Strongly Agree
 O
 O
+Agree
 No Opinion
 O
 Disagree
 O
-Agree
 Strongly Disagree
 6. Any feedback / comments about the camp (good or bad)?
 I found it very interesting
@@ -380,7 +378,7 @@ Thank you for taking this survey.
 Page 2 of 2
 MITT
 Secondary School Study
-lastfuce of Technology Tellagit
+lastfuce of Technology Tellagift
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
@@ -414,9 +412,9 @@ Web Design
 9. I would consider a career in computing / IT / programming.
 O
 O
-O
-O
 Strongly Agree
+O
+O
 Agree
 No Opinion
 Disagree
@@ -464,6 +462,7 @@ it didn't interest me
 To be completed after the camp.
 1. I would now consider a career in computing / IT.
 O
+D
 Strongly Agree
 Agree
 No Opinion
@@ -471,36 +470,35 @@ Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
 O
+O
 Strongly Agree
 Agree
 O
 O
 No Opinion
-O
 Disagree
 Strongly Disagree
-3. The camp showed / highlighted that I was no good at programming or computing.
+3. The camp showed / highlighted that Jwas no good at programming or computing.
 O
-O
-Agree
 O
 Strongly Agree
+Agree
 No Opinion
 Disagree
+O
 Strongly Disagree
 4. Give two things that you did not know about computing / programming until after the camp?
 Micro Bit
 Python
 5. I was better than I first thought (before the camp) at programming / computing.
 O
-O
 Strongly Agree
 O
 Agree
-O
 No Opinion
 O
 Disagree
+O
 Strongly Disagree
 6.
 Any feedback / comments about the camp (good or bad)?
@@ -510,13 +508,12 @@ Thank you for taking this survey.
 Page 2 of 2
 MITT
 Secondary School Study
-lastfuce of Technology Tellagit
+lastfuce of lachnology Tellagift
 Student Perception of Computers
 Roisin Faherty, Keith Quille
 To be completed before the camp.
 1. What age are you (years)? 1 6
-2. Please select your gender.
-MALE
+2. Please select your gender. MALE
 FEMALE
 OTHER
 DON'T WANT TO DECLARE
@@ -540,10 +537,10 @@ App Developer
 Web Design
 9. I would consider a career in computing / IT / programming.
 O
+O
+O
+O
 Strongly Agree
-O
-O
-O
 Agree
 No Opinion
 Disagree
@@ -590,12 +587,14 @@ I found it very interesting
 To be completed after the camp.
 1. I would now consider a career in computing / IT.
 O
+O
 Strongly Agree
 Agree
 No Opinion
 Disagree
 Strongly Disagree
 2. The camp showed me what a career in computing / IT really was.
+O
 O
 Strongly Agree
 Agree
@@ -605,6 +604,7 @@ O
 Disagree
 Strongly Disagree
 3. The camp showed / highlighted that I was no good at programming or computing.
+O
 O
 O
 O
@@ -618,13 +618,13 @@ Data Analysis
 Data Science
 5. I was better than I first thought (before the camp) at programming / computing.
 O
+Strongly Agree
 O
 Agree
+No Opinion
 O
 Disagree
 O
-Strongly Agree
-No Opinion
 Strongly Disagree
 6.
 Any feedback / comments about the camp (good or bad)?

@@ -358,12 +358,8 @@ namespace BookingSystem.Survey_Extraction
                 checkboxValidaiton++;
             }
 
-            //validate at least 1 checkbox has been marked
-            if (checkboxValidaiton == 0)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question14a: no checkboxes marked. ";
-            }
+            //no validation required as student can mark none, one or many checkboxes
+           
 
 
             db.SaveChanges();
@@ -398,17 +394,8 @@ namespace BookingSystem.Survey_Extraction
                 checkboxValidaiton++;
             }
 
-            //validate only 1 checkbox has been marked 
-            if (checkboxValidaiton == 0)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question14b: no checkboxes marked. ";
-            }
-            else if (checkboxValidaiton > 1)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question14b: more than 1 checkboxes marked. ";
-            }
+
+            //no validation required as student can mark none, one or many checkboxes
 
             db.SaveChanges();
         }
