@@ -122,6 +122,7 @@ namespace BookingSystem.Survey_Extraction
                                 //bm.SetPixel(x, y, Color.Blue);
                             }
                         }
+                       // bm.Save(bitmapFolder + $"\\markedSurvey{i}.png", ImageFormat.Png);
 
                         //pixel density tolerance used to determine if checkbox is marked or not                ***
                         float densityTolerance = 2.0f;
@@ -173,8 +174,10 @@ namespace BookingSystem.Survey_Extraction
                             for (int x = startX; x < endX; x++)
                             {
                                 lResult.Add(bm.GetPixel(x, y).GetBrightness());
+                                //bm.SetPixel(x, y, Color.Blue);
                             }
                         }
+                        //bm.Save(bitmapFolder + $"\\markedSurvey{i}.png", ImageFormat.Png);
 
                         //pixel density tolerance used to determine if checkbox is marked or not              ***
                         float densityTolerance = 2.0f;

@@ -3,6 +3,7 @@ using BookingSystem.Survey_Extraction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 //Checks which checkbox have been marked for each question to determine answer to question
@@ -359,8 +360,6 @@ namespace BookingSystem.Survey_Extraction
             }
 
             //no validation required as student can mark none, one or many checkboxes
-           
-
 
             db.SaveChanges();
         }
@@ -396,8 +395,8 @@ namespace BookingSystem.Survey_Extraction
 
 
             //no validation required as student can mark none, one or many checkboxes
-
             db.SaveChanges();
+           // await Task.Delay(500);
         }
 
         //Adds Question 15 answer

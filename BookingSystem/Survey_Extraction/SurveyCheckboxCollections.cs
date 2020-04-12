@@ -52,7 +52,7 @@ namespace BookingSystem.Survey_Extraction
                 {"Q14Other", new CheckboxData() { startX = 362, startY = 111, endX = 421, endY = 141, AveragePixels = 1661.1412f} },
                 {"Q14bGood", new CheckboxData() { startX = 108, startY = 163, endX = 166, endY = 194, AveragePixels = 1687.7169f } },
                 {"Q14bNeither", new CheckboxData() { startX = 179, startY = 164, endX = 312, endY = 194, AveragePixels = 3691.5156f } },
-                {"Q14Bad", new CheckboxData() { startX = 321, startY = 164, endX = 377, endY = 195, AveragePixels = 1645.4784f } },
+                {"Q14bBad", new CheckboxData() { startX = 321, startY = 164, endX = 377, endY = 195, AveragePixels = 1645.4784f } },
                 {"Q15StrongAgree", new CheckboxData() { startX = 43, startY = 319, endX = 57, endY = 333, AveragePixels = 177.32549f } },
                 {"Q15Agree", new CheckboxData() { startX = 99, startY = 319, endX = 115, endY = 333, AveragePixels = 205.43137f } },
                 {"Q15NoOpinion", new CheckboxData() { startX = 155, startY = 319, endX = 169, endY = 333, AveragePixels = 177.4647f } },
