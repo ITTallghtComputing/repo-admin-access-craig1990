@@ -162,7 +162,7 @@
             @Html.LabelFor(model => model.Q7, htmlAttributes: new { @class = "control-label" })
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EnumDropDownListFor(model => model.Q7, htmlAttributes: new { @class = "form-control" })
+                    @Html.EditorFor(model => model.Q7, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Q7, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -126,27 +126,27 @@ namespace BookingSystem.Survey_Extraction
 
             if (q7Physics.IsChecked)
             {
-                s1.Q7 = ScienceSubjects.Physics;
+                s1.Q7 = "Physics";
                 checkboxValidaiton++;
             }
             if (q7Biology.IsChecked)
             {
-                s1.Q7 = ScienceSubjects.Biology;
+                s1.Q7 += "Biology";
                 checkboxValidaiton++;
             }
             if (q7Chemistry.IsChecked)
             {
-                s1.Q7 = ScienceSubjects.Chemistry;
+                s1.Q7 += "Chemistry";
                 checkboxValidaiton++;
             }
             if (q7Science.IsChecked)
             {
-                s1.Q7 = ScienceSubjects.ScienceJunior;
+                s1.Q7 += "Science Junior";
                 checkboxValidaiton++;
             }
             if (q7None.IsChecked)
             {
-                s1.Q7 = ScienceSubjects.None;
+                s1.Q7 += "None";
                 checkboxValidaiton++;
             }
 
@@ -155,11 +155,6 @@ namespace BookingSystem.Survey_Extraction
             {
                 s1.Flag = true;
                 s1.FlagContent += "| Question7: no checkboxes marked. ";
-            }
-            else if (checkboxValidaiton > 1)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question7: more than 1 checkboxes marked. ";
             }
 
             db.SaveChanges();
@@ -308,11 +303,6 @@ namespace BookingSystem.Survey_Extraction
                 s1.Flag = true;
                 s1.FlagContent += "| Question13: no checkboxes marked. ";
             }
-            else if (checkboxValidaiton > 1)
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Question13: more than 1 checkboxes marked. ";
-            }
 
 
             db.SaveChanges();
@@ -330,33 +320,26 @@ namespace BookingSystem.Survey_Extraction
             CheckboxData q14SelfTaught = checkboxes.SecondarySchoolCheckboxesP2["Q14SelfTaught"];
             CheckboxData q14Other = checkboxes.SecondarySchoolCheckboxesP2["Q14Other"];
 
-            //numbers of checkboxes marked for validation
-            int checkboxValidaiton = 0;
 
             if (q14CoderDojo.IsChecked)
             {
                 s1.Q14a = "Coder Dojo. ";
-                checkboxValidaiton++;
             }
             if (q14InSchool.IsChecked)
             {
                 s1.Q14a += "In School. ";
-                checkboxValidaiton++;
             }
             if (q14Camp.IsChecked)
             {
                 s1.Q14a += "Camp. ";
-                checkboxValidaiton++;
             }
             if (q14SelfTaught.IsChecked)
             {
                 s1.Q14a += "Self Taught. ";
-                checkboxValidaiton++;
             }
             if (q14Other.IsChecked)
             {
                 s1.Q14a += "Other. ";
-                checkboxValidaiton++;
             }
 
             //no validation required as student can mark none, one or many checkboxes
@@ -395,6 +378,14 @@ namespace BookingSystem.Survey_Extraction
 
 
             //no validation required as student can mark none, one or many checkboxes
+            //val no more than 1 checkbox marked
+            //validate only 1 checkbox has been marked 
+            if (checkboxValidaiton > 1)
+            {
+                s1.Flag = true;
+                s1.FlagContent += "| Question14b: more than 1 checkboxes marked. ";
+            }
+
             db.SaveChanges();
         }
 

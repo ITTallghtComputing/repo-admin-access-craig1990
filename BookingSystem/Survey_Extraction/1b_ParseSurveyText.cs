@@ -84,9 +84,9 @@ namespace BookingSystem.Survey_Extraction
 
         //added 2nd set of constant markers to deal with special edge cases where Azure OCR API failed to return a correct constant
 
-    
+
         public void ParseTextFile(string rollNumber, string officialSchoolName, DateTime? campDate, string filename)
-        { 
+        {
             foreach (string line in lines)
             {
 
@@ -113,14 +113,18 @@ namespace BookingSystem.Survey_Extraction
                     //else record the answer data
                     else
                     {
-                        //record answer 1
-                        //extract age from line, convert to double and add 10 
-                        string ageText = line.Substring(line.Length - 1);
+                        string ageText = line;
                         double age;
                         double.TryParse(ageText, out age);
+                        answer1 = age;
 
-                        //NOSONAR
-                        answer1 = age += 10;
+                        //different method to extract age
+                        //use this method if surveys have ages with big gaps between numbers
+                        //takes the 2nd number from the string and adds 10 to it
+                        //string ageText = line.Substring(line.Length - 1);
+                        //double age;
+                        //double.TryParse(ageText, out age);
+                        //answer1 = age += 10;
                     }
                 }
 
@@ -377,7 +381,7 @@ namespace BookingSystem.Survey_Extraction
                     surveyGate = false;
 
                     //reset answers for next survey
-                    
+
                     answer1 = 0;
                     answers["Answer3"] = string.Empty;
                     answers["Answer4"] = string.Empty;
@@ -393,11 +397,11 @@ namespace BookingSystem.Survey_Extraction
 
 
                     EndSurveyID++;
-                    
+
 
                 }
 
-                
+
             }
 
             ExtractSecondarySchoolSurveyCheckboxes extract1 = new ExtractSecondarySchoolSurveyCheckboxes();
@@ -414,7 +418,7 @@ namespace BookingSystem.Survey_Extraction
             s1.OfficialSchoolName = officialSchoolName;
             s1.CampDate = campDate;
             s1.SurveyFileName = null;
-            s1.FilePage = pageNumber-1;
+            s1.FilePage = pageNumber - 1;
 
             s1.Q1 = answer1;
             s1.Q3 = answers["Answer3"];
@@ -429,38 +433,68 @@ namespace BookingSystem.Survey_Extraction
             s1.Q18 = answers["Answer18"];
             s1.Q20 = answers["Answer20"];
 
+
+            //check for blank age checkbox or invalid ages to prevent outliers in data)
+            if (answer1 == 0)
+            {
+                if (s1.FlagContent == null)
+                {
+                    s1.Flag = true;
+                    s1.FlagContent += $"(Click flag to hide) |";
+                    s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
+                }
+                else
+                {
+                    s1.Flag = true;
+                    s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
+                }
+            }
+            else if (answer1 > 21 || answer1 <= 10)
+            {
+                if (s1.FlagContent == null)
+                {
+                    s1.Flag = true;
+                    s1.FlagContent += $"(Click flag to hide) |";
+                    s1.FlagContent += "| Answer1: possible age inaccuracy. ";
+                }
+                else
+                {
+                    s1.Flag = true;
+                    s1.FlagContent += "| Answer1: possible age inaccuracy. ";
+                }
+            }
+
+            int loopIndex = 0;
             //check for blank answer boxes and set flag for validation
             foreach (var v in answers)
             {
-                if (string.IsNullOrWhiteSpace(v.Value))
+                //ignored questions 13b and 14c as answer boxes can be blank as survey requirement
+                if (loopIndex != 7 && loopIndex != 8)
                 {
-                    if (s1.FlagContent == null)
+                    if (string.IsNullOrWhiteSpace(v.Value))
                     {
-                        s1.Flag = true;
+                        if (s1.FlagContent == null)
+                        {
+                            s1.Flag = true;
 
-                        s1.FlagContent += $"(Click flag to hide) |";
-                        s1.FlagContent += $"{v.Key}: blank or unreadable answer box. ";
-                    }
-                    else
-                    {
-                        s1.Flag = true;
-                        s1.FlagContent += $"| {v.Key}: blank or unreadable answer box. ";
+                            s1.FlagContent += $"(Click flag to hide) |";
+                            s1.FlagContent += $"{v.Key}: blank or unreadable answer box. ";
+                        }
+                        else
+                        {
+                            s1.Flag = true;
+                            s1.FlagContent += $"| {v.Key}: blank or unreadable answer box. ";
+                        }
                     }
                 }
-            }
-            //check for blank age checkbox or invalid ages to prevent outliers in data)
-            if (answer1 == 0 || answer1 > 21 || answer1 <= 10 )
-            {
-                s1.Flag = true;
-                s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
+                loopIndex++;
             }
 
-
-        db.SecondarySchoolSurveys.Add(s1);
+            db.SecondarySchoolSurveys.Add(s1);
             db.SaveChanges();
 
-             
-            while(startIDMarked == false)
+
+            while (startIDMarked == false)
             {
                 StartSurveyID = s1.Id;
                 EndSurveyID = StartSurveyID;

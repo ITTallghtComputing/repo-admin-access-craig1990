@@ -22,14 +22,14 @@ namespace BookingSystem.Models
         Ordinary,
         Other
     }
-    public enum ScienceSubjects
-    {
-        None,
-        Physics,
-        Biology,
-        Chemistry,
-        ScienceJunior
-    }
+    //public enum ScienceSubjects
+    //{
+    //    None,
+    //    Physics,
+    //    Biology,
+    //    Chemistry,
+    //    ScienceJunior
+    //}
     public enum Measure
     {
         None,
@@ -97,7 +97,7 @@ namespace BookingSystem.Models
         [Display(Name = "Q6b. Recent Math Result")]
         public string Q6b { get; set; }
         [Display(Name = "Q7. Science Subjects")]
-        public ScienceSubjects Q7 { get; set; }
+        public string Q7 { get; set; }
         [Display(Name = "Q8. Computing Jobs Known")]
         public string Q8 { get; set; }
         [Display(Name = "Q9. Consider IT Job")]
