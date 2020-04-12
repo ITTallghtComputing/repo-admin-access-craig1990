@@ -396,7 +396,6 @@ namespace BookingSystem.Survey_Extraction
 
             //no validation required as student can mark none, one or many checkboxes
             db.SaveChanges();
-           // await Task.Delay(500);
         }
 
         //Adds Question 15 answer

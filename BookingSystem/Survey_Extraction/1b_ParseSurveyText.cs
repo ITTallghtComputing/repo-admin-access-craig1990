@@ -439,18 +439,20 @@ namespace BookingSystem.Survey_Extraction
                         s1.Flag = true;
 
                         s1.FlagContent += $"(Click flag to hide) |";
-                        s1.FlagContent += $"{v.Key}: blank answer box. ";
+                        s1.FlagContent += $"{v.Key}: blank or unreadable answer box. ";
                     }
-
-                    s1.Flag = true;
-                    s1.FlagContent += $"| {v.Key}: blank answer box. ";
+                    else
+                    {
+                        s1.Flag = true;
+                        s1.FlagContent += $"| {v.Key}: blank or unreadable answer box. ";
+                    }
                 }
             }
             //check for blank age checkbox or invalid ages to prevent outliers in data)
             if (answer1 == 0 || answer1 > 21 || answer1 <= 10 )
             {
                 s1.Flag = true;
-                s1.FlagContent += "| Answer1: blank answer box. ";
+                s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
             }
 
 

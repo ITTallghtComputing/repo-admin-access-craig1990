@@ -13,7 +13,7 @@ namespace BookingSystem.Survey_Extraction
     {
         private RDSContext db = new RDSContext();
 
-        public async void UpdateSurvey(SurveyCheckboxCollections checkboxes, int id)
+        public void UpdateSurvey(SurveyCheckboxCollections checkboxes, int id)
         {
       
             SurveyCheckboxAnswers answers = new SurveyCheckboxAnswers();
