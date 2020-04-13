@@ -116,6 +116,8 @@ namespace BookingSystem.Controllers
         // GET: SecondarySchoolSurvey/Create
         public ActionResult Create()
         {
+            ViewBag.Title = "Create";
+
             return View();
         }
 

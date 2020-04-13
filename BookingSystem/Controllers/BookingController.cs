@@ -103,6 +103,7 @@ namespace BookingSystem.Controllers
         // GET: Booking/Create
         public ActionResult Create()
         {
+            ViewBag.Title = "Create";
             return View();
         }
 

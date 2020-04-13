@@ -13,8 +13,9 @@ using System.IO;
 using System.Threading.Tasks;
 using PagedList;
 using System.Web.Routing;
+using BookingSystem.Survey_Extraction;
 
-namespace BookingSystem.Survey_Extraction
+namespace BookingSystem.Controllers
 {
     public class CompletedCampsController : Controller
     {
@@ -94,6 +95,17 @@ namespace BookingSystem.Survey_Extraction
                 }
             }
 
+            //remove survey statistics in view if completed camp list is empty to prevent errors
+            bool isEmpty = !compltedCamps.Any();
+            if (isEmpty == false)
+            {
+                ViewBag.Validation = true;
+            }
+            else
+            {
+                ViewBag.Validation = false;
+            }
+
 
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -118,6 +130,8 @@ namespace BookingSystem.Survey_Extraction
         // GET: CompletedCamps/Create
         public ActionResult Create()
         {
+            ViewBag.Title = "Create";
+
             return View();
         }
 

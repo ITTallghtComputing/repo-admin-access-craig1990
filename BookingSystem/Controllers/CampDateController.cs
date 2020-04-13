@@ -92,6 +92,7 @@ namespace BookingSystem.Controllers
         // GET: CampDate/Create
         public ActionResult Create()
         {
+            ViewBag.Title = "Create";
             return View();
         }
 
@@ -108,7 +109,7 @@ namespace BookingSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             return View(campDate);
         }
 
