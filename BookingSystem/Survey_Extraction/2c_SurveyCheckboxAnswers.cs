@@ -12,7 +12,6 @@ namespace BookingSystem.Survey_Extraction
     public class SurveyCheckboxAnswers
     {
 
-
         //Adds Question 2 answer
         public void AddQ2Answer(SurveyCheckboxCollections checkboxes, int id)
         {
