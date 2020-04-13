@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
@@ -12,7 +13,8 @@ namespace BookingSystem.Controllers
 {
     public class CSO_CSVUploadController : Controller
     {
-            SqlConnection con = new SqlConnection(@"Data Source=csinc.clxnbxbuoxx1.eu-west-1.rds.amazonaws.com,1433;;Initial Catalog=campmodel;User ID=craig1990;Password=27Oct90!;Database=campmodel;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            private static string connStr = ConfigurationManager.ConnectionStrings["RDSContext"].ConnectionString;
+            SqlConnection con = new SqlConnection(connStr);
 
             OleDbConnection Econ;
 

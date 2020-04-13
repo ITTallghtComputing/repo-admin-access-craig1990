@@ -64,8 +64,8 @@ namespace BookingSystem.Survey_Extraction
             { "Answer12", string.Empty},
             { "Answer13b", string.Empty},
             { "Answer14c", string.Empty},
-            { "Answer18", string.Empty},
-            { "Answer20", string.Empty}
+            { "Answer4.p2", string.Empty},
+            { "Answer6.p2", string.Empty}
         };
 
 
@@ -341,7 +341,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["Answer18"] += " " + line;
+                        answers["Answer4.p2"] += " " + line;
                     }
                 }
 
@@ -367,7 +367,7 @@ namespace BookingSystem.Survey_Extraction
                     }
                     else
                     {
-                        answers["Answer20"] += " " + line;
+                        answers["Answer6.p2"] += " " + line;
                     }
                 }
 
@@ -392,8 +392,8 @@ namespace BookingSystem.Survey_Extraction
                     answers["Answer12"] = string.Empty;
                     answers["Answer13b"] = string.Empty;
                     answers["Answer14c"] = string.Empty;
-                    answers["Answer18"] = string.Empty;
-                    answers["Answer20"] = string.Empty;
+                    answers["Answer4.p2"] = string.Empty;
+                    answers["Answer6.p2"] = string.Empty;
 
 
                     EndSurveyID++;
@@ -430,8 +430,8 @@ namespace BookingSystem.Survey_Extraction
             s1.Q12 = answers["Answer12"];
             s1.Q13b = answers["Answer13b"];
             s1.Q14c = answers["Answer14c"];
-            s1.Q18 = answers["Answer18"];
-            s1.Q20 = answers["Answer20"];
+            s1.Q18 = answers["Answer4.p2"];
+            s1.Q20 = answers["Answer6.p2"];
 
 
             //check for blank age checkbox or invalid ages to prevent outliers in data)

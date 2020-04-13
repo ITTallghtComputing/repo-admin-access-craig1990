@@ -463,12 +463,12 @@ namespace BookingSystem.Survey_Extraction
                 if (checkboxValidaiton == 0)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question15: no checkboxes marked. ";
+                    s1.FlagContent += "| Question1.p2: no checkboxes marked. ";
                 }
                 else if (checkboxValidaiton > 1)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question15: more than 1 checkboxes marked. ";
+                    s1.FlagContent += "| Question1.p2: more than 1 checkboxes marked. ";
                 }
 
                 db.SaveChanges();
@@ -522,12 +522,12 @@ namespace BookingSystem.Survey_Extraction
                 if (checkboxValidaiton == 0)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question16: no checkboxes marked. ";
+                    s1.FlagContent += "| Question2.p2: no checkboxes marked. ";
                 }
                 else if (checkboxValidaiton > 1)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question16: more than 1 checkboxes marked. ";
+                    s1.FlagContent += "| Question2.p2: more than 1 checkboxes marked. ";
                 }
 
                 db.SaveChanges();
@@ -581,12 +581,12 @@ namespace BookingSystem.Survey_Extraction
                 if (checkboxValidaiton == 0)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question17: no checkboxes marked. ";
+                    s1.FlagContent += "| Question3.p2: no checkboxes marked. ";
                 }
                 else if (checkboxValidaiton > 1)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question17: more than 1 checkboxes marked. ";
+                    s1.FlagContent += "| Question3.p2: more than 1 checkboxes marked. ";
                 }
 
                 db.SaveChanges();
@@ -640,12 +640,12 @@ namespace BookingSystem.Survey_Extraction
                 if (checkboxValidaiton == 0)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question19: no checkboxes marked. ";
+                    s1.FlagContent += "| Question5.p2: no checkboxes marked. ";
                 }
                 else if (checkboxValidaiton > 1)
                 {
                     s1.Flag = true;
-                    s1.FlagContent += "| Question19: more than 1 checkboxes marked. ";
+                    s1.FlagContent += "| Question5.p2: more than 1 checkboxes marked. ";
                 }
 
                 db.SaveChanges();
