@@ -11,59 +11,6 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Survey_Extraction
 {
-    public static class CropSurvey
-    {
-        public static void cropSurveys(string filename, string bitmapFolder)
-        {
-            //load PDF
-            var pdf = PdfDocument.FromFile(filename);
-            //Extract all PDF pages to a folder as Bitmap image files
-            pdf.RasterizeToImageFiles(bitmapFolder + "*.png");
-            //get number of pages in .PDF
-            int numberPages = pdf.PageCount;
-
-            for (int i = 1; i <= numberPages; i++)
-            {
-                Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
-
-                //Start crop location
-                int cropX = 0;
-                int cropY = 0;
-                bool cropFlag = false;
-
-
-                //Find start crop location
-                for (int y = 0; y < 120; y++)
-                {
-                    for (int x = 0; x < 62; x++)
-                    {
-                        float pixelBrightness = bm.GetPixel(x, y).GetBrightness();
-                        if (pixelBrightness < 0.8 && cropFlag == false)
-                        {
-                            cropFlag = true;
-                            cropX = x;
-                            cropY = y;
-                        }
-                    }
-                }
-
-                //Use start crop location to crop Survey page
-                Rectangle crop = new Rectangle(cropX, cropY, 495, 665);
-                Bitmap croppedSurvey = new Bitmap(crop.Width, crop.Height);
-
-                using (Graphics g = Graphics.FromImage(croppedSurvey))
-                {
-                    g.DrawImage(bm, new Rectangle(0, 0, croppedSurvey.Width, croppedSurvey.Height),
-                                     crop,
-                                     GraphicsUnit.Pixel);
-                }
-
-                croppedSurvey.Save(bitmapFolder + $"\\croppedSurvey{i}.png", ImageFormat.Png);
-            }
-
-        }
-    }
-
     public class ExtractSecondarySchoolSurveyCheckboxes
     {
         //private string bitmapFolder = HttpContext.Current.Server.MapPath(@"~\IronPDFDoc\");
@@ -72,8 +19,9 @@ namespace BookingSystem.Survey_Extraction
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
-
-            //crop all surveys
+            //crop all PDF surveys to remove any checkbox XY location inaccuracies from scanning in the surveys
+            //It is important that all checkboxes in survey uploads are at the same XY page locations for accurate
+            //pixel density scanning comparisons. 
             CropSurvey.cropSurveys(filename, bitmapFolder);
 
             //load PDF
@@ -84,14 +32,11 @@ namespace BookingSystem.Survey_Extraction
             int currentPage = 0;
             //get number of pages in .PDF
             int numberPages = pdf.PageCount;
-            //get number of Surveys in .PDF
-            int numberSurveys = numberPages / 2;
             
-
 
             SurveyCheckboxCollections checkboxData = new SurveyCheckboxCollections();
 
-            //loop through Bitmaps
+            //loop through cropped Bitmap pages, while scanning over checkbox locations to get each checkboxes pixel density
             for (int i = 1; i <= numberPages; i++) 
             {
                 //Loop through Page 1 checkbox dictionary

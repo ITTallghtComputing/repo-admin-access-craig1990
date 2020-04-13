@@ -233,6 +233,7 @@
     <Compile Include="Survey_Extraction\1b_ParseSurveyText.cs" />
     <Compile Include="Survey_Extraction\2c_SurveyCheckboxAnswers.cs" />
     <Compile Include="Survey_Extraction\2b_UpdateSecondarySchoolSurveyCheckboxes.cs" />
+    <Compile Include="Survey_Extraction\CropSurvey.cs" />
     <Compile Include="Survey_Extraction\SurveyCheckboxCollections.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
