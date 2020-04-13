@@ -89,7 +89,7 @@ namespace BookingSystem.Survey_Extraction
                         }
 
                     }
-
+                    bm.Dispose();
                 }
 
                 //every 2nd iteration loop through Page 2 checkbox dictionary and then update matching survey with checkbox data
@@ -150,7 +150,9 @@ namespace BookingSystem.Survey_Extraction
                     surveyIDCounter++;
 
                     //reset checkbox collections
-                    checkboxData = new SurveyCheckboxCollections();
+                    //checkboxData = new SurveyCheckboxCollections();
+
+                    bm.Dispose();
 
                 }
 

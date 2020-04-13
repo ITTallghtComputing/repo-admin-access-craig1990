@@ -130,8 +130,6 @@ namespace BookingSystem.Controllers
         // GET: CompletedCamps/Create
         public ActionResult Create()
         {
-            ViewBag.Title = "Create";
-
             return View();
         }
 

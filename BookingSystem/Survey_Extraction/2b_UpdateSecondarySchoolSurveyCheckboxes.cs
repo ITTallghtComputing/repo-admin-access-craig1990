@@ -11,8 +11,6 @@ namespace BookingSystem.Survey_Extraction
 
     public class SubmitSecondarySchoolSurveyCheckboxes
     {
-        private RDSContext db = new RDSContext();
-
         public void UpdateSurvey(SurveyCheckboxCollections checkboxes, int id)
         {
       

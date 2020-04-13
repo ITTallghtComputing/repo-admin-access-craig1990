@@ -119,6 +119,8 @@ namespace CheckBoxTest
                 
             }
             string test = Console.ReadLine();
+
+            bm.Dispose();
         }
 
     }

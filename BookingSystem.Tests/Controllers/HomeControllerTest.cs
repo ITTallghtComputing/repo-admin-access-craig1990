@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BookingSystem;
 using BookingSystem.Controllers;
 
-namespace BookingSystem.Tests.Controllers
+namespace BookingSystem.UnitTests.Controllers
 {
     [TestClass]
     public class HomeControllerTest

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem", "BookingSystem\BookingSystem.csproj", "{3B3282C7-3B93-4ACD-A51C-1EC7B4E328A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.Tests", "BookingSystem.Tests\BookingSystem.Tests.csproj", "{89D38A2F-5A3E-43D1-8166-636B46CE83B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingSystem.UnitTests", "BookingSystem.Tests\BookingSystem.UnitTests.csproj", "{89D38A2F-5A3E-43D1-8166-636B46CE83B3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckboxPixelDensity", "CheckboxPixelDensity\CheckboxPixelDensity.csproj", "{686F7D72-4C8E-4CD5-9819-766ECD869274}"
 EndProject

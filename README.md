@@ -1,4 +1,6 @@
-## aws elastic beanstalk link
+## AWS Elastic Beanstalk link
+
+[Booking System](http://csinc-dev.eu-west-1.elasticbeanstalk.com/)
 
 
-[Booking System](http://campbookingsys-env.ruhpfh87sp.eu-west-1.elasticbeanstalk.com/)
+![Alt text](ProjectDocuments/projarc.jpg?raw=true "Architecture Diagram")

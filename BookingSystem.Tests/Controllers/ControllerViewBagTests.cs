@@ -8,7 +8,7 @@ using BookingSystem;
 using BookingSystem.Controllers;
 using BookingSystem.Models;
 
-namespace BookingSystem.Tests.Controllers
+namespace BookingSystem.UnitTests.Controllers
 {
     //Unit tests to ensure that controllers are passing correct ViewBag dynamic data to Views
     [TestClass]
