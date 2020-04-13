@@ -118,8 +118,11 @@ namespace BookingSystem.Controllers
                 //make used date unavailable in datepicker
                 CampDate date = db.CampDates.First(m => m.Date == model.Date);
                 db.CampDates.Remove(date);
-
                 db.SaveChanges();
+
+                //alert lecturers of new Booking
+                AWS_SNS.AWSnotifications.SendBookingNotification(model.OfficialSchoolName, model.Date, model.LecturerName);
+
                 return RedirectToAction("Confirmation", "School");
             }
 
@@ -158,8 +161,11 @@ namespace BookingSystem.Controllers
                 //make used date unavailable in datepicker
                 CampDate date = db.CampDates.First(m => m.Date == model.Date);
                 db.CampDates.Remove(date);
-
                 db.SaveChanges();
+
+                //alert lecturers of new Booking
+                AWS_SNS.AWSnotifications.SendBookingNotification(model.OfficialSchoolName, model.Date, model.LecturerName);
+
                 return RedirectToAction("Confirmation", "School");
             }
 
