@@ -16,7 +16,7 @@ namespace BookingSystem.Survey_Extraction
         public int endY { get; set; }
 
         //average un-marked pixel density value for checkbox
-        public float AveragePixels { get; set; }
+        public float UnmarkedPixelDensity { get; set; }
 
         public bool IsChecked { get; set; }
     }

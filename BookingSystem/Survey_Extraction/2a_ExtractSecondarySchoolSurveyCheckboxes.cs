@@ -75,7 +75,7 @@ namespace BookingSystem.Survey_Extraction
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();
                         //blank, un-marked pixel density of checkbox to measure against checkboxDensity above 
-                        float blankCheckboxDensity = element.Value.AveragePixels;
+                        float blankCheckboxDensity = element.Value.UnmarkedPixelDensity;
 
 
                         //measures blank pixel density against passed in checkbox pixel density against a tolerance to determine if marked or not
@@ -130,7 +130,7 @@ namespace BookingSystem.Survey_Extraction
                         //sums together all pixels brightness in lResult List to provide overall checkbox pixel density
                         float checkboxDensity = lResult.Sum();
                         //blank, un-marked pixel density of checkbox to measure against checkboxDensity above 
-                        float blankCheckboxDensity = element.Value.AveragePixels;
+                        float blankCheckboxDensity = element.Value.UnmarkedPixelDensity;
 
                         //measures blank pixel density against passed in checkbox pixel density against a tolerance to determine if marked or not
                         if ((blankCheckboxDensity - checkboxDensity) >= densityTolerance)
