@@ -36,10 +36,3 @@ namespace BookingSystem.AWS_SNS
         }
     }
 }
-//Hi Raj, 
-//Apologies for the direct message, and I hope all is well during these worrying times.
-//Regarding our interview a couple of weeks ago, I am curious to know if a decision
-//has been made yet for this position?
-//The projects which were mentioned by Thomas seem extremely interesting, and I would really like to 
-//be a part of them after I graduate. I feel that my tech stack, AWS in particular is a perfect match for the team, 
-//so it would be great to come on board.
