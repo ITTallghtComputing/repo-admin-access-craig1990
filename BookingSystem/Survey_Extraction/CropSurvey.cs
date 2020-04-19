@@ -21,41 +21,44 @@ namespace BookingSystem.Survey_Extraction
 
             for (int i = 1; i <= numberPages; i++)
             {
-                Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
-
-                //Start crop location
-                int cropX = 0;
-                int cropY = 0;
-                bool cropFlag = false;
-
-
-                //Find start crop location
-                for (int y = 0; y < 120; y++)
+                //Bitmap bm = new Bitmap(bitmapFolder + $"\\{i}.png", true);
+                using (var bm = new Bitmap(bitmapFolder + $"\\{i}.png", true))
                 {
-                    for (int x = 0; x < 62; x++)
+
+                    //Start crop location
+                    int cropX = 0;
+                    int cropY = 0;
+                    bool cropFlag = false;
+
+
+                    //Find start crop location
+                    for (int y = 0; y < 120; y++)
                     {
-                        float pixelBrightness = bm.GetPixel(x, y).GetBrightness();
-                        if (pixelBrightness < 0.8 && cropFlag == false)
+                        for (int x = 0; x < 62; x++)
                         {
-                            cropFlag = true;
-                            cropX = x;
-                            cropY = y;
+                            float pixelBrightness = bm.GetPixel(x, y).GetBrightness();
+                            if (pixelBrightness < 0.8 && cropFlag == false)
+                            {
+                                cropFlag = true;
+                                cropX = x;
+                                cropY = y;
+                            }
                         }
                     }
+
+                    //Use start crop location to crop Survey page
+                    Rectangle crop = new Rectangle(cropX, cropY, 495, 665);
+                    Bitmap croppedSurvey = new Bitmap(crop.Width, crop.Height);
+
+                    using (Graphics g = Graphics.FromImage(croppedSurvey))
+                    {
+                        g.DrawImage(bm, new Rectangle(0, 0, croppedSurvey.Width, croppedSurvey.Height),
+                                         crop,
+                                         GraphicsUnit.Pixel);
+                    }
+
+                    croppedSurvey.Save(bitmapFolder + $"\\croppedSurvey{i}.png", ImageFormat.Png);
                 }
-
-                //Use start crop location to crop Survey page
-                Rectangle crop = new Rectangle(cropX, cropY, 495, 665);
-                Bitmap croppedSurvey = new Bitmap(crop.Width, crop.Height);
-
-                using (Graphics g = Graphics.FromImage(croppedSurvey))
-                {
-                    g.DrawImage(bm, new Rectangle(0, 0, croppedSurvey.Width, croppedSurvey.Height),
-                                     crop,
-                                     GraphicsUnit.Pixel);
-                }
-
-                croppedSurvey.Save(bitmapFolder + $"\\croppedSurvey{i}.png", ImageFormat.Png);
             }
 
         }

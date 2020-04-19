@@ -437,31 +437,17 @@ namespace BookingSystem.Survey_Extraction
             //check for blank age checkbox or invalid ages to prevent outliers in data)
             if (answer1 == 0)
             {
-                if (s1.FlagContent == null)
-                {
-                    s1.Flag = true;
-                    s1.FlagContent += $"(Click flag to hide) |";
-                    s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
-                }
-                else
-                {
+
                     s1.Flag = true;
                     s1.FlagContent += "| Answer1: blank or unreadable answer box. ";
-                }
+
             }
             else if (answer1 > 21 || answer1 <= 10)
             {
-                if (s1.FlagContent == null)
-                {
-                    s1.Flag = true;
-                    s1.FlagContent += $"(Click flag to hide) |";
-                    s1.FlagContent += "| Answer1: possible age inaccuracy. ";
-                }
-                else
-                {
+
                     s1.Flag = true;
                     s1.FlagContent += "| Answer1: possible age inaccuracy. ";
-                }
+                
             }
 
             int loopIndex = 0;
@@ -473,18 +459,10 @@ namespace BookingSystem.Survey_Extraction
                 {
                     if (string.IsNullOrWhiteSpace(v.Value))
                     {
-                        if (s1.FlagContent == null)
-                        {
-                            s1.Flag = true;
 
-                            s1.FlagContent += $"(Click flag to hide) |";
-                            s1.FlagContent += $"{v.Key}: blank or unreadable answer box. ";
-                        }
-                        else
-                        {
                             s1.Flag = true;
                             s1.FlagContent += $"| {v.Key}: blank or unreadable answer box. ";
-                        }
+                        
                     }
                 }
                 loopIndex++;

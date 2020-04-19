@@ -13,7 +13,9 @@ namespace BookingSystem.AWS_SNS
     public static class AWSnotifications
     {
         private static string topicArn = "arn:aws:sns:eu-west-1:725603166205:CSincBooking";
-        private static BasicAWSCredentials credentials = new BasicAWSCredentials("AKIAJRCTPVFB65QC2HOQ", "xwGBCA8UgDgxf7krJH0PAtZlT/9VOvmcCTD9qLiE");
+        private static string AWSaccessKey = System.Web.Configuration.WebConfigurationManager.AppSettings["AWSaccessKey"];
+        private static string AWSprivateKey = System.Web.Configuration.WebConfigurationManager.AppSettings["AWSprivateKey"];
+        private static BasicAWSCredentials credentials = new BasicAWSCredentials(AWSaccessKey, AWSprivateKey);
 
         //publish request to AWS Simple Notification Service Topic, which will alert subscribers of camp booking by email/phone
         public static void SendBookingNotification(string schoolName, DateTime? date, string campLecturer)
