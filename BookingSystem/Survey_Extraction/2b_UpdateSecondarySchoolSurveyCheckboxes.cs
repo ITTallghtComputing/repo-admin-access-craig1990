@@ -13,7 +13,7 @@ namespace BookingSystem.Survey_Extraction
     {
         public void UpdateSurvey(SurveyCheckboxCollections checkboxes, int id)
         {
-      
+            //await Task.Delay(500);
             SurveyCheckboxAnswers answers = new SurveyCheckboxAnswers();
 
             //Add Page 1 checkbox answers
@@ -34,4 +34,3 @@ namespace BookingSystem.Survey_Extraction
         }
     }
 }
-//await Task.Delay(500);

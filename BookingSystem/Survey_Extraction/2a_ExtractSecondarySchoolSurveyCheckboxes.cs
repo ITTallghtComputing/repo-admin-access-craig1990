@@ -46,7 +46,6 @@ namespace BookingSystem.Survey_Extraction
                     pdf.StampHTML(ForegroundStamp, currentPage);
                     currentPage++;
                     //create Bitmap with 1st page of Survey
-                    //Bitmap bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true);
                     using (var bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true))
                     {
 
@@ -65,10 +64,8 @@ namespace BookingSystem.Survey_Extraction
                                 for (int x = startX; x < endX; x++)
                                 {
                                     lResult.Add(bm.GetPixel(x, y).GetBrightness());
-                                    //bm.SetPixel(x, y, Color.Blue);
                                 }
                             }
-                            // bm.Save(bitmapFolder + $"\\markedSurvey{i}.png", ImageFormat.Png);
 
                             //pixel density tolerance used to determine if checkbox is marked or not                ***
                             float densityTolerance = 2.0f;
@@ -90,7 +87,6 @@ namespace BookingSystem.Survey_Extraction
                             }
 
                         }
-                        // bm.Dispose();
                     }
                 }
 
@@ -104,7 +100,6 @@ namespace BookingSystem.Survey_Extraction
                     currentPage++;
 
                     //create Bitmap with 2nd page of Survey
-                    //Bitmap bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true);
                     using (var bm = new Bitmap(bitmapFolder + $"\\croppedSurvey{i}.png", true))
                     {
 
@@ -152,11 +147,6 @@ namespace BookingSystem.Survey_Extraction
                         SubmitSecondarySchoolSurveyCheckboxes submitCheckboxes = new SubmitSecondarySchoolSurveyCheckboxes();
                         submitCheckboxes.UpdateSurvey(checkboxData, surveyIDCounter);
                         surveyIDCounter++;
-
-                        //reset checkbox collections
-                        //checkboxData = new SurveyCheckboxCollections();
-
-                        //bm.Dispose();
                     }
 
                 }

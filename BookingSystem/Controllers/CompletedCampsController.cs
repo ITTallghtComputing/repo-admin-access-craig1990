@@ -250,11 +250,5 @@ namespace BookingSystem.Controllers
             return RedirectToAction("Index", "FlaggedSurveys", new { id = id });
         }
 
-        //public ActionResult OpenPDF(int? id)
-        //{
-        //    CompletedCamp completedCamp = db.CompletedCamps.Find(id);
-        //    string filepath = Server.MapPath(Path.Combine("~/Surveys/" + completedCamp.SurveyName));
-        //    return File(filepath, "application/pdf");
-        //}
     }
 }

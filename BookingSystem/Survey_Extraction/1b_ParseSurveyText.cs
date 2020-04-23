@@ -38,7 +38,6 @@ namespace BookingSystem.Survey_Extraction
         private int recordq4 = 1;
         private int recordq5 = 1;
         private int recordq6b = 1;
-
         private int record = 1;
         private int record2 = 1;
         private int record3 = 1;

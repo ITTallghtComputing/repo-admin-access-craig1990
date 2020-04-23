@@ -80,7 +80,7 @@ namespace BookingSystem.Selenium
             //add 1st date for below selenium tests to use
             driver.Manage().Window.Size = new System.Drawing.Size(1920, 1040);
             driver.FindElement(By.LinkText("Admin")).Click();
-            driver.FindElement(By.LinkText("Manage Dates")).Click();
+            driver.FindElement(By.LinkText("Manage Camp Dates")).Click();
             driver.FindElement(By.CssSelector(".btn-primary")).Click();
             driver.FindElement(By.Id("Date")).Click();
             driver.FindElement(By.LinkText("16")).Click();
@@ -93,7 +93,7 @@ namespace BookingSystem.Selenium
             //add 2nd date for below selenium tests to use
             driver.Navigate().GoToUrl(webAppUrl);
             driver.FindElement(By.LinkText("Admin")).Click();
-            driver.FindElement(By.LinkText("Manage Dates")).Click();
+            driver.FindElement(By.LinkText("Manage Camp Dates")).Click();
             driver.FindElement(By.CssSelector(".btn-primary")).Click();
             driver.FindElement(By.Id("Date")).Click();
             driver.FindElement(By.LinkText("16")).Click();
