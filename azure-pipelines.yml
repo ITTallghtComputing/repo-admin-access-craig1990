@@ -51,7 +51,7 @@ steps:
 
 - task: BeanstalkDeployApplication@1
   inputs:
-    awsCredentials: 'TUdubAWS2'
+    awsCredentials: 'TUdubAWS4'
     regionName: 'eu-west-1'
     applicationName: 'BookingSystem'
     environmentName: 'csinc-dev'

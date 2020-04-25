@@ -231,9 +231,19 @@ namespace BookingSystem.Controllers
             await AzureVisionAPI.ExtractToTextFile(filepath);
             //extract survey answers from textfile
             ParseSurveyText parse1 = new ParseSurveyText();
-            await Task.Run(() => parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath));
+            parse1.ParseTextFile(completedCamp.RollNumber, completedCamp.OfficialSchoolName, completedCamp.Date, filepath);
 
-            return RedirectToAction("Confirmation", "CompletedCamps", new { id = id });
+            var s1 = db.SecondarySchoolSurveys.Where(s => s.RollNumber == completedCamp.RollNumber);
+            bool isEmpty = !s1.Any();
+            if (isEmpty)
+            {
+                return RedirectToAction("Error", "CompletedCamps");
+            }
+            else
+            {
+                return RedirectToAction("Confirmation", "CompletedCamps", new { id = id });
+            }
+
         }
 
         [HttpGet]
@@ -241,6 +251,11 @@ namespace BookingSystem.Controllers
         {
             var camp = db.CompletedCamps.FirstOrDefault(c => c.Id == id);
             return View(camp);
+        }
+
+        public ActionResult Error()
+        {
+            return View("~/Views/Shared/Error.cshtml", null);
         }
 
         public ActionResult Validate(int? id)
