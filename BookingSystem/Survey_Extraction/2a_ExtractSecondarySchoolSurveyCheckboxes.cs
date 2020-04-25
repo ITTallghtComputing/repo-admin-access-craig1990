@@ -18,6 +18,7 @@ namespace BookingSystem.Survey_Extraction
 
         public void ExtractCheckboxData(int startID, int endID, string filename)
         {
+            IronPdf.License.LicenseKey = Environment.GetEnvironmentVariable("IronPdf.LicenseKey");
             //crop all PDF surveys to remove any checkbox XY location inaccuracies from scanning in the surveys
             //It is important that all checkboxes in survey uploads are at the same XY page locations for accurate
             //pixel density scanning comparisons. 

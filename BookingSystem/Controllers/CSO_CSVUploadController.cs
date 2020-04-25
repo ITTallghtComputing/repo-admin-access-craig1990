@@ -9,6 +9,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+//Microsoft Access Database Engine 2010 Redistributable must be installed on each VM for this feature
+//https://www.microsoft.com/en-ie/download/details.aspx?id=13255
+
 namespace BookingSystem.Controllers
 {
     public class CSO_CSVUploadController : Controller

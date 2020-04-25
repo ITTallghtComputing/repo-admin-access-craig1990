@@ -21,7 +21,7 @@ namespace BookingSystem.Survey_Extraction
 {
     public static class AzureVisionAPI
     {
-        private static string subscriptionKey = System.Web.Configuration.WebConfigurationManager.AppSettings["AzureSubscriptionKey"];
+        private static string subscriptionKey = Environment.GetEnvironmentVariable("AzureSubscriptionKey");
         private static string endpoint = ("https://computervisionproj.cognitiveservices.azure.com/"); // uploaded PDF is sent to this endpoint
         private static string outfile = HttpContext.Current.Server.MapPath("~/azureAPIresponse.txt"); // all PDF text, including handwritten text that is returned is saved in file
 
