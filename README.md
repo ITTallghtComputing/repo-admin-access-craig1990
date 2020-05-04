@@ -1,8 +1,3 @@
-## AWS Elastic Beanstalk link
-
-[Booking System - Development Environment](http://csinc-dev.eu-west-1.elasticbeanstalk.com/)
-
-
 ## Architecture Diagram
 
 ![](ProjectDocuments/arcd.png)
